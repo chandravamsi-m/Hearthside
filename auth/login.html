@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — Hearthside</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            /* ── Brand Palette ── */
+            ink:           'var(--color-ink)',
+            forest:        'var(--color-forest)',
+            'forest-light':'var(--color-forest-light)',
+            brass:         'var(--color-brass)',
+            'brass-light': 'var(--color-brass-light)',
+            parchment:     'var(--color-parchment)',
+            stone:         'var(--color-stone)',
+            ash:           'var(--color-ash)',
+            coal:          'var(--color-coal)',
+            /* ── Legacy aliases ── */
+            primary:       'var(--color-forest)',
+            'primary-light':'var(--color-forest-light)',
+            accent:        'var(--color-brass)',
+            'accent-light':'var(--color-brass-light)',
+            surface:       'var(--color-parchment)',
+            'surface-dark':'var(--color-ash)',
+            /* ── Functional Tokens ── */
+            'bg-page':     'var(--bg-page)',
+            'bg-panel':    'var(--bg-panel)',
+            'text-headline':'var(--text-headline)',
+            'text-body':   'var(--text-body)',
+            'text-muted':  'var(--text-muted)',
+            /* Legacy */
+            'text-main':   'var(--text-headline)',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body:    ['"Source Serif 4"', 'Georgia', 'serif'],
+          },
+          borderRadius: {
+            sm: '4px', md: '8px', lg: '16px', xl: '24px', '2xl': '32px',
+          },
+          boxShadow: {
+            card: '0 4px 16px rgba(28,43,38,0.08)',
+            lift: '0 12px 40px rgba(28,43,38,0.14)',
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-bg-page text-text-body font-body transition-colors duration-300 flex items-center justify-center min-h-screen p-4">
+  <div class="max-w-md w-full bg-bg-panel rounded-[2rem] shadow-lift p-10 reveal border border-ink/5 dark:border-parchment/5">
+      <div class="flex flex-col items-center gap-2 mb-10 group">
+        <a href="../index.html" class="flex items-center gap-0">
+          <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-12 h-12 transition-transform duration-500 group-hover:scale-110">
+          <span class="font-display text-4xl font-bold text-text-headline tracking-tighter uppercase leading-none">Hearthside</span>
+        </a>
+      </div>
+    <form class="space-y-6">
+      <div>
+        <label class="block text-[10px] font-bold uppercase tracking-widest text-text-muted mb-2">Email Address</label>
+        <input type="email" required placeholder="name@domain.com" class="w-full bg-stone/30 dark:bg-coal/30 border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-brass outline-none text-sm text-text-headline transition-all">
+      </div>
+      <div>
+        <label class="block text-[10px] font-bold uppercase tracking-widest text-text-muted mb-2">Secure Password</label>
+        <input type="password" required placeholder="••••••••" class="w-full bg-stone/30 dark:bg-coal/30 border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-brass outline-none text-sm text-text-headline transition-all">
+      </div>
+      <button type="submit" class="w-full bg-forest text-white py-5 rounded-xl font-bold hover:bg-forest-light transition-all shadow-lift hover:scale-[1.01] active:scale-[0.99]">Sign In to Portal</button>
+    </form>
+    <div class="mt-8 text-center text-xs text-text-muted">
+      Don't have an account? <a href="register.html" class="text-brass font-bold hover:underline underline-offset-4">Register here</a>
+    </div>
+  </div>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

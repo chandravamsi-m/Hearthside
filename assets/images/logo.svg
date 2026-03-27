@@ -1,0 +1,9 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer Laurel/Crest -->
+  <path d="M12 28C10 26 8 22 8 16C8 10 12 8 12 8" stroke="#B8956A" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M28 28C30 26 32 22 32 16C32 10 28 8 28 8" stroke="#B8956A" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Central Monogram H -->
+  <path d="M16 12V24M24 12V24M16 18H24" stroke="#B8956A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Bottom Decoration -->
+  <path d="M15 32C17 34 23 34 25 32" stroke="#B8956A" stroke-width="2" stroke-linecap="round"/>
+</svg>

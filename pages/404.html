@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Not Found — Hearthside Retreat</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Hearthside Brand Theme Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'forest': '#2C4A3E',
+            'brass': '#B8956A',
+            'ink': '#1C2B26',
+            'coal': '#121514',
+            'parchment': '#F9F7F2',
+            'stone': '#E8E4D9',
+            'bg-page': 'var(--bg-page)',
+            'bg-panel': 'var(--bg-panel)',
+            'text-headline': 'var(--text-headline)',
+            'text-body': 'var(--text-body)',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            body: ['"Source Serif 4"', 'serif'],
+          },
+          boxShadow: {
+            'card': '0 10px 30px -10px rgba(28, 43, 38, 0.08)',
+            'lift': '0 20px 40px -15px rgba(28, 43, 38, 0.12)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../assets/css/custom.css">
+</head>
+<body class="bg-surface dark:bg-surface-dark text-gray-900 dark:text-gray-100 font-body transition-colors duration-300">
+
+  <main class="min-h-screen flex items-center justify-center p-6 bg-bg-page">
+    <div class="max-w-xl text-center reveal">
+        <!-- Logo Branding -->
+        <a href="../index.html" class="flex flex-col items-center gap-0 mb-20 group">
+          <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-16 h-16 transition-all duration-700 group-hover:scale-110 group-hover:rotate-3">
+          <span class="font-display text-3xl font-bold text-ink dark:text-parchment tracking-tighter uppercase leading-none">Hearthside</span>
+        </a>
+
+        <!-- 404 Visual -->
+        <div class="relative inline-block mb-16">
+            <span class="font-display text-[12rem] md:text-[15rem] font-bold text-ink/5 dark:text-parchment/5 leading-none select-none tracking-tighter">404</span>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-48 h-48 rounded-[3rem] overflow-hidden border-8 border-bg-page shadow-lift transform -rotate-3 hover:rotate-0 transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1518398046578-8cca57782e17?auto=format&fit=crop&q=80&w=400" alt="Mist" class="w-full h-full object-cover grayscale opacity-80">
+                </div>
+            </div>
+        </div>
+
+        <h1 class="font-display text-5xl font-bold text-text-headline mb-8">Lost in the <i class="font-normal italic">Cotswolds.</i></h1>
+        <p class="text-text-body text-xl max-w-sm mx-auto mb-16 italic font-medium opacity-80">The page you're looking for has wandered off into the orchard mists.</p>
+        
+        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <a href="../index.html" class="px-12 py-5 bg-forest hover:bg-forest-light text-white rounded-2xl font-bold uppercase tracking-widest text-[10px] shadow-lift transition-all active:scale-95">Return to Hearth</a>
+            <a href="rooms.html" class="px-12 py-5 border-2 border-ink/10 dark:border-parchment/10 text-text-headline rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:bg-stone/20 transition-all">Explore the Suites</a>
+        </div>
+
+        <div class="mt-24 pt-10 border-t border-ink/5 dark:border-parchment/10 flex justify-center gap-10 text-[10px] uppercase font-bold text-ash tracking-[0.3em]">
+            <a href="contact.html" class="hover:text-brass transition-colors">Inquiries</a>
+            <a href="about.html#faq" class="hover:text-brass transition-colors">Help</a>
+            <a href="experiences.html" class="hover:text-brass transition-colors">Journal</a>
+        </div>
+    </div>
+  </main>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

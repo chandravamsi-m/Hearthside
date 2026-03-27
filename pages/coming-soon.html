@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon — Hearthside Retreat</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Hearthside Brand Theme Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'forest': '#2C4A3E',
+            'brass': '#B8956A',
+            'ink': '#1C2B26',
+            'coal': '#121514',
+            'parchment': '#F9F7F2',
+            'stone': '#E8E4D9',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            body: ['"Source Serif 4"', 'serif'],
+          },
+          boxShadow: {
+            'card': '0 10px 30px -10px rgba(28, 43, 38, 0.08)',
+            'lift': '0 20px 40px -15px rgba(28, 43, 38, 0.12)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Styling & Icons -->
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+  <main class="min-h-screen flex items-center justify-center p-6 relative overflow-hidden bg-ink">
+    <!-- Animated Grain/Mist Overlay -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none select-none bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] mix-blend-overlay"></div>
+
+    <!-- Decorative Elements -->
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-forest/20 rounded-full blur-[120px] -mr-48 -mt-48"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brass/10 rounded-full blur-[100px] -ml-24 -mb-24"></div>
+
+    <div class="max-w-xl text-center z-10 reveal">
+        <a href="../index.html" class="flex flex-col items-center gap-0 mb-20 group">
+          <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-20 h-20 transition-all duration-700 group-hover:scale-110 group-hover:rotate-3 brightness-0 invert opacity-90">
+          <span class="font-display text-4xl font-bold text-parchment tracking-tighter uppercase leading-none">Hearthside</span>
+        </a>
+
+        <span class="text-brass uppercase tracking-[0.4em] text-[10px] font-bold mb-8 block">Winter 2024</span>
+        <h1 class="font-display text-5xl md:text-8xl font-bold text-parchment mb-10 leading-tight">A New Path <br><i class="font-normal italic">Unfolding.</i></h1>
+        <p class="text-parchment/50 mb-16 max-w-sm mx-auto italic font-medium opacity-80 leading-relaxed text-lg">We are currently preparing something special in the heart of the Cotswolds.</p>
+        
+        <!-- Newsletter -->
+        <form class="flex flex-col sm:flex-row gap-3 mb-16">
+            <input type="email" placeholder="Email Address" class="flex-1 bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-sm font-medium text-white placeholder-white/30 focus:ring-2 focus:ring-brass/40 outline-none transition-all">
+            <button class="px-12 py-5 bg-brass hover:bg-brass-light text-ink rounded-2xl font-bold uppercase tracking-widest text-[10px] shadow-lift transition-all active:scale-95">Notify Me</button>
+        </form>
+
+        <div class="flex justify-center gap-12 text-[10px] uppercase font-bold text-parchment/30 tracking-[0.3em]">
+            <a href="contact.html" class="hover:text-brass transition-colors">Inquiries</a>
+            <a href="about.html" class="hover:text-brass transition-colors">Journal</a>
+            <a href="#" class="hover:text-brass transition-colors">Instagram</a>
+        </div>
+    </div>
+  </main>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

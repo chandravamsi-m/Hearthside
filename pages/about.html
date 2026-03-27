@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story — Hearthside Retreat</title>
+  <meta name="description" content="Learn about the history and heritage of Hearthside, a lovingly restored 19th-century coaching inn in the Gloucestershire countryside.">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Hearthside Brand Theme Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            /* ── Brand Palette ── */
+            ink:           'var(--color-ink)',
+            forest:        'var(--color-forest)',
+            'forest-light':'var(--color-forest-light)',
+            brass:         'var(--color-brass)',
+            'brass-light': 'var(--color-brass-light)',
+            parchment:     'var(--color-parchment)',
+            stone:         'var(--color-stone)',
+            ash:           'var(--color-ash)',
+            coal:          'var(--color-coal)',
+            /* ── Legacy aliases ── */
+            primary:       'var(--color-forest)',
+            'primary-light':'var(--color-forest-light)',
+            accent:        'var(--color-brass)',
+            'accent-light':'var(--color-brass-light)',
+            surface:       'var(--color-parchment)',
+            'surface-dark':'var(--color-ash)',
+            'footer-dark': 'var(--color-coal)',
+            /* ── Functional Tokens ── */
+            'bg-page':     'var(--bg-page)',
+            'bg-section':  'var(--bg-section)',
+            'bg-panel':    'var(--bg-panel)',
+            'bg-deep':     'var(--bg-deep)',
+            'text-headline':'var(--text-headline)',
+            'text-body':   'var(--text-body)',
+            'text-muted':  'var(--text-muted)',
+            'text-inverse':'var(--text-inverse)',
+            /* Legacy */
+            'text-main':   'var(--text-headline)',
+            'bg-neutral':  'var(--bg-section)',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body:    ['"Source Serif 4"', 'Georgia', 'serif'],
+          },
+          borderRadius: {
+            sm: '4px', md: '8px', lg: '16px', xl: '24px', '2xl': '32px',
+          },
+          boxShadow: {
+            card: '0 4px 16px rgba(28,43,38,0.08)',
+            lift: '0 12px 40px rgba(28,43,38,0.14)',
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Styling & Icons -->
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-bg-page text-text-body font-body transition-colors duration-300">
+
+  <!-- Navbar -->
+  <nav data-navbar data-nav-dynamic="true" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex-shrink-0">
+          <a href="../index.html" class="flex items-center gap-0 group">
+            <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110" data-nav-logo>
+            <span class="font-display text-2xl font-bold text-text-headline tracking-tighter" data-nav-brand>Hearthside</span>
+          </a>
+        </div>
+
+        <div class="hidden lg:flex items-center gap-8">
+          <!-- Home Dropdown -->
+          <div class="relative group" data-dropdown>
+            <button class="flex items-center gap-1.5 text-text-headline hover:text-brass font-semibold text-[15px] transition-colors py-8" data-nav-link>
+              <span>Home</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
+            </button>
+            <div data-dropdown-menu class="absolute top-full left-0 w-48 bg-bg-panel dark:bg-bg-panel rounded-xl shadow-lift border border-ink/8 dark:border-parchment/8 hidden py-2 opacity-0 invisible group-hover:block group-hover:opacity-100 group-hover:visible transition-all">
+              <a href="../index.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Home 1 — Story</a>
+              <a href="home-2.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Home 2 — Direct</a>
+            </div>
+          </div>
+
+          <a href="about.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Story</a>
+          <a href="experiences.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Experiences</a>
+          <a href="rooms.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Rooms</a>
+          <a href="contact.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Contact</a>
+
+          <!-- Dashboard Dropdown -->
+          <div class="relative group" data-dropdown>
+            <button class="flex items-center gap-1.5 text-text-headline hover:text-brass font-semibold text-[15px] transition-colors py-8" data-nav-link>
+              <span>Dashboards</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
+            </button>
+            <div data-dropdown-menu class="absolute top-full left-0 w-48 bg-bg-panel dark:bg-bg-panel rounded-xl shadow-lift border border-ink/8 dark:border-parchment/8 hidden py-2 opacity-0 invisible group-hover:block group-hover:opacity-100 group-hover:visible transition-all">
+              <a href="../dashboard/index.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Guest Portal</a>
+              <a href="../admin/index.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Admin Workspace</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+          <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-text-headline hover:text-brass transition-colors rounded-full" data-nav-link>
+            <span class="text-[11px] font-bold tracking-widest leading-none" data-rtl-label>RTL</span>
+            <i data-lucide="move-horizontal" class="w-4 h-4"></i>
+          </button>
+          <button data-dark-toggle class="p-2 text-text-headline hover:text-brass transition-colors rounded-full" data-nav-link>
+            <i data-lucide="moon" class="w-5 h-5"></i>
+          </button>
+          <a href="rooms.html" class="hidden sm:block border border-ink/30 text-text-headline px-5 py-2 rounded-full text-[11px] font-bold transition-all hover:bg-ink hover:text-white dark:border-white/30 dark:hover:bg-white dark:hover:text-ink whitespace-nowrap" data-nav-btn="secondary">Book Now</a>
+          <a href="../auth/login.html" class="bg-brass hover:bg-brass-light text-white px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all shadow-md whitespace-nowrap">Sign In</a>
+        </div>
+
+        <button data-nav-hamburger class="p-2 lg:hidden text-parchment hover:text-white outline-none" data-nav-link>
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <div data-nav-overlay class="fixed inset-0 bg-ink/60 lg:hidden opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <aside data-nav-mobile class="fixed top-0 inset-inline-end-0 w-80 h-full bg-parchment dark:bg-ash shadow-lift lg:hidden translate-x-full rtl:-translate-x-full transition-transform duration-300 z-[60]">
+      <div class="p-10 space-y-10 h-full overflow-y-auto">
+        <div class="flex justify-between items-center mb-8">
+          <div class="flex items-center gap-2">
+            <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-8 h-8">
+            <span class="font-display text-xl font-bold text-ink dark:text-parchment">Hearthside</span>
+          </div>
+          <button data-nav-close class="p-2 text-ink/50 dark:text-parchment/50 hover:text-ink dark:hover:text-parchment transition-colors">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <div class="flex flex-col space-y-6 font-display text-3xl text-ink dark:text-parchment">
+          <a href="../index.html" class="hover:text-brass transition-colors">Home</a>
+          <a href="about.html" class="hover:text-brass transition-colors">Story</a>
+          <a href="experiences.html" class="hover:text-brass transition-colors">Experiences</a>
+          <a href="rooms.html" class="hover:text-brass transition-colors">Rooms</a>
+          <button data-rtl-toggle class="text-left flex items-center justify-between group">
+             <div class="flex items-center gap-4">
+                <i data-lucide="move-horizontal" class="w-8 h-8 opacity-40"></i>
+                <span>RTL Layout</span>
+             </div>
+             <span class="text-xs font-bold text-brass px-4 py-1 bg-brass/10 rounded-full" data-rtl-label>LTR</span>
+          </button>
+        </div>
+        <div class="space-y-4 mt-auto">
+          <a href="rooms.html" class="block border-2 border-forest-light/30 text-forest-light dark:text-parchment text-center py-4 rounded-2xl font-bold hover:bg-forest-light hover:text-white transition-all">Book Now</a>
+          <a href="../auth/login.html" class="block bg-brass hover:bg-brass-light text-white text-center py-4 rounded-2xl font-bold shadow-lift transition-all">Sign In</a>
+        </div>
+      </div>
+    </aside>
+  </nav>
+
+  <main>
+    <!-- Page Header -->
+    <header class="relative pt-44 pb-20 overflow-hidden bg-bg-page">
+        <div class="max-w-4xl mx-auto px-4 text-center reveal">
+            <span class="text-brass uppercase tracking-[0.3em] text-[10px] font-bold mb-6 block">The Hearthside Story</span>
+            <h1 class="font-display text-5xl md:text-6xl text-text-headline font-bold mb-8">Crafting the <i class="font-normal italic">Art of the Slow.</i></h1>
+            <p class="text-text-muted text-lg max-w-2xl mx-auto italic border-t border-ink/5 pt-8 mt-8">
+                "A restoration of time, stone, and silence in the heart of the Gloucestershire countryside."
+            </p>
+        </div>
+    </header>
+
+    <!-- Narrative Section -->
+    <section class="py-16 px-4 overflow-hidden bg-bg-section">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal">
+                    <img src="../assets/images/intro_interior.png" alt="Inside Hearthside" class="rounded-2xl shadow-lift w-full">
+                </div>
+                <div class="reveal stagger-2">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-text-headline mb-8 leading-tight">From Coaching Inn <br>to Country Retreat</h2>
+                    <p class="text-text-muted text-lg leading-relaxed mb-6">
+                        The stones of Hearthside have witnessed two centuries of Gloucestershire history. Originally built as 'The Travellers Rest' coaching inn in 1824, the property served as a vital waypoint for merchants and wanderers crossing the Cotswolds.
+                    </p>
+                    <p class="text-text-muted text-lg leading-relaxed mb-6">
+                        For decades, it was the beating heart of the village—a place of laughter, local news, and roaring fires. When we acquired the property five years ago, it had fallen into silence. Our mission was simple but daunting: to restore the craftsmanship of the past while providing the comfort of the present.
+                    </p>
+                    <p class="text-text-muted text-lg leading-relaxed">
+                        Today, Hearthside stands as a boutique retreat that honors its roots. Every beam has been treated, every sash window liberated, and every fireplace brought back to life.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosphy Section -->
+    <section class="py-16 px-4 bg-bg-page">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div class="reveal">
+                <h3 class="font-display text-3xl font-bold mb-6 text-brass italic">Craftsmanship</h3>
+                <p class="text-text-muted text-sm leading-relaxed">We favor the handmade over the mass-produced. From the hand-turned wooden bowls in our dining room to the traditional lime plaster on our walls, we celebrate the work of the human hand.</p>
+            </div>
+            <div class="reveal stagger-1">
+                <h3 class="font-display text-3xl font-bold mb-6 text-brass italic">Locality</h3>
+                <p class="text-text-muted text-sm leading-relaxed">We are deeply embedded in our soil. We source our breakfast from within ten miles, our garden is planted with native wildflowers, and our guides are written by people who live here.</p>
+            </div>
+            <div class="reveal stagger-2">
+                <h3 class="font-display text-3xl font-bold mb-6 text-brass italic">Hospitality</h3>
+                <p class="text-text-muted text-sm leading-relaxed">To us, luxury isn't about excess; it's about being known. We remember how you like your coffee, where you like to walk, and ensure your fireplace is lit before you return.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hosts Profile -->
+    <section class="py-16 px-4 overflow-hidden bg-bg-section">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center lg:flex-row-reverse">
+                <div class="reveal order-2 lg:order-1">
+                    <h2 class="font-display text-4xl font-bold text-text-headline mb-8 leading-tight">Your Hosts, <br><i class="font-normal italic">Catherine & Julian.</i></h2>
+                    <p class="text-text-muted text-lg leading-relaxed mb-6">
+                        After twenty years in the busy culinary world of London, we came to the Cotswolds looking for a different pace of life. Catherine is a pastry chef by training and the heart behind the Hearthside breakfast. Julian is an architect with a passion for heritage restoration.
+                    </p>
+                    <p class="text-text-muted text-lg leading-relaxed italic">
+                        "We treated this house like our own home before we ever opened it to guests. We want you to feel that same sense of belonging from the moment you turn onto Mill Lane."
+                    </p>
+                </div>
+                <div class="reveal stagger-2 order-1 lg:order-2">
+                    <img src="../assets/images/hosts_section.avif" alt="The Hosts" class="rounded-2xl shadow-lift w-full max-w-md mx-auto aspect-square object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 px-4 bg-bg-page">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="font-display text-4xl font-bold text-center mb-16 text-text-headline">Frequently <i class="font-normal italic">Asked.</i></h2>
+            <div class="space-y-4" data-tab-group>
+                <div class="border border-ink/5 dark:border-parchment/5 rounded-2xl bg-bg-panel overflow-hidden shadow-card">
+                    <button data-toggle="faq-1" class="w-full px-8 py-6 text-left font-bold flex justify-between items-center group text-text-headline">
+                        <span>What time is check-in and check-out?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform group-hover:text-brass"></i>
+                    </button>
+                    <div id="faq-1" class="hidden px-8 pb-6 text-text-body text-sm leading-relaxed">
+                        Check-in is from 3:00 PM and check-out is until 11:00 AM. If you require an early arrival or late departure, please let us know in advance.
+                    </div>
+                </div>
+                <div class="border border-ink/5 dark:border-parchment/5 rounded-2xl bg-bg-panel overflow-hidden shadow-card">
+                    <button data-toggle="faq-2" class="w-full px-8 py-6 text-left font-bold flex justify-between items-center group text-text-headline">
+                        <span>Is breakfast included?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform group-hover:text-brass"></i>
+                    </button>
+                    <div id="faq-2" class="hidden px-8 pb-6 text-text-body text-sm leading-relaxed">
+                        Yes, a full Cotswold breakfast is included with every direct booking, served daily in our communal dining room or delivered to your suite.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-coal text-white pt-24 pb-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-8">
+        
+        <!-- Brand & Story -->
+        <div class="lg:col-span-4 space-y-6">
+          <a href="../index.html" class="flex items-center gap-0 group">
+            <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110 opacity-90">
+            <span class="font-display text-3xl font-bold text-white tracking-tighter uppercase leading-none">Hearthside</span>
+          </a>
+          <p class="text-parchment/60 leading-relaxed text-base max-w-sm">
+            A collection of heritage bedrooms and boutique suites in the heart of the Cotswolds. Designed for those who seek the luxury of the slow.
+          </p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Pinterest">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pinterest"><path d="M8 22c.67-2.33 1.33-4.67 2-7-.67-1.33-1-2.67-1-4a7 7 0 0 1 14 0c0 3.86-3.14 7-7 7-.67 0-1.33-.17-2-.5.33 1.67.67 3.33 1 5"/><circle cx="12" cy="11" r="1.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Grid -->
+        <div class="lg:col-span-4 grid grid-cols-2 gap-8">
+          <div class="space-y-6">
+            <h3 class="text-[10px] font-bold text-brass tracking-[0.4em] uppercase">Discover</h3>
+            <ul class="space-y-3 text-sm font-medium">
+              <li><a href="rooms.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Rooms</a></li>
+              <li><a href="experiences.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">The Experience</a></li>
+              <li><a href="about.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Our Story</a></li>
+              <li><a href="about.html#faq" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Help & FAQ</a></li>
+            </ul>
+          </div>
+          <div class="space-y-6">
+            <h3 class="text-[10px] font-bold text-brass tracking-[0.4em] uppercase">Local</h3>
+            <ul class="space-y-3 text-sm font-medium text-parchment/60">
+              <li class="leading-relaxed">Mill Lane, Thorntree,<br>Gloucestershire, UK</li>
+              <li>+44 (0) 1451 820 000</li>
+              <li><a href="contact.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Inquiries</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="p-6 border border-white/5 rounded-2xl bg-white/[0.02] backdrop-blur-sm">
+            <h3 class="text-[10px] font-bold text-white tracking-[0.4em] uppercase opacity-50 mb-3 font-display">The Registry</h3>
+            <p class="text-gray-400 text-xs mb-4 leading-relaxed italic opacity-70">Join for seasonal recipes and exclusive registry-only rates.</p>
+            <form class="space-y-3">
+              <input type="email" required placeholder="Enter your email" class="w-full bg-transparent border-b border-parchment/10 py-2 text-sm focus:border-brass outline-none text-white placeholder-parchment/30 transition-colors">
+              <button type="submit" class="w-full text-left text-brass text-[10px] font-bold uppercase tracking-widest hover:text-parchment transition-colors flex items-center group">
+                Join <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="pt-8 border-t border-parchment/5 flex flex-col md:flex-row justify-between items-center text-[10px] text-parchment/50 uppercase tracking-widest space-y-6 md:space-y-0">
+        <p>&copy; 2024 Hearthside Boutique Hotel. All Rights Reserved.</p>
+        <div class="flex space-x-12">
+          <a href="about.html#values" class="text-parchment/50 hover:text-brass transition-colors">Sustainability</a>
+          <a href="about.html#values" class="text-parchment/50 hover:text-brass transition-colors">Accessibility</a>
+          <a href="about.html#faq" class="text-parchment/50 hover:text-brass transition-colors">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

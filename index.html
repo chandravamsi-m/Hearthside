@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hearthside — Bed & Breakfast & Boutique Hotel</title>
+  <meta name="description" content="Elevated country living in the heart of Gloucestershire. Boutique suites, seasonal breakfasts, and curated local experiences.">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Hearthside Brand Theme Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            /* ── Brand Palette ── */
+            ink:           'var(--color-ink)',
+            forest:        'var(--color-forest)',
+            'forest-light':'var(--color-forest-light)',
+            brass:         'var(--color-brass)',
+            'brass-light': 'var(--color-brass-light)',
+            parchment:     'var(--color-parchment)',
+            stone:         'var(--color-stone)',
+            ash:           'var(--color-ash)',
+            coal:          'var(--color-coal)',
+            /* ── Legacy aliases ── */
+            primary:       'var(--color-forest)',
+            'primary-light':'var(--color-forest-light)',
+            accent:        'var(--color-brass)',
+            'accent-light':'var(--color-brass-light)',
+            surface:       'var(--color-parchment)',
+            'surface-dark':'var(--color-ash)',
+            'footer-dark': 'var(--color-coal)',
+            /* ── Functional Tokens ── */
+            'bg-page':     'var(--bg-page)',
+            'bg-section':  'var(--bg-section)',
+            'bg-panel':    'var(--bg-panel)',
+            'bg-deep':     'var(--bg-deep)',
+            'text-headline':'var(--text-headline)',
+            'text-body':   'var(--text-body)',
+            'text-muted':  'var(--text-muted)',
+            'text-inverse':'var(--text-inverse)',
+            /* Legacy */
+            'text-main':   'var(--text-headline)',
+            'bg-neutral':  'var(--bg-section)',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body:    ['"Source Serif 4"', 'Georgia', 'serif'],
+          },
+          borderRadius: {
+            sm: '4px', md: '8px', lg: '16px', xl: '24px', '2xl': '32px',
+          },
+          boxShadow: {
+            card: '0 4px 16px rgba(28,43,38,0.08)',
+            lift: '0 12px 40px rgba(28,43,38,0.14)',
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Styling & Icons -->
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-bg-page text-text-body font-body transition-colors duration-300">
+
+  <!-- Navbar -->
+  <nav data-navbar class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex-shrink-0">
+          <a href="index.html" class="flex items-center gap-0 group">
+            <img src="assets/images/logo.svg" alt="Hearthside Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110" data-nav-logo>
+            <span class="font-display text-2xl font-bold text-white tracking-tighter" data-nav-brand>Hearthside</span>
+          </a>
+        </div>
+
+        <div class="hidden lg:flex items-center gap-8">
+          <!-- Home Dropdown -->
+          <div class="relative group" data-dropdown>
+            <button class="flex items-center gap-1.5 text-white hover:text-white font-semibold text-[15px] transition-colors py-8" data-nav-link>
+              <span>Home</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
+            </button>
+            <div data-dropdown-menu class="absolute top-full left-0 w-48 bg-bg-panel dark:bg-bg-panel rounded-xl shadow-lift border border-ink/8 dark:border-parchment/8 hidden py-2 opacity-0 invisible group-hover:block group-hover:opacity-100 group-hover:visible transition-all">
+              <a href="index.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Home 1 — Story</a>
+              <a href="pages/home-2.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Home 2 — Direct</a>
+            </div>
+          </div>
+
+          <a href="pages/about.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Story</a>
+          <a href="pages/experiences.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Experiences</a>
+          <a href="pages/rooms.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Rooms</a>
+          <a href="pages/contact.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Contact</a>
+
+          <!-- Dashboard Dropdown -->
+          <div class="relative group" data-dropdown>
+            <button class="flex items-center gap-1.5 text-white hover:text-white font-semibold text-[15px] transition-colors py-8" data-nav-link>
+              <span>Dashboards</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
+            </button>
+            <div data-dropdown-menu class="absolute top-full left-0 w-48 bg-bg-panel dark:bg-bg-panel rounded-xl shadow-lift border border-ink/8 dark:border-parchment/8 hidden py-2 opacity-0 invisible group-hover:block group-hover:opacity-100 group-hover:visible transition-all">
+              <a href="dashboard/index.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Guest Portal</a>
+              <a href="admin/index.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Admin Workspace</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+          <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-white hover:text-white transition-colors rounded-full" data-nav-link>
+            <span class="text-[11px] font-bold tracking-widest leading-none" data-rtl-label>RTL</span>
+            <i data-lucide="move-horizontal" class="w-4 h-4"></i>
+          </button>
+          <button data-dark-toggle class="p-2 text-white hover:text-white transition-colors rounded-full" data-nav-link>
+            <i data-lucide="moon" class="w-5 h-5"></i>
+          </button>
+          <a href="pages/rooms.html" class="hidden sm:block border border-white/50 text-white px-5 py-2 rounded-full text-[11px] font-bold transition-all hover:bg-white hover:text-ink whitespace-nowrap" data-nav-btn="secondary">Book Now</a>
+          <a href="auth/login.html" class="bg-brass hover:bg-brass-light text-white px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all shadow-md whitespace-nowrap">Sign In</a>
+        </div>
+
+        <button data-nav-hamburger class="p-2 lg:hidden text-parchment hover:text-white outline-none" data-nav-link>
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <div data-nav-overlay class="fixed inset-0 bg-ink/60 lg:hidden opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <aside data-nav-mobile class="fixed top-0 inset-inline-end-0 w-80 h-full bg-parchment dark:bg-ash shadow-lift lg:hidden translate-x-full rtl:-translate-x-full transition-transform duration-300 z-[60]">
+      <div class="p-10 space-y-10 h-full overflow-y-auto">
+        <div class="flex justify-between items-center mb-8">
+          <div class="flex items-center gap-2">
+            <img src="assets/images/logo.svg" alt="Hearthside Logo" class="w-8 h-8">
+            <span class="font-display text-xl font-bold text-ink dark:text-parchment">Hearthside</span>
+          </div>
+          <button data-nav-close class="p-2 text-ink/50 dark:text-parchment/50 hover:text-ink dark:hover:text-parchment transition-colors">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <div class="flex flex-col space-y-6 font-display text-3xl text-ink dark:text-parchment">
+          <a href="index.html" class="hover:text-brass transition-colors">Home</a>
+          <a href="pages/about.html" class="hover:text-brass transition-colors">Story</a>
+          <a href="pages/experiences.html" class="hover:text-brass transition-colors">Experiences</a>
+          <a href="pages/rooms.html" class="hover:text-brass transition-colors">Bedrooms</a>
+          <button data-rtl-toggle class="text-left flex items-center justify-between group">
+             <div class="flex items-center gap-4">
+                <i data-lucide="move-horizontal" class="w-8 h-8 opacity-40"></i>
+                <span>Layout Direction</span>
+             </div>
+             <span class="text-xs font-bold text-brass px-4 py-1 bg-brass/10 rounded-full" data-rtl-label>RTL</span>
+          </button>
+        </div>
+        <div class="space-y-4 mt-auto">
+          <a href="pages/rooms.html" class="block border-2 border-forest-light text-forest-light dark:text-forest-light text-center py-4 rounded-2xl font-bold hover:bg-forest-light hover:text-white transition-all">Book Now</a>
+          <a href="auth/login.html" class="block bg-brass hover:bg-brass-light text-white text-center py-4 rounded-2xl font-bold shadow-lift transition-all">Sign In</a>
+        </div>
+      </div>
+    </aside>
+  </nav>
+
+  <main>
+    <!-- S1 — Cinematic Hero -->
+    <section class="relative h-screen overflow-hidden flex items-center justify-center">
+      <!-- Hero Background (Ken Burns effect) -->
+      <div class="absolute inset-0 z-0">
+        <img src="assets/images/home-hero-bg.avif" 
+             alt="Hearthside Exterior" 
+             class="w-full h-full object-cover animate-ken-burns">
+        <!-- Overlays -->
+        <div class="absolute inset-0 hero-overlay"></div>
+        <div class="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-black/80 to-transparent z-10 opacity-90"></div>
+      </div>
+
+      <!-- Hero Content -->
+      <div class="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
+        <span class="inline-block text-brass uppercase tracking-[0.4em] text-[10px] font-bold mb-8 animate-fade-up bg-ink/30 backdrop-blur-sm px-6 py-2 rounded-full border border-parchment/10">Est. 1824 — The Cotswolds</span>
+        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl text-parchment font-bold leading-[1.1] mb-12 animate-fade-up stagger-1 drop-shadow-2xl">
+          Your Home in the <br><i class="font-normal italic">Heart of the Land.</i>
+        </h1>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-up stagger-2">
+          <a href="pages/rooms.html" class="bg-brass hover:bg-brass-light text-white px-9 py-3.5 rounded-full font-bold shadow-lift transition-all hover:-translate-y-1 uppercase tracking-widest text-[10px]">
+            Explore the Collection
+          </a>
+          <a href="#intro" class="border border-white/50 text-white px-9 py-3.5 rounded-full font-bold transition-all hover:bg-white hover:text-ink uppercase tracking-widest text-[10px] flex items-center gap-3 group">
+            Our Story 
+            <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- S2 — Quick Availability Strip -->
+    <div class="relative z-20 -mt-7 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-bg-panel rounded-2xl shadow-lift py-2.5 px-6 md:px-10 border border-ink/5 dark:border-parchment/10">
+        <form data-validate-form class="flex flex-col lg:flex-row items-center gap-4 lg:gap-6">
+          <div class="flex-1 w-full grid grid-cols-2 gap-4 md:gap-8 lg:border-r border-ink/5 dark:border-parchment/10 lg:pr-6">
+            <div class="space-y-0.5">
+              <label class="block text-[10px] uppercase tracking-[0.2em] text-brass font-bold">Check-in</label>
+              <input type="date" required class="w-full bg-transparent border-none p-0 text-base font-bold focus:ring-0 text-text-headline cursor-pointer" value="2024-10-12">
+            </div>
+            <div class="space-y-0.5">
+              <label class="block text-[10px] uppercase tracking-[0.2em] text-brass font-bold">Check-out</label>
+              <input type="date" required class="w-full bg-transparent border-none p-0 text-base font-bold focus:ring-0 text-text-headline cursor-pointer" value="2024-10-15">
+            </div>
+          </div>
+          <!-- Guests -->
+          <div class="w-full lg:w-40 space-y-0.5 lg:border-r border-ink/5 dark:border-parchment/10 lg:pr-6">
+            <label class="block text-[10px] uppercase tracking-[0.2em] text-brass font-bold">Guests</label>
+            <div class="flex items-center justify-between py-0.5">
+              <button type="button" class="text-text-muted hover:text-brass p-1 transition-colors"><i data-lucide="minus" class="w-4 h-4"></i></button>
+              <input type="number" value="2" min="1" max="10" class="w-full bg-transparent border-none p-0 text-center text-base font-bold focus:ring-0 text-text-headline">
+              <button type="button" class="text-text-muted hover:text-brass p-1 transition-colors"><i data-lucide="plus" class="w-4 h-4"></i></button>
+            </div>
+          </div>
+          <!-- CTA -->
+          <button type="submit" class="w-full lg:w-auto bg-brass hover:bg-brass-light text-white px-8 py-3 rounded-2xl font-bold transition-all flex items-center justify-center gap-4 shadow-lift uppercase tracking-widest text-[10px] group">
+            <span>Check Availability</span>
+            <i data-lucide="chevron-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- S3 — Property Introduction -->
+    <section id="intro" class="py-12 bg-bg-page relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <!-- Left Column: Imagery -->
+          <div class="reveal relative">
+            <img src="assets/images/intro_interior.png" 
+                 alt="Hearthside Interior" 
+                 class="rounded-xl shadow-lift w-full h-[450px] object-cover grayscale-[0.2] transition-all duration-1000">
+          </div>
+
+          <!-- Right Column: Storytelling -->
+          <div class="reveal">
+            <span class="text-brass uppercase tracking-[0.4em] text-[10px] font-bold mb-4 block">Our Ethos</span>
+            <h2 class="font-display text-4xl md:text-5xl lg:text-5xl text-text-headline font-bold leading-tight mb-6">
+              A place for slow living, <br>refined <i class="font-normal italic text-brass">by history.</i>
+            </h2>
+            
+            <div class="pl-6 border-l-2 border-brass/20 mb-8 italic text-lg text-text-headline leading-relaxed opacity-90 font-display">
+              "To enter Hearthside is to step into a rhythm dictated by the seasons, where the honey-colored stone remembers every footfall of the last two centuries."
+            </div>
+
+            <div class="text-base md:text-lg text-text-body leading-relaxed mb-8 opacity-80 max-w-xl">
+              <p>
+                Hearthside is more than a boutique hotel; it is a labor of love rooted in the Cotswolds. What began as a 19th-century coaching inn has been painstakingly restored into a collection of heritage guest rooms and two private suites. We believe in the luxury of detail: hand-stitched linens, sourdough proofed in our kitchen overnight, and local ales served by a crackling fire. Welcome to your quiet corner of Gloucestershire.
+              </p>
+            </div>
+
+            <a href="pages/about.html" class="border border-forest/30 text-forest dark:text-parchment px-8 py-3 rounded-full font-bold transition-all hover:bg-forest hover:text-white uppercase tracking-widest text-[9px] inline-flex items-center gap-3 group">
+              Our Founding Story
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S4 — Signature Rooms -->
+    <section class="py-8 bg-bg-neutral text-text-headline">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-8 reveal">
+          <span class="text-accent uppercase tracking-widest text-xs font-bold mb-4 block">The Collections</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold">Signature Rooms & Suites</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Room Card 1 (Rose Suite) -->
+          <div class="room-card group cursor-pointer reveal stagger-1">
+            <div class="relative aspect-[4/5] rounded-2xl overflow-hidden mb-8 border border-ink/5 dark:border-parchment/5">
+              <img src="assets/images/room_rose_main.png" alt="The Rose Suite" class="img-primary w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 overflow-hidden">
+              <img src="assets/images/room_rose_detail.png" alt="Rose Suite Detail" class="img-secondary w-full h-full object-cover opacity-0 absolute inset-0">
+              <div class="absolute top-6 right-6 bg-ink/30 backdrop-blur-md text-parchment text-[10px] uppercase tracking-widest font-bold px-4 py-1.5 rounded-full border border-parchment/10">The Reserve</div>
+            </div>
+            <div class="space-y-3 px-1">
+              <div class="flex items-end justify-between border-b border-text-headline dark:border-parchment/10 pb-4">
+                <h3 class="font-display text-2xl text-text-headline font-bold group-hover:text-brass transition-colors">The Rose Suite</h3>
+                <span class="text-brass text-sm font-bold tracking-tight italic font-display">from £340</span>
+              </div>
+              <p class="text-text-body/60 text-sm italic font-medium pt-2">Private Terrace · Free-standing Copper Bath · Super King</p>
+              <div class="pt-4 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                <a href="pages/room-detail.html?room=rose-suite" class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-headline hover:text-brass flex items-center gap-2 transition-colors">Explore <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+                <a href="pages/rooms.html" class="bg-forest-light hover:bg-forest text-white px-6 py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all">Book Stay</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room Card 2 (Loft Suite) -->
+          <div class="room-card group cursor-pointer reveal stagger-2">
+            <div class="relative aspect-[4/5] rounded-2xl overflow-hidden mb-8 border border-ink/5 dark:border-parchment/5">
+              <img src="assets/images/room_loft_main.png" alt="The Loft Suite" class="img-primary w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 overflow-hidden">
+              <img src="assets/images/room_loft_detail.png" alt="Loft Suite Detail" class="img-secondary w-full h-full object-cover opacity-0 absolute inset-0">
+              <div class="absolute top-6 right-6 bg-ink/30 backdrop-blur-md text-parchment text-[10px] uppercase tracking-widest font-bold px-4 py-1.5 rounded-full border border-parchment/10">Barn conversion</div>
+            </div>
+            <div class="space-y-3 px-1">
+              <div class="flex items-end justify-between border-b border-text-headline dark:border-parchment/10 pb-4">
+                <h3 class="font-display text-2xl text-text-headline font-bold group-hover:text-brass transition-colors">The Loft Suite</h3>
+                <span class="text-brass text-sm font-bold tracking-tight italic font-display">from £420</span>
+              </div>
+              <p class="text-text-body/60 text-sm italic font-medium pt-2">Panoramic Valley Views · Cedar Hot Tub · Beams</p>
+              <div class="pt-4 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                <a href="pages/room-detail.html?room=loft-suite" class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-headline hover:text-brass flex items-center gap-2 transition-colors">Explore <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+                <a href="pages/rooms.html" class="bg-forest-light hover:bg-forest text-white px-6 py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all">Book Stay</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room Card 3 (Orchard Room) -->
+          <div class="room-card group cursor-pointer reveal stagger-3">
+            <div class="relative aspect-[4/5] rounded-2xl overflow-hidden mb-8 border border-ink/5 dark:border-parchment/5">
+              <img src="assets/images/room_orchard_main.png" alt="The Orchard Room" class="img-primary w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 overflow-hidden">
+              <img src="assets/images/room_orchard_detail.png" alt="Orchard Room Detail" class="img-secondary w-full h-full object-cover opacity-0 absolute inset-0">
+              <div class="absolute top-6 right-6 bg-ink/30 backdrop-blur-md text-parchment text-[10px] uppercase tracking-widest font-bold px-4 py-1.5 rounded-full border border-parchment/10">Heritage Double</div>
+            </div>
+            <div class="space-y-3 px-1">
+              <div class="flex items-end justify-between border-b border-text-headline dark:border-parchment/10 pb-4">
+                <h3 class="font-display text-2xl text-text-headline font-bold group-hover:text-brass transition-colors">The Orchard Room</h3>
+                <span class="text-brass text-sm font-bold tracking-tight italic font-display">from £220</span>
+              </div>
+              <p class="text-text-body/60 text-sm italic font-medium pt-2">South-facing Garden Views · Super King · Sunlit</p>
+              <div class="pt-4 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                <a href="pages/room-detail.html?room=orchard-room" class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-headline hover:text-brass flex items-center gap-2 transition-colors">Explore <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+                <a href="pages/rooms.html" class="bg-forest-light hover:bg-forest text-white px-6 py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all">Book Stay</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center">
+          <a href="pages/rooms.html" class="bg-brass hover:bg-brass-light text-white px-10 py-3.5 rounded-full font-bold shadow-lift transition-all hover:-translate-y-1 uppercase tracking-widest text-[10px] inline-block">
+            View All Collections
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- S5 — The Experience -->
+    <section class="py-20 bg-bg-page relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        <!-- Pillar 1: Culinary -->
+        <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+          <div class="flex-1 reveal">
+            <div class="relative group overflow-hidden rounded-2xl shadow-lift">
+              <img src="assets/images/experience_breakfast.png" 
+                   alt="Handcrafted Breakfast" 
+                   class="w-full h-[450px] object-cover group-hover:scale-105 transition-transform duration-1000">
+              <div class="absolute inset-0 bg-ink/10 group-hover:bg-transparent transition-colors duration-700"></div>
+            </div>
+          </div>
+          <div class="flex-1 reveal stagger-2">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-12 h-12 rounded-full bg-brass/10 flex items-center justify-center">
+                <i data-lucide="utensils" class="w-5 h-5 text-brass"></i>
+              </div>
+              <span class="text-brass uppercase tracking-[0.4em] text-[10px] font-bold">Gastronomy</span>
+            </div>
+            <h2 class="font-display text-4xl md:text-5xl text-text-headline font-bold mb-8 leading-tight">
+              A Morning of <br><i class="font-normal italic text-brass">Quiet Indulgence.</i>
+            </h2>
+            <p class="text-lg text-text-body leading-relaxed mb-10 opacity-80">
+              Our breakfasts are slow-paced affairs. Enjoy seasonal preserves, sourdough fresh from our woodpile oven, and eggs gathered at dawn. Every ingredient tells a story of local craftsmanship and the rich Gloucestershire soil.
+            </p>
+            <ul class="space-y-4 mb-10">
+              <li class="flex items-center gap-4 text-sm text-text-headline font-medium">
+                <div class="w-1.5 h-1.5 rounded-full bg-brass"></div>
+                Signature Sourdough & Artisanal Honey
+              </li>
+              <li class="flex items-center gap-4 text-sm text-text-headline font-medium">
+                <div class="w-1.5 h-1.5 rounded-full bg-brass"></div>
+                Field-to-Table Seasonal Menu
+              </li>
+            </ul>
+            <a href="pages/experiences.html" class="text-[11px] font-bold uppercase tracking-widest text-text-headline border-b-2 border-brass/30 pb-2 hover:border-forest transition-all">Explore Culinary</a>
+          </div>
+        </div>
+
+        <!-- Pillar 2: Exploration -->
+        <div class="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24">
+          <div class="flex-1 reveal">
+            <div class="relative group overflow-hidden rounded-2xl shadow-lift">
+              <img src="assets/images/experience_trails.png" 
+                   alt="Curated Experiences" 
+                   class="w-full h-[450px] object-cover group-hover:scale-105 transition-transform duration-1000">
+              <div class="absolute inset-0 bg-ink/10 group-hover:bg-transparent transition-colors duration-700"></div>
+            </div>
+          </div>
+          <div class="flex-1 reveal stagger-2">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-12 h-12 rounded-full bg-brass/10 flex items-center justify-center">
+                <i data-lucide="map" class="w-5 h-5 text-brass"></i>
+              </div>
+              <span class="text-brass uppercase tracking-[0.4em] text-[10px] font-bold">Exploration</span>
+            </div>
+            <h2 class="font-display text-4xl md:text-5xl text-text-headline font-bold mb-8 leading-tight">
+              Wander Through the <br><i class="font-normal italic text-brass">Cotswold Mists.</i>
+            </h2>
+            <p class="text-lg text-text-body leading-relaxed mb-10 opacity-80">
+              Discover the hidden pathways of the Gloucestershire countryside. From the lavender fields of Snowshill to secret woodland trails, we provide curated guides and essentials for a day of discovery.
+            </p>
+            <div class="p-8 border-l-4 border-brass bg-stone/20 dark:bg-coal/40 italic text-text-headline mb-12">
+              <p class="text-lg leading-relaxed">"To walk through the Heaton Woods at sunrise is to understand why we chose to build our lives here."</p>
+              <span class="block mt-4 text-[10px] font-bold uppercase tracking-widest text-brass">— Sarah, Keeper of Hearthside</span>
+            </div>
+            <a href="pages/experiences.html" class="text-[11px] font-bold uppercase tracking-widest text-text-headline border-b-2 border-brass/30 pb-2 hover:border-forest transition-all">Digital Local Guide</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S7 — Guest Reviews Slider -->
+    <section class="py-8 bg-bg-neutral border-y border-ink/5 dark:border-parchment/5 overflow-hidden">
+      <div class="max-w-6xl mx-auto px-4 relative">
+        <div data-fade-slider data-interval="8000" class="relative min-h-[400px] flex items-center">
+          
+          <!-- Arrows -->
+          <button data-prev class="absolute left-0 lg:-left-20 top-1/2 -translate-y-1/2 p-4 text-ink/20 hover:text-brass dark:text-parchment/20 dark:hover:text-brass transition-all z-20 hidden md:block">
+            <i data-lucide="chevron-left" class="w-10 h-10"></i>
+          </button>
+          <button data-next class="absolute right-0 lg:-right-20 top-1/2 -translate-y-1/2 p-4 text-ink/20 hover:text-brass dark:text-parchment/20 dark:hover:text-brass transition-all z-20 hidden md:block">
+            <i data-lucide="chevron-right" class="w-10 h-10"></i>
+          </button>
+
+          <!-- Slides Container -->
+          <div class="relative w-full overflow-hidden">
+            <!-- Slide 1 -->
+            <div data-slide class="w-full flex flex-col items-center justify-center opacity-100 transition-opacity duration-1000 text-center">
+              <i data-lucide="quote" class="w-12 h-12 text-brass/20 mb-4"></i>
+              <p class="font-display text-3xl md:text-4xl lg:text-5xl text-text-headline italic leading-relaxed mb-12 max-w-4xl">
+                "We arrived not knowing what to expect and left completely enchanted. The Rose Suite is every bit as beautiful as the photographs."
+              </p>
+              <div class="flex flex-col items-center gap-2">
+                <span class="uppercase tracking-[0.4em] text-[10px] font-bold text-text-headline">Eleanor & Thomas R.</span>
+                <span class="text-[9px] uppercase tracking-widest text-brass font-bold">The Guest Collective · 2024</span>
+              </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div data-slide class="absolute inset-0 w-full flex flex-col items-center justify-center opacity-0 transition-opacity duration-1000 text-center pointer-events-none">
+              <i data-lucide="quote" class="w-12 h-12 text-brass/20 mb-4"></i>
+              <p class="font-display text-3xl md:text-4xl lg:text-5xl text-text-headline italic leading-relaxed mb-12 max-w-4xl">
+                "The best weekend break I've ever taken. Silence so complete you forget the world exists."
+              </p>
+              <div class="flex flex-col items-center gap-2">
+                <span class="uppercase tracking-[0.4em] text-[10px] font-bold text-text-headline">James H.</span>
+                <span class="text-[9px] uppercase tracking-widest text-brass font-bold">The Guest Collective · 2024</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="absolute -bottom-4 md:bottom-0 left-0 right-0 flex justify-center gap-4 z-20">
+            <button data-dot class="w-12 h-1 bg-brass rounded-full transition-all"></button>
+            <button data-dot class="w-6 h-1 bg-ink/10 dark:bg-parchment/10 rounded-full transition-all hover:bg-brass/40"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-coal text-white pt-24 pb-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-8">
+        
+        <!-- Brand & Story -->
+        <div class="lg:col-span-4 space-y-6">
+          <a href="index.html" class="flex items-center gap-0 group">
+            <img src="assets/images/logo.svg" alt="Hearthside Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110 opacity-90">
+            <span class="font-display text-3xl font-bold text-white tracking-tighter uppercase leading-none">Hearthside</span>
+          </a>
+          <p class="text-parchment/60 leading-relaxed text-base max-w-sm">
+            A collection of heritage bedrooms and boutique suites in the heart of the Cotswolds. Designed for those who seek the luxury of the slow.
+          </p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Pinterest">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pinterest"><path d="M8 22c.67-2.33 1.33-4.67 2-7-.67-1.33-1-2.67-1-4a7 7 0 0 1 14 0c0 3.86-3.14 7-7 7-.67 0-1.33-.17-2-.5.33 1.67.67 3.33 1 5"/><circle cx="12" cy="11" r="1.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Grid -->
+        <div class="lg:col-span-4 grid grid-cols-2 gap-8">
+          <div class="space-y-6">
+            <h3 class="text-[10px] font-bold text-brass tracking-[0.4em] uppercase">Discover</h3>
+            <ul class="space-y-3 text-sm font-medium">
+              <li><a href="pages/rooms.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Rooms</a></li>
+              <li><a href="pages/experiences.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">The Experience</a></li>
+              <li><a href="pages/about.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Our Story</a></li>
+              <li><a href="pages/about.html#faq" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Help & FAQ</a></li>
+            </ul>
+          </div>
+          <div class="space-y-6">
+            <h3 class="text-[10px] font-bold text-brass tracking-[0.4em] uppercase">Local</h3>
+            <ul class="space-y-3 text-sm font-medium text-parchment/60">
+              <li class="leading-relaxed">Mill Lane, Thorntree,<br>Gloucestershire, UK</li>
+              <li>+44 (0) 1451 820 000</li>
+              <li><a href="pages/contact.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Inquiries</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="p-6 border border-white/5 rounded-2xl bg-white/[0.02] backdrop-blur-sm">
+            <h3 class="text-[10px] font-bold text-white tracking-[0.4em] uppercase opacity-50 mb-3 font-display">The Registry</h3>
+            <p class="text-gray-400 text-xs mb-4 leading-relaxed italic opacity-70">Join for seasonal recipes and exclusive registry-only rates.</p>
+            <form class="space-y-3">
+              <input type="email" required placeholder="Enter your email" class="w-full bg-transparent border-b border-parchment/10 py-2 text-sm focus:border-brass outline-none text-white placeholder-parchment/30 transition-colors">
+              <button type="submit" class="w-full text-left text-brass text-[10px] font-bold uppercase tracking-widest hover:text-parchment transition-colors flex items-center group">
+                Join <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </button>
+            </form>
+           </div>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="pt-8 border-t border-parchment/5 flex flex-col md:flex-row justify-between items-center text-[10px] text-parchment/50 uppercase tracking-widest space-y-6 md:space-y-0">
+        <p>&copy; 2024 Hearthside Boutique Hotel. All Rights Reserved.</p>
+        <div class="flex space-x-12">
+          <a href="pages/about.html#values" class="hover:text-brass transition-colors">Sustainability</a>
+          <a href="pages/about.html#values" class="hover:text-brass transition-colors">Accessibility</a>
+          <a href="pages/about.html#faq" class="hover:text-brass transition-colors">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button data-back-to-top class="fixed bottom-8 right-8 z-40 bg-brass hover:bg-brass-light text-white p-4 rounded-full shadow-lift opacity-0 translate-y-4 transition-all duration-300 pointer-events-none hover:-translate-y-1" aria-label="Back to top">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7 7 7M12 19V3"/></svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
