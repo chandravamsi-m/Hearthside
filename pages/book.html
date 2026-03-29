@@ -312,13 +312,13 @@
 
       <div class="max-w-3xl mx-auto px-4">
         <div
-          class="bg-bg-panel/40 backdrop-blur-2xl rounded-[24px] shadow-lift p-8 md:p-12 border border-ink/5 dark:border-parchment/5 relative group/form">
+          class="bg-bg-panel rounded-[24px] shadow-lift p-8 md:p-12 border border-ink/5 dark:border-parchment/5 relative group/form">
 
           <div class="relative z-10 space-y-12">
             <div class="text-center space-y-3">
               <h2 class="font-display text-3xl md:text-4xl font-bold text-text-headline tracking-tight leading-tight">
                 Your Cotswold <i class="font-normal italic text-brass">Journey.</i></h2>
-              <p class="text-[9px] uppercase tracking-[0.4em] font-bold text-text-muted opacity-50 italic">Curating your
+              <p class="text-[9px] uppercase tracking-[0.4em] font-bold text-text-muted opacity-80 italic">Curating your
                 escape</p>
             </div>
 
@@ -326,7 +326,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
               <!-- Arrival Column -->
               <div class="space-y-3 relative group/field">
-                <label class="block text-[8px] uppercase font-bold text-brass tracking-[0.4em] opacity-60">The
+                <label class="block text-[8px] uppercase font-bold text-brass tracking-[0.4em]">The
                   Arrival</label>
                 <div class="relative">
                   <input type="date" id="check-in" class="absolute inset-0 opacity-0 cursor-pointer z-20">
@@ -343,7 +343,7 @@
 
               <!-- Departure Column -->
               <div class="space-y-3 relative group/field">
-                <label class="block text-[8px] uppercase font-bold text-brass tracking-[0.4em] opacity-60">The
+                <label class="block text-[8px] uppercase font-bold text-brass tracking-[0.4em]">The
                   Departure</label>
                 <div class="relative">
                   <input type="date" id="check-out" class="absolute inset-0 opacity-0 cursor-pointer z-20">
@@ -361,7 +361,7 @@
 
             <!-- Refined Guest Selection (Compact) -->
             <div class="flex flex-col items-center gap-8">
-              <label class="text-[8px] uppercase font-bold text-brass tracking-[0.4em] opacity-60">Guest
+              <label class="text-[8px] uppercase font-bold text-brass tracking-[0.4em]">Guest
                 Registry</label>
 
               <div class="flex items-center gap-10">
@@ -374,7 +374,7 @@
                   <span id="guests-count"
                     class="font-display text-4xl font-bold text-text-headline block leading-none">2</span>
                   <p id="guests-label"
-                    class="text-[8px] uppercase font-bold text-brass tracking-[0.2em] mt-2 opacity-60">Registry Couple
+                    class="text-[8px] uppercase font-bold text-brass tracking-[0.2em] mt-2">Registry Couple
                   </p>
                 </div>
 
@@ -393,7 +393,7 @@
                   <i data-lucide="info" class="w-3.5 h-3.5 text-brass"></i>
                 </div>
                 <p id="date-summary-text"
-                  class="text-[9px] font-bold text-text-headline tracking-widest italic opacity-80"></p>
+                  class="text-[9px] font-bold text-text-headline tracking-widest italic"></p>
               </div>
             </div>
 
@@ -418,11 +418,11 @@
         </div>
 
         <div class="flex justify-center gap-10 mt-4 reveal-up">
-          <div class="flex items-center gap-2.5 opacity-40">
+          <div class="flex items-center gap-2.5 opacity-70">
             <i data-lucide="lock" class="w-3.5 h-3.5"></i>
             <span class="text-[8px] uppercase font-bold tracking-[0.3em]">Encrypted Registry</span>
           </div>
-          <div class="flex items-center gap-2.5 opacity-40">
+          <div class="flex items-center gap-2.5 opacity-70">
             <i data-lucide="credit-card" class="w-3.5 h-3.5"></i>
             <span class="text-[8px] uppercase font-bold tracking-[0.3em]">No deposit required</span>
           </div>
@@ -475,14 +475,14 @@
 
         <!-- The Registry Card -->
         <div
-          class="bg-bg-panel/20 backdrop-blur-sm rounded-[2.5rem] border border-ink/5 dark:border-parchment/10 p-8 md:p-12 space-y-10">
+          class="bg-bg-panel rounded-[2.5rem] border border-ink/5 dark:border-parchment/10 p-8 md:p-12 space-y-10">
 
           <!-- Minimal Stay Brief -->
           <div class="text-center space-y-3">
             <p class="text-[9px] uppercase font-bold text-brass tracking-[0.5em]">The Registry</p>
             <h3 class="font-display text-2xl font-bold text-text-headline tracking-tight leading-tight">
               Your stay in <i id="snapshot-room-name" class="font-normal italic text-brass"></i><br>
-              <span id="snapshot-brief" class="text-sm font-sans font-medium tracking-tight opacity-70"></span>
+              <span id="snapshot-brief" class="text-sm font-sans font-medium tracking-tight"></span>
             </h3>
           </div>
 
@@ -521,7 +521,7 @@
               </div>
               <div class="text-right">
                 <p class="text-[7px] text-forest font-bold uppercase tracking-widest">Guaranteed</p>
-                <p class="text-[8px] text-text-muted italic opacity-50">Settled at sanctuary.</p>
+                <p class="text-[8px] text-text-muted italic opacity-80">Settled at sanctuary.</p>
               </div>
             </div>
 
@@ -556,7 +556,7 @@
           <span class="text-brass uppercase tracking-[0.6em] text-[9px] font-bold block">Reservation Secured</span>
           <h2 class="font-display text-3xl font-bold text-text-headline leading-tight">Welcome, <br><i id="confirm-name"
               class="font-normal italic text-brass">Dear Guest.</i></h2>
-          <p class="text-text-muted text-base italic leading-relaxed max-w-lg mx-auto opacity-80">
+          <p class="text-text-muted text-base italic leading-relaxed max-w-lg mx-auto">
             Your reservation for <strong id="confirm-room" class="text-text-headline not-italic"></strong> has been
             received by our stewards. A formal confirmation folio has been sent to your registry email.
           </p>

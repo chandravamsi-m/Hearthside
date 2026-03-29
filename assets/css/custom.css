@@ -27,12 +27,12 @@
   --bg-deep:        var(--color-ink);         /* Dark accent sections in light mode */
 
   --text-headline:  var(--color-ink);         /* All display headings */
-  --text-body:      #3D4842;                  /* Paragraph / body text */
-  --text-muted:     #7A8A84;                  /* Secondary / helper text */
+  --text-body:      #24332D;                  /* Paragraph / body text — Deepened for contrast */
+  --text-muted:     #54635D;                  /* Secondary / helper text — Deepened for contrast */
   --text-inverse:   var(--color-parchment);   /* Text on dark backgrounds */
 
-  --border-subtle:  rgba(28, 43, 38, 0.08);  /* Hairline borders */
-  --border-accent:  rgba(184, 149, 106, 0.3); /* Brass-tinted borders */
+  --border-subtle:  rgba(28, 43, 38, 0.12);  /* Hairline borders — Stronger contrast */
+  --border-accent:  rgba(184, 149, 106, 0.45); /* Brass-tinted borders — Stronger contrast */
 
   /* Legacy functional aliases */
   --text-main:      var(--text-headline);
