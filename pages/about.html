@@ -75,7 +75,8 @@
 <body class="bg-bg-page text-text-body font-body transition-colors duration-300">
 
   <!-- Navbar -->
-  <nav data-navbar data-nav-dynamic="true" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+  <!-- Navbar -->
+  <nav data-navbar data-nav-dynamic="true" data-nav-light-hero="true" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         <div class="flex-shrink-0">
@@ -88,7 +89,7 @@
         <div class="hidden lg:flex items-center gap-8">
           <!-- Home Dropdown -->
           <div class="relative group" data-dropdown>
-            <button class="flex items-center gap-1.5 text-text-headline hover:text-brass font-semibold text-[15px] transition-colors py-8" data-nav-link>
+            <button class="flex items-center gap-1.5 text-white hover:text-white font-semibold text-[15px] transition-colors py-8" data-nav-link>
               <span>Home</span>
               <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
             </button>
@@ -98,14 +99,14 @@
             </div>
           </div>
 
-          <a href="about.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Story</a>
-          <a href="experiences.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Experiences</a>
-          <a href="rooms.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Rooms</a>
-          <a href="contact.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Contact</a>
+          <a href="about.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Story</a>
+          <a href="experiences.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Experiences</a>
+          <a href="rooms.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Rooms</a>
+          <a href="contact.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Contact</a>
 
           <!-- Dashboard Dropdown -->
           <div class="relative group" data-dropdown>
-            <button class="flex items-center gap-1.5 text-text-headline hover:text-brass font-semibold text-[15px] transition-colors py-8" data-nav-link>
+            <button class="flex items-center gap-1.5 text-white hover:text-white font-semibold text-[15px] transition-colors py-8" data-nav-link>
               <span>Dashboards</span>
               <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
             </button>
@@ -117,14 +118,14 @@
         </div>
 
         <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-          <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-text-headline hover:text-brass transition-colors rounded-full" data-nav-link>
+          <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-white hover:text-white transition-colors rounded-full" data-nav-link>
             <span class="text-[11px] font-bold tracking-widest leading-none" data-rtl-label>RTL</span>
             <i data-lucide="move-horizontal" class="w-4 h-4"></i>
           </button>
-          <button data-dark-toggle class="p-2 text-text-headline hover:text-brass transition-colors rounded-full" data-nav-link>
+          <button data-dark-toggle class="p-2 text-white hover:text-white transition-colors rounded-full" data-nav-link>
             <i data-lucide="moon" class="w-5 h-5"></i>
           </button>
-          <a href="rooms.html" class="hidden sm:block border border-ink/30 text-text-headline px-5 py-2 rounded-full text-[11px] font-bold transition-all hover:bg-ink hover:text-white dark:border-white/30 dark:hover:bg-white dark:hover:text-ink whitespace-nowrap" data-nav-btn="secondary">Book Now</a>
+          <a href="book.html" class="hidden sm:block border border-white/50 text-white px-5 py-2 rounded-full text-[11px] font-bold transition-all hover:bg-white hover:text-ink whitespace-nowrap" data-nav-btn="secondary">Book Now</a>
           <a href="../auth/login.html" class="bg-brass hover:bg-brass-light text-white px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all shadow-md whitespace-nowrap">Sign In</a>
         </div>
 
@@ -160,7 +161,7 @@
           </button>
         </div>
         <div class="space-y-4 mt-auto">
-          <a href="rooms.html" class="block border-2 border-forest-light/30 text-forest-light dark:text-parchment text-center py-4 rounded-2xl font-bold hover:bg-forest-light hover:text-white transition-all">Book Now</a>
+          <a href="book.html" class="block border-2 border-forest-light/30 text-forest-light dark:text-parchment text-center py-4 rounded-2xl font-bold hover:bg-forest-light hover:text-white transition-all">Book Now</a>
           <a href="../auth/login.html" class="block bg-brass hover:bg-brass-light text-white text-center py-4 rounded-2xl font-bold shadow-lift transition-all">Sign In</a>
         </div>
       </div>
@@ -168,13 +169,12 @@
   </nav>
 
   <main>
-    <!-- Page Header -->
-    <header class="relative pt-44 pb-20 overflow-hidden bg-bg-page">
-        <div class="max-w-4xl mx-auto px-4 text-center reveal">
-            <span class="text-brass uppercase tracking-[0.3em] text-[10px] font-bold mb-6 block">The Hearthside Story</span>
-            <h1 class="font-display text-5xl md:text-6xl text-text-headline font-bold mb-8">Crafting the <i class="font-normal italic">Art of the Slow.</i></h1>
-            <p class="text-text-muted text-lg max-w-2xl mx-auto italic border-t border-ink/5 pt-8 mt-8">
-                "A restoration of time, stone, and silence in the heart of the Gloucestershire countryside."
+    <header class="relative pt-44 pb-20 overflow-hidden bg-bg-page border-b border-ink/5 text-center">
+        <div class="max-w-7xl mx-auto px-4 reveal">
+            <span class="text-brass uppercase tracking-[0.3em] text-[10px] font-bold mb-4 block">Our Story</span>
+            <h1 class="font-display text-5xl md:text-6xl font-bold text-text-headline mb-6">Heritage in <i class="font-normal italic">Harmony.</i></h1>
+            <p class="text-text-muted text-lg max-w-2xl mx-auto italic">
+                A sanctuary born from the Cotswold stone, dedicated to the art of the perfect escape.
             </p>
         </div>
     </header>

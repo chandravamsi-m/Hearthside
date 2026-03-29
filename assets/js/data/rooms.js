@@ -19,19 +19,15 @@ const ROOMS_DATA = [
     floor: 2,
     view: 'Walled Garden',
     images: {
-      hero: 'assets/images/rooms/rose-suite-hero.webp',
-      alt: 'assets/images/rooms/rose-suite-alt.webp',
-      gallery: [
-        'assets/images/rooms/rose-suite-1.webp',
-        'assets/images/rooms/rose-suite-2.webp',
-        'assets/images/rooms/rose-suite-3.webp',
-      ]
+      hero: 'assets/images/rooms/rose-suite-hero.png',
+      alt: 'assets/images/rooms/rose-suite-alt.png',
+      gallery: []
     },
     amenities: ['Private Terrace','Freestanding Bath','Fireplace','King Four-Poster','Nespresso','Rain Shower','Free Wi-Fi','Smart TV','Minibar','In-Room Safe','Bathrobes & Slippers','Turn-Down Service'],
     rate: { base: 340, currency: 'GBP', unit: 'night' },
     availability: 'available', // 'available' | 'limited' | 'unavailable'
     availableCount: null,
-    tags: ['romantic','luxury','suite'],
+    tags: ['romantic','luxury','suite','heritage'],
     featured: true,
   },
   {
@@ -47,12 +43,9 @@ const ROOMS_DATA = [
     floor: 1,
     view: 'Apple Orchard',
     images: {
-      hero: 'assets/images/rooms/orchard-room-hero.webp',
-      alt: 'assets/images/rooms/orchard-room-alt.webp',
-      gallery: [
-        'assets/images/rooms/orchard-room-1.webp',
-        'assets/images/rooms/orchard-room-2.webp',
-      ]
+      hero: 'assets/images/rooms/orchard-room-hero.png',
+      alt: 'assets/images/rooms/orchard-room-alt.png',
+      gallery: []
     },
     amenities: ['Roll-Top Bath','Super King Bed','Garden View','Nespresso','Free Wi-Fi','Smart TV','In-Room Safe','Bathrobes & Slippers'],
     rate: { base: 220, currency: 'GBP', unit: 'night' },
@@ -74,17 +67,15 @@ const ROOMS_DATA = [
     floor: 1,
     view: 'Courtyard',
     images: {
-      hero: 'assets/images/rooms/library-room-hero.webp',
-      alt: 'assets/images/rooms/library-room-alt.webp',
-      gallery: [
-        'assets/images/rooms/library-room-1.webp',
-      ]
+      hero: 'assets/images/rooms/library-room-hero.png',
+      alt: 'assets/images/rooms/library-room-hero.png',
+      gallery: []
     },
     amenities: ['Working Fireplace','King Bed','Reading Chair','Walk-In Shower','Nespresso','Free Wi-Fi','Smart TV'],
     rate: { base: 195, currency: 'GBP', unit: 'night' },
     availability: 'limited',
     availableCount: 2,
-    tags: ['cosy','romantic'],
+    tags: ['cosy','romantic','heritage'],
     featured: false,
   },
   {
@@ -100,8 +91,8 @@ const ROOMS_DATA = [
     floor: 0,
     view: 'Wildflower Meadow',
     images: {
-      hero: 'assets/images/rooms/meadow-room-hero.webp',
-      alt: 'assets/images/rooms/meadow-room-alt.webp',
+      hero: 'assets/images/rooms/meadow-room-hero.png',
+      alt: 'assets/images/rooms/meadow-room-hero.png',
       gallery: []
     },
     amenities: ['French Door Terrace','Rainfall Shower','King Bed','Free Wi-Fi','Smart TV','Nespresso'],
@@ -124,18 +115,15 @@ const ROOMS_DATA = [
     floor: 1,
     view: 'Panoramic Countryside',
     images: {
-      hero: 'assets/images/rooms/loft-suite-hero.webp',
-      alt: 'assets/images/rooms/loft-suite-alt.webp',
-      gallery: [
-        'assets/images/rooms/loft-suite-1.webp',
-        'assets/images/rooms/loft-suite-2.webp',
-      ]
+      hero: 'assets/images/rooms/loft-suite-hero.png',
+      alt: 'assets/images/rooms/loft-suite-alt.png',
+      gallery: []
     },
     amenities: ['Private Hot Tub','Vaulted Beams','Mezzanine','Free-Standing Bath','Nespresso','Minibar','Free Wi-Fi','Smart TV','Fireplace','In-Room Safe'],
     rate: { base: 420, currency: 'GBP', unit: 'night' },
     availability: 'available',
     availableCount: null,
-    tags: ['romantic','luxury','suite','hot-tub'],
+    tags: ['romantic','luxury','suite','hot-tub','heritage'],
     featured: true,
   },
   {
@@ -151,15 +139,15 @@ const ROOMS_DATA = [
     floor: 0,
     view: 'Walled Garden',
     images: {
-      hero: 'assets/images/rooms/garden-cottage-hero.webp',
-      alt: 'assets/images/rooms/garden-cottage-alt.webp',
+      hero: 'assets/images/rooms/garden-cottage-hero.png',
+      alt: 'assets/images/rooms/garden-cottage-hero.png',
       gallery: []
     },
     amenities: ['Separate Sitting Room','Log Burner','Kitchenette','King Bed','Private Garden','Free Wi-Fi','Smart TV','Nespresso','Washer/Dryer'],
     rate: { base: 290, currency: 'GBP', unit: 'night' },
     availability: 'unavailable',
     availableCount: 0,
-    tags: ['romantic','luxury','cottage','extended-stay'],
+    tags: ['romantic','luxury','cottage','extended-stay','heritage'],
     featured: false,
   },
 ];

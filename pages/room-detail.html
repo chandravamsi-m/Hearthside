@@ -15,34 +15,48 @@
       theme: {
         extend: {
           colors: {
-            // Heritage Palette
-            'forest': '#2C4A3E',
-            'forest-light': '#3D6656',
-            'brass': '#B8956A',
-            'brass-light': '#D4AF37',
-            'ink': '#1C2B26',
-            'coal': '#121514',
-            
-            // Neutrals
-            'parchment': '#F9F7F2',
-            'stone': '#E8E4D9',
-            'ash': '#A8A293',
-
-            // Functional Tags (Mapped to CSS Variables)
-            'bg-page': 'var(--bg-page)',
-            'bg-panel': 'var(--bg-panel)',
-            'text-headline': 'var(--text-headline)',
-            'text-body': 'var(--text-body)',
-            'text-muted': 'var(--text-muted)',
+            /* ── Brand Palette ── */
+            ink:           'var(--color-ink)',
+            forest:        'var(--color-forest)',
+            'forest-light':'var(--color-forest-light)',
+            brass:         'var(--color-brass)',
+            'brass-light': 'var(--color-brass-light)',
+            parchment:     'var(--color-parchment)',
+            stone:         'var(--color-stone)',
+            ash:           'var(--color-ash)',
+            coal:          'var(--color-coal)',
+            /* ── Legacy aliases ── */
+            primary:       'var(--color-forest)',
+            'primary-light':'var(--color-forest-light)',
+            accent:        'var(--color-brass)',
+            'accent-light':'var(--color-brass-light)',
+            surface:       'var(--color-parchment)',
+            'surface-dark':'var(--color-ash)',
+            'footer-dark': 'var(--color-coal)',
+            /* ── Functional Tokens ── */
+            'bg-page':     'var(--bg-page)',
+            'bg-section':  'var(--bg-section)',
+            'bg-panel':    'var(--bg-panel)',
+            'bg-deep':     'var(--bg-deep)',
+            'text-headline':'var(--text-headline)',
+            'text-body':   'var(--text-body)',
+            'text-muted':  'var(--text-muted)',
+            'text-inverse':'var(--text-inverse)',
+            /* Legacy */
+            'text-main':   'var(--text-headline)',
+            'bg-neutral':  'var(--bg-section)',
           },
           fontFamily: {
-            display: ['"Playfair Display"', 'serif'],
-            body: ['"Source Serif 4"', 'serif'],
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body:    ['"Source Serif 4"', 'Georgia', 'serif'],
+          },
+          borderRadius: {
+            sm: '4px', md: '8px', lg: '16px', xl: '24px', '2xl': '32px',
           },
           boxShadow: {
-            'card': '0 10px 30px -10px rgba(28, 43, 38, 0.08)',
-            'lift': '0 20px 40px -15px rgba(28, 43, 38, 0.12)',
-          }
+            card: '0 4px 16px rgba(28,43,38,0.08)',
+            lift: '0 12px 40px rgba(28,43,38,0.14)',
+          },
         }
       }
     }
@@ -60,209 +74,226 @@
 <body class="bg-bg-page text-text-main font-body transition-colors duration-300">
 
   <!-- Navbar -->
-  <nav data-navbar class="fixed top-0 left-0 right-0 z-50 bg-bg-page/80 backdrop-blur-lg transition-all duration-500 border-b border-ink/5 dark:border-parchment/5">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex justify-between items-center h-24">
-        
-        <!-- Logo -->
+  <nav data-navbar data-nav-dynamic="true" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
         <div class="flex-shrink-0">
           <a href="../index.html" class="flex items-center gap-0 group">
-            <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-            <span class="font-display text-3xl font-bold text-ink dark:text-parchment tracking-tighter uppercase leading-none">Hearthside</span>
+            <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110" data-nav-logo>
+            <span class="font-display text-2xl font-bold text-white tracking-tighter" data-nav-brand>Hearthside</span>
           </a>
         </div>
 
-        <!-- Desktop Navigation -->
-        <div class="hidden lg:flex items-center gap-10">
+        <div class="hidden lg:flex items-center gap-8">
+          <!-- Home Dropdown -->
           <div class="relative group" data-dropdown>
-            <button class="flex items-center gap-1 text-[10px] font-bold text-text-headline uppercase tracking-[0.2em] group-hover:text-brass transition-colors py-8">
-              Home <i data-lucide="chevron-down" class="w-3 h-3 opacity-50 group-hover:rotate-180 transition-transform"></i>
+            <button class="flex items-center gap-1.5 text-white hover:text-white font-semibold text-[15px] transition-colors py-8" data-nav-link>
+              <span>Home</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
             </button>
-            <div data-dropdown-menu class="absolute top-full left-0 w-56 bg-bg-panel border border-ink/5 dark:border-parchment/10 rounded-2xl shadow-lift hidden py-4 opacity-0 scale-95 transition-all group-hover:block group-hover:opacity-100 group-hover:scale-100">
-              <a href="../index.html" class="block px-6 py-3 text-[10px] font-bold uppercase tracking-widest text-text-muted hover:text-brass hover:bg-stone/20 dark:hover:bg-coal/20 transition-all">Home — Story</a>
-              <a href="home-2.html" class="block px-6 py-3 text-[10px] font-bold uppercase tracking-widest text-text-muted hover:text-brass hover:bg-stone/20 dark:hover:bg-coal/20 transition-all">Home — Direct</a>
+            <div data-dropdown-menu class="absolute top-full left-0 w-48 bg-bg-panel dark:bg-bg-panel rounded-xl shadow-lift border border-ink/8 dark:border-parchment/8 hidden py-2 opacity-0 invisible group-hover:block group-hover:opacity-100 group-hover:visible transition-all">
+              <a href="../index.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Home 1 — Story</a>
+              <a href="home-2.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Home 2 — Direct</a>
             </div>
           </div>
 
-          <a href="rooms.html" class="text-[10px] font-bold text-text-headline uppercase tracking-[0.2em] hover:text-brass transition-colors underline-offset-8">Bedrooms</a>
-          <a href="experiences.html" class="text-[10px] font-bold text-text-headline uppercase tracking-[0.2em] hover:text-brass transition-colors">Experiences</a>
-          <a href="about.html" class="text-[10px] font-bold text-text-headline uppercase tracking-[0.2em] hover:text-brass transition-colors">Story</a>
-          <a href="contact.html" class="text-[10px] font-bold text-text-headline uppercase tracking-[0.2em] hover:text-brass transition-colors">Inquiries</a>
+          <a href="about.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Story</a>
+          <a href="experiences.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Experiences</a>
+          <a href="rooms.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Rooms</a>
+          <a href="contact.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Contact</a>
 
+          <!-- Dashboard Dropdown -->
           <div class="relative group" data-dropdown>
-            <button class="flex items-center gap-1 text-[10px] font-bold text-text-headline uppercase tracking-[0.2em] group-hover:text-brass transition-colors py-8">
-              Portals <i data-lucide="chevron-down" class="w-3 h-3 opacity-50 group-hover:rotate-180 transition-transform"></i>
+            <button class="flex items-center gap-1.5 text-white hover:text-white font-semibold text-[15px] transition-colors py-8" data-nav-link>
+              <span>Dashboards</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
             </button>
-            <div data-dropdown-menu class="absolute top-full left-0 w-56 bg-bg-panel border border-ink/5 dark:border-parchment/10 rounded-2xl shadow-lift hidden py-4 opacity-0 scale-95 transition-all group-hover:block group-hover:opacity-100 group-hover:scale-100">
-              <a href="../dashboard/index.html" class="block px-6 py-3 text-[10px] font-bold uppercase tracking-widest text-text-muted hover:text-brass hover:bg-stone/20 dark:hover:bg-coal/20 transition-all">Guest Portal</a>
-              <a href="../admin/index.html" class="block px-6 py-3 text-[10px] font-bold uppercase tracking-widest text-text-muted hover:text-brass hover:bg-stone/20 dark:hover:bg-coal/20 transition-all">Admin Workspace</a>
+            <div data-dropdown-menu class="absolute top-full left-0 w-48 bg-bg-panel dark:bg-bg-panel rounded-xl shadow-lift border border-ink/8 dark:border-parchment/8 hidden py-2 opacity-0 invisible group-hover:block group-hover:opacity-100 group-hover:visible transition-all">
+              <a href="../dashboard/index.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Guest Portal</a>
+              <a href="../admin/index.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Admin Workspace</a>
             </div>
           </div>
         </div>
 
-        <!-- Utility -->
-        <div class="flex items-center gap-3">
-          <div class="flex bg-stone/30 dark:bg-coal/30 p-1 rounded-full border border-ink/5 dark:border-parchment/5">
-            <button data-rtl-toggle class="p-2 text-text-muted hover:text-brass transition-colors" title="Toggle RTL">
-              <i data-lucide="languages" class="w-4 h-4"></i>
-            </button>
-            <button data-dark-toggle class="p-2 text-text-muted hover:text-brass transition-colors">
-              <i data-lucide="moon" class="w-4 h-4"></i>
-            </button>
-          </div>
-          <a href="../auth/login.html" class="bg-forest hover:bg-forest-light text-white px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all shadow-md active:scale-95 hidden sm:block">Sign In</a>
-          
-          <button data-nav-hamburger class="p-2 lg:hidden text-text-headline">
-            <i data-lucide="menu" class="w-6 h-6"></i>
+        <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+          <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-white hover:text-white transition-colors rounded-full" data-nav-link>
+            <span class="text-[11px] font-bold tracking-widest leading-none" data-rtl-label>RTL</span>
+            <i data-lucide="move-horizontal" class="w-4 h-4"></i>
           </button>
+          <button data-dark-toggle class="p-2 text-white hover:text-white transition-colors rounded-full" data-nav-link>
+            <i data-lucide="moon" class="w-5 h-5"></i>
+          </button>
+          <a href="book.html" class="hidden sm:block border border-white/50 text-white px-5 py-2 rounded-full text-[11px] font-bold transition-all hover:bg-white hover:text-ink whitespace-nowrap" data-nav-btn="secondary">Book Now</a>
+          <a href="../auth/login.html" class="bg-brass hover:bg-brass-light text-white px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all shadow-md whitespace-nowrap">Sign In</a>
         </div>
+
+        <button data-nav-hamburger class="p-2 lg:hidden text-parchment hover:text-white outline-none" data-nav-link>
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
       </div>
     </div>
 
-    <!-- Mobile Menu -->
-    <aside data-nav-mobile class="fixed top-0 inset-inline-end-0 w-80 h-full bg-bg-page shadow-2xl lg:hidden translate-x-full rtl:-translate-x-full transition-transform duration-500 z-[60]">
-      <div class="p-8 flex flex-col h-full">
-        <div class="flex justify-between items-center mb-16">
-          <a href="../index.html" class="flex items-center gap-0">
-            <img src="../assets/images/logo.svg" alt="Logo" class="w-8 h-8">
-            <span class="font-display text-2xl font-bold text-ink dark:text-parchment tracking-tighter uppercase leading-none">Hearthside</span>
-          </a>
-          <button data-nav-close class="p-2 text-text-headline">
+    <div data-nav-overlay class="fixed inset-0 bg-ink/60 lg:hidden opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <aside data-nav-mobile class="fixed top-0 inset-inline-end-0 w-80 h-full bg-parchment dark:bg-ash shadow-lift lg:hidden translate-x-full rtl:-translate-x-full transition-transform duration-300 z-[60]">
+      <div class="p-10 space-y-10 h-full overflow-y-auto">
+        <div class="flex justify-between items-center mb-8">
+          <div class="flex items-center gap-2">
+            <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-8 h-8">
+            <span class="font-display text-xl font-bold text-ink dark:text-parchment">Hearthside</span>
+          </div>
+          <button data-nav-close class="p-2 text-ink/50 dark:text-parchment/50 hover:text-ink dark:hover:text-parchment transition-colors">
             <i data-lucide="x" class="w-6 h-6"></i>
           </button>
         </div>
-        <nav class="flex flex-col gap-8">
-          <a href="../index.html" class="text-xs font-bold uppercase tracking-[0.3em] text-text-headline">Home</a>
-          <a href="rooms.html" class="text-xs font-bold uppercase tracking-[0.3em] text-brass">Bedrooms</a>
-          <a href="experiences.html" class="text-xs font-bold uppercase tracking-[0.3em] text-text-headline">Experiences</a>
-          <a href="about.html" class="text-xs font-bold uppercase tracking-[0.3em] text-text-headline">Story</a>
-          <a href="contact.html" class="text-xs font-bold uppercase tracking-[0.3em] text-text-headline">Inquiries</a>
-        </nav>
-        <div class="mt-auto pt-10 border-t border-ink/5 dark:border-parchment/10">
-          <a href="../auth/login.html" class="block w-full bg-forest text-white text-center py-5 rounded-2xl font-bold uppercase tracking-widest text-[10px]">Sign In</a>
+        <div class="flex flex-col space-y-6 font-display text-3xl text-ink dark:text-parchment">
+          <a href="../index.html" class="hover:text-brass transition-colors">Home</a>
+          <a href="about.html" class="hover:text-brass transition-colors">Story</a>
+          <a href="experiences.html" class="hover:text-brass transition-colors">Experiences</a>
+          <a href="rooms.html" class="hover:text-brass transition-colors">Rooms</a>
+          <button data-rtl-toggle class="text-left flex items-center justify-between group text-2xl">
+             <div class="flex items-center gap-4">
+                <i data-lucide="move-horizontal" class="w-8 h-8 opacity-40"></i>
+                <span>RTL Layout</span>
+             </div>
+             <span class="text-xs font-bold text-brass px-4 py-1 bg-brass/10 rounded-full" data-rtl-label>LTR</span>
+          </button>
+        </div>
+        <div class="space-y-4 mt-auto">
+          <a href="book.html" class="block border-2 border-brass/30 text-brass dark:text-parchment text-center py-4 rounded-full font-bold hover:bg-brass hover:text-white transition-all">Book Now</a>
+          <a href="../auth/login.html" class="block bg-brass hover:bg-brass-light text-white text-center py-4 rounded-full font-bold shadow-lift transition-all">Sign In</a>
         </div>
       </div>
     </aside>
   </nav>
 
-  <main id="room-detail-container" class="pt-20">
+  <main id="room-detail-container" class="bg-bg-page overflow-hidden">
     <!-- Skeleton/Loading State -->
-    <div data-skeleton-loader class="max-w-7xl mx-auto px-6 py-32 space-y-12">
-        <div class="h-[70vh] bg-stone/20 dark:bg-coal/20 rounded-3xl animate-pulse"></div>
+    <div data-skeleton-loader class="max-w-7xl mx-auto px-4 py-32 space-y-12">
+        <div class="h-[75vh] bg-stone/20 dark:bg-coal/20 rounded-2xl animate-pulse"></div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
             <div class="space-y-6">
                 <div class="h-12 w-64 bg-stone/20 dark:bg-coal/20 rounded-xl animate-pulse"></div>
                 <div class="h-4 w-full bg-stone/20 dark:bg-coal/20 rounded-lg animate-pulse"></div>
-                <div class="h-4 w-5/6 bg-stone/20 dark:bg-coal/20 rounded-lg animate-pulse"></div>
             </div>
-            <div class="h-[400px] bg-stone/20 dark:bg-coal/20 rounded-3xl animate-pulse"></div>
+            <div class="h-[400px] bg-stone/20 dark:bg-coal/20 rounded-2xl animate-pulse"></div>
         </div>
     </div>
 
     <!-- Main Content (Populated by JS) -->
     <div id="room-content" class="hidden">
-        <!-- Hero Gallery -->
-        <section class="relative h-[85vh] overflow-hidden group">
-            <div data-room-gallery class="flex h-full w-full">
-                <img id="main-image" src="" alt="Room Hero" class="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105">
+        <!-- Cinematic Hero -->
+        <section class="relative h-[85vh] lg:h-screen overflow-hidden">
+            <div class="absolute inset-0">
+                <img id="main-image" src="" alt="Room Hero" class="w-full h-full object-cover transition-transform duration-[3000ms] animate-ken-burns">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
             </div>
             
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-
-            <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-10">
-                <button data-lightbox-trigger class="bg-white/10 dark:bg-black/20 backdrop-blur-xl border border-white/20 px-8 py-4 rounded-full text-[10px] font-bold uppercase tracking-widest text-white shadow-2xl flex items-center gap-3 hover:bg-white hover:text-ink transition-all active:scale-95 group">
-                    <i data-lucide="layout-grid" class="w-4 h-4 group-hover:rotate-90 transition-transform"></i>
-                    View Collection
-                </button>
+            <div class="absolute inset-0 flex flex-col items-center justify-end pb-32 text-center px-4">
+                <div class="reveal">
+                    <span id="room-category-badge" class="inline-block text-white uppercase tracking-[0.4em] text-[10px] font-bold mb-8 bg-brass/20 backdrop-blur-xl px-10 py-3 rounded-full border border-white/30 shadow-2xl">Boutique Selection</span>
+                    <h1 id="room-name" class="font-display text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-tight mb-10 drop-shadow-2xl">
+                        The Rose <i class="font-normal italic">Suite.</i>
+                    </h1>
+                    <div class="flex items-center justify-center gap-3 text-white mb-8 group drop-shadow-md">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-brass group-hover:scale-125 transition-transform"></i>
+                        <span id="room-view-val" class="text-[10px] font-bold uppercase tracking-[0.3em] leading-none opacity-90">Panoramic Countryside View</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Intro Section -->
-        <section class="py-24 px-6 bg-bg-page">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-24">
-                <!-- Left: Title & Description -->
-                <div class="lg:col-span-2 reveal">
-                    <div class="flex items-center gap-4 mb-8">
-                        <span id="room-category" class="text-brass uppercase tracking-[0.3em] text-[10px] font-bold border border-brass/30 px-4 py-1.5 rounded-full">Suite</span>
-                        <div class="flex text-brass gap-1">
-                            <i data-lucide="star" class="w-3.5 h-3.5 fill-brass"></i>
-                            <i data-lucide="star" class="w-3.5 h-3.5 fill-brass"></i>
-                            <i data-lucide="star" class="w-3.5 h-3.5 fill-brass"></i>
-                            <i data-lucide="star" class="w-3.5 h-3.5 fill-brass"></i>
-                            <i data-lucide="star" class="w-3.5 h-3.5 fill-brass"></i>
-                        </div>
-                    </div>
-                    <h1 id="room-name" class="font-display text-5xl md:text-7xl font-bold mb-10 text-text-headline leading-[1.1]">The Rose Suite</h1>
-                    <div class="flex flex-wrap gap-10 text-[10px] mb-12 pb-12 border-b border-ink/5 dark:border-parchment/10 text-text-muted font-bold uppercase tracking-[0.2em]">
-                        <span class="flex items-center gap-3"><i data-lucide="maximize" class="w-4 h-4 text-brass"></i> <span id="room-size">54 m²</span></span>
-                        <span class="flex items-center gap-3"><i data-lucide="bed" class="w-4 h-4 text-brass"></i> <span id="room-bed-type">King Bed</span></span>
-                        <span class="flex items-center gap-3"><i data-lucide="users" class="w-4 h-4 text-brass"></i> Max 2 Guests</span>
-                    </div>
+        <!-- Technical Breadcrumbs & Spec Bar -->
+        <div class="bg-bg-section border-y border-ink/5 dark:border-parchment/5 py-8 sticky top-20 z-30 backdrop-blur-md bg-opacity-95 hidden md:block">
+            <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+                <nav class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-text-muted">
+                    <a href="../index.html" class="hover:text-brass transition-colors">Home</a>
+                    <i data-lucide="chevron-right" class="w-3 h-3 opacity-30"></i>
+                    <a href="rooms.html" class="hover:text-brass transition-colors">Rooms</a>
+                    <i data-lucide="chevron-right" class="w-3 h-3 opacity-30"></i>
+                    <span id="breadcrumb-name" class="text-text-headline">The Rose Suite</span>
+                </nav>
+                <div class="flex items-center gap-12 text-[10px] font-bold uppercase tracking-widest text-text-muted">
+                    <span class="flex items-center gap-2.5"><i data-lucide="maximize" class="w-3.5 h-3.5 text-brass"></i> <span id="room-size">52 m²</span></span>
+                    <span class="flex items-center gap-2.5"><i data-lucide="bed" class="w-3.5 h-3.5 text-brass"></i> <span id="room-bed-type">King Size</span></span>
+                    <span class="flex items-center gap-2.5"><i data-lucide="users" class="w-3.5 h-3.5 text-brass"></i> <span id="room-guests-val">2 Guests</span></span>
+                </div>
+            </div>
+        </div>
 
-                    <p id="room-desc" class="text-text-body text-xl leading-relaxed mb-16 serif italic first-letter:text-5xl first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-display first-letter:text-brass">
+        <!-- Narrative Section -->
+        <section class="py-16 px-4 bg-bg-page">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <!-- Left: Editorial Column -->
+                <div class="lg:col-span-7 reveal">
+                    <span class="text-brass uppercase tracking-[0.4em] text-[10px] font-bold mb-8 block">Property Note</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-10 text-text-headline leading-tight">Heritage Charm & <br><i class="font-normal italic text-brass">Contemporary Repose.</i></h2>
+                    
+                    <div id="room-desc" class="text-text-body text-xl leading-relaxed mb-16 serif italic first-letter:text-5xl first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-display first-letter:text-brass opacity-90">
                         <!-- Description injected here -->
-                    </p>
+                    </div>
 
-                    <h3 class="font-display text-2xl font-bold mb-10 text-text-headline">Amenities & Features</h3>
-                    <div id="amenities-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-y-6 gap-x-12">
-                        <!-- Amenities injected here -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-4">
+                        <div class="space-y-6">
+                            <h3 class="font-display text-2xl font-bold text-text-headline">The Amenities</h3>
+                            <ul id="amenities-grid-1" class="space-y-4">
+                                <!-- Amenities Col 1 -->
+                            </ul>
+                        </div>
+                        <div class="space-y-6 md:pt-14">
+                            <ul id="amenities-grid-2" class="space-y-4">
+                                <!-- Amenities Col 2 -->
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Right: Sticky Booking Box -->
-                <div class="reveal stagger-2">
-                    <div class="sticky top-32 bg-bg-panel p-10 rounded-[2.5rem] shadow-card border border-ink/5 dark:border-parchment/10">
-                        <div class="flex justify-between items-end mb-10">
-                            <span class="text-text-muted text-[10px] font-bold uppercase tracking-[0.2em]">Signature Rate</span>
-                            <div class="text-right">
-                                <p class="text-4xl font-display font-bold text-text-headline">£<span id="room-price">340</span></p>
-                                <p class="text-[9px] text-text-muted uppercase tracking-[0.2em] font-bold mt-1">Direct Arrival</p>
+                <!-- Right: Booking Sidepanel -->
+                <div class="lg:col-span-5 reveal stagger-2">
+                    <div class="sticky top-40 bg-bg-panel p-8 md:p-12 rounded-[2.5rem] shadow-lift border border-ink/5 dark:border-parchment/10">
+                        <div class="flex justify-between items-end mb-12">
+                            <div>
+                                <span class="text-text-muted text-[10px] font-bold uppercase tracking-[0.2em] block mb-2">Refined Rate</span>
+                                <h3 class="text-4xl font-display font-bold text-text-headline">£<span id="room-price">340</span> <span class="text-xs font-sans font-bold text-text-muted tracking-widest uppercase">/ Night</span></h3>
+                            </div>
+                            <div class="text-right flex items-center gap-1.5 p-2 bg-stone/20 dark:bg-parchment/10 rounded-xl">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-brass"></i>
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-text-headline">Verified</span>
                             </div>
                         </div>
 
                         <div class="space-y-4 mb-10">
                             <div class="grid grid-cols-2 gap-3">
                                 <div class="bg-stone/20 dark:bg-coal/20 border border-ink/5 dark:border-parchment/5 rounded-2xl p-4">
-                                    <label class="block text-[9px] text-text-muted uppercase font-bold tracking-widest mb-1.5 opacity-60">Arrival</label>
+                                    <label class="block text-[8px] text-text-muted uppercase font-bold tracking-widest mb-1 opacity-60">Arrival</label>
                                     <input type="date" class="w-full bg-transparent border-none p-0 text-xs font-bold focus:ring-0 text-text-headline" value="2024-10-12">
                                 </div>
                                 <div class="bg-stone/20 dark:bg-coal/20 border border-ink/5 dark:border-parchment/5 rounded-2xl p-4">
-                                    <label class="block text-[9px] text-text-muted uppercase font-bold tracking-widest mb-1.5 opacity-60">Departure</label>
+                                    <label class="block text-[8px] text-text-muted uppercase font-bold tracking-widest mb-1 opacity-60">Departure</label>
                                     <input type="date" class="w-full bg-transparent border-none p-0 text-xs font-bold focus:ring-0 text-text-headline" value="2024-10-15">
                                 </div>
                             </div>
-                            <div class="bg-stone/20 dark:bg-coal/20 border border-ink/5 dark:border-parchment/5 rounded-2xl p-4">
-                                <label class="block text-[9px] text-text-muted uppercase font-bold tracking-widest mb-1.5 opacity-60">Occupancy</label>
-                                <select class="w-full bg-transparent border-none p-0 text-xs font-bold focus:ring-0 text-text-headline appearance-none">
-                                    <option>2 Adults</option>
-                                    <option>1 Adult</option>
+                            <div class="bg-stone/20 dark:bg-coal/20 border border-ink/5 dark:border-parchment/5 rounded-2xl p-4 relative">
+                                <label class="block text-[8px] text-text-muted uppercase font-bold tracking-widest mb-1 opacity-60">Occupancy</label>
+                                <select class="w-full bg-transparent border-none p-0 text-xs font-bold focus:ring-0 text-text-headline appearance-none pr-8">
+                                    <option>2 Adults · Sanctuary</option>
+                                    <option>1 Adult · Sanctuary</option>
                                 </select>
+                                <i data-lucide="chevron-down" class="absolute right-4 bottom-4 w-4 h-4 text-text-muted"></i>
                             </div>
                         </div>
 
-                        <button id="book-now-btn" class="w-full bg-forest hover:bg-forest-light text-white py-5 rounded-2xl font-bold uppercase tracking-widest text-[10px] transition-all shadow-lg mb-6 active:scale-[0.98]">Confirm Availability</button>
-                        <div class="flex items-center justify-center gap-2 opacity-50 grayscale">
-                            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brass"></i>
-                            <p class="text-[9px] text-text-muted uppercase tracking-[0.2em] font-bold">Secure Editorial Booking</p>
+                        <a id="book-now-btn" href="book.html" class="inline-block w-full text-center bg-brass hover:bg-brass-light text-white py-5 rounded-full font-bold uppercase tracking-[0.2em] text-[10px] transition-all shadow-xl hover:-translate-y-1 active:scale-95 mb-8">Reserve Sanctuary</a>
+                        
+                        <div class="space-y-4 pt-6 border-t border-ink/5 dark:border-parchment/10">
+                            <div class="flex items-center gap-4 text-[9px] font-bold uppercase tracking-widest text-text-muted">
+                                <i data-lucide="coffee" class="w-3.5 h-3.5 text-brass"></i>
+                                <span>Complimentary Seasonal Breakfast</span>
+                            </div>
+                            <div class="flex items-center gap-4 text-[9px] font-bold uppercase tracking-widest text-text-muted">
+                                <i data-lucide="refresh-ccw" class="w-3.5 h-3.5 text-brass"></i>
+                                <span>Flexible Editorial Cancellation</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Room Specific Highlight -->
-        <section class="py-32 bg-stone/20 dark:bg-coal/20 border-t border-ink/5 dark:border-parchment/5">
-            <div class="max-w-7xl mx-auto px-6 text-center">
-                <span class="text-brass uppercase tracking-[0.4em] text-[10px] font-bold mb-6 block">Refined Selection</span>
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-16 text-text-headline leading-tight">Handcrafted Details &<br>Curated Comfort</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 h-[500px]">
-                    <div class="rounded-3xl overflow-hidden reveal shadow-lift border border-ink/5 dark:border-parchment/10 relative group">
-                        <img id="detail-img-1" src="" alt="Detail" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-ink/10 group-hover:bg-transparent transition-colors"></div>
-                    </div>
-                    <div class="rounded-3xl overflow-hidden reveal stagger-2 shadow-lift border border-ink/5 dark:border-parchment/10 relative group">
-                        <img id="detail-img-2" src="" alt="Detail" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-ink/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
                 </div>
             </div>
@@ -272,26 +303,26 @@
 
   <!-- Footer -->
   <footer class="bg-coal text-white pt-24 pb-12 border-t border-white/5">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-8">
         
         <!-- Brand & Story -->
         <div class="lg:col-span-4 space-y-6">
           <a href="../index.html" class="flex items-center gap-0 group">
-            <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110 brightness-0 invert opacity-90">
-            <span class="font-display text-3xl font-bold text-brass tracking-tighter uppercase leading-none">Hearthside</span>
+            <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110 opacity-90">
+            <span class="font-display text-3xl font-bold text-white tracking-tighter uppercase leading-none">Hearthside</span>
           </a>
-          <p class="text-parchment/40 leading-relaxed text-base max-w-sm">
+          <p class="text-parchment/60 leading-relaxed text-base max-w-sm">
             A collection of heritage bedrooms and boutique suites in the heart of the Cotswolds. Designed for those who seek the luxury of the slow.
           </p>
           <div class="flex space-x-6">
-            <a href="#" class="text-parchment/30 hover:text-brass transition-colors" aria-label="Instagram">
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
             </a>
-            <a href="#" class="text-parchment/30 hover:text-brass transition-colors" aria-label="Facebook">
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Facebook">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             </a>
-            <a href="#" class="text-parchment/30 hover:text-brass transition-colors" aria-label="Pinterest">
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Pinterest">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pinterest"><path d="M8 22c.67-2.33 1.33-4.67 2-7-.67-1.33-1-2.67-1-4a7 7 0 0 1 14 0c0 3.86-3.14 7-7 7-.67 0-1.33-.17-2-.5.33 1.67.67 3.33 1 5"/><circle cx="12" cy="11" r="1.5"/></svg>
             </a>
           </div>
@@ -300,20 +331,20 @@
         <!-- Navigation Grid -->
         <div class="lg:col-span-4 grid grid-cols-2 gap-8">
           <div class="space-y-6">
-            <h3 class="text-[10px] font-bold text-white tracking-[0.4em] uppercase opacity-50">Discover</h3>
+            <h3 class="text-[10px] font-bold text-brass tracking-[0.4em] uppercase">Discover</h3>
             <ul class="space-y-3 text-sm font-medium">
-              <li><a href="rooms.html" class="text-parchment/40 hover:text-brass transition-colors hover:translate-x-1 inline-block">Bedrooms</a></li>
-              <li><a href="experiences.html" class="text-parchment/40 hover:text-brass transition-colors hover:translate-x-1 inline-block">The Experience</a></li>
-              <li><a href="about.html" class="text-parchment/40 hover:text-brass transition-colors hover:translate-x-1 inline-block">Our Story</a></li>
-              <li><a href="about.html#faq" class="text-parchment/40 hover:text-brass transition-colors hover:translate-x-1 inline-block">Help & FAQ</a></li>
+              <li><a href="rooms.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Rooms</a></li>
+              <li><a href="experiences.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">The Experience</a></li>
+              <li><a href="about.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Our Story</a></li>
+              <li><a href="about.html#faq" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Help & FAQ</a></li>
             </ul>
           </div>
           <div class="space-y-6">
-            <h3 class="text-[10px] font-bold text-white tracking-[0.4em] uppercase opacity-50">Local</h3>
-            <ul class="space-y-3 text-sm font-medium text-parchment/40">
+            <h3 class="text-[10px] font-bold text-brass tracking-[0.4em] uppercase">Local</h3>
+            <ul class="space-y-3 text-sm font-medium text-parchment/60">
               <li class="leading-relaxed">Mill Lane, Thorntree,<br>Gloucestershire, UK</li>
               <li>+44 (0) 1451 820 000</li>
-              <li><a href="contact.html" class="text-parchment/40 hover:text-brass transition-colors hover:translate-x-1 inline-block">Inquiries</a></li>
+              <li><a href="contact.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Inquiries</a></li>
             </ul>
           </div>
         </div>
@@ -329,12 +360,12 @@
                 Join <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-2 group-hover:translate-x-1 transition-transform"></i>
               </button>
             </form>
-          </div>
+           </div>
         </div>
       </div>
 
       <!-- Bottom -->
-      <div class="pt-8 border-t border-parchment/5 flex flex-col md:flex-row justify-between items-center text-[10px] text-parchment/30 uppercase tracking-widest space-y-6 md:space-y-0">
+      <div class="pt-8 border-t border-parchment/5 flex flex-col md:flex-row justify-between items-center text-[10px] text-parchment/50 uppercase tracking-widest space-y-6 md:space-y-0">
         <p>&copy; 2024 Hearthside Boutique Hotel. All Rights Reserved.</p>
         <div class="flex space-x-12">
           <a href="about.html#values" class="hover:text-brass transition-colors">Sustainability</a>
@@ -364,45 +395,55 @@
                 const content = document.getElementById('room-content');
                 if (content) content.classList.remove('hidden');
 
-                const nameEl = document.getElementById('room-name');
-                if (nameEl) nameEl.textContent = room.name;
+                // Hero & Basic Info
+                document.getElementById('room-name').innerHTML = room.name.replace('The ', 'The <i class="font-normal italic">') + '.</i>';
+                document.getElementById('breadcrumb-name').textContent = room.name;
+                document.getElementById('room-category-badge').textContent = room.type.toUpperCase() + ' Selection';
+                document.getElementById('room-view-val').textContent = room.view + ' View';
+                
+                // Specs
+                document.getElementById('room-price').textContent = room.rate.base;
+                document.getElementById('room-size').textContent = room.areaM2 + ' m²';
+                document.getElementById('room-bed-type').textContent = room.bedType;
+                document.getElementById('room-guests-val').textContent = room.maxGuests + ' Guests';
 
-                const catEl = document.getElementById('room-category');
-                if (catEl) catEl.textContent = room.type.toUpperCase();
+                // Description
+                document.getElementById('room-desc').textContent = room.description;
 
-                const priceEl = document.getElementById('room-price');
-                if (priceEl) priceEl.textContent = room.rate.base;
-
-                const sizeEl = document.getElementById('room-size');
-                if (sizeEl) sizeEl.textContent = room.areaM2 + ' m²';
-
-                const bedEl = document.getElementById('room-bed-type');
-                if (bedEl) bedEl.textContent = room.bedType;
-
-                const descEl = document.getElementById('room-desc');
-                if (descEl) descEl.textContent = room.description;
-
+                // Images
                 const mainImg = document.getElementById('main-image');
                 if (mainImg) mainImg.src = `../${room.images.hero}`;
                 
                 const dImg1 = document.getElementById('detail-img-1');
-                if (dImg1) dImg1.src = room.images.gallery[0] ? `../${room.images.gallery[0]}` : `../${room.images.hero}`;
+                if (dImg1) dImg1.src = room.images.alt ? `../${room.images.alt}` : `../${room.images.hero}`;
                 
                 const dImg2 = document.getElementById('detail-img-2');
-                if (dImg2) dImg2.src = room.images.gallery[1] ? `../${room.images.gallery[1]}` : `../${room.images.hero}`;
+                if (dImg2) dImg2.src = room.images.gallery && room.images.gallery[0] ? `../${room.images.gallery[0]}` : `../${room.images.hero}`;
 
-                const amenitiesGrid = document.getElementById('amenities-grid');
-                if (amenitiesGrid) {
-                    amenitiesGrid.innerHTML = room.amenities.slice(0, 8).map(a => `
-                        <div class="flex items-center gap-3 text-[11px] text-text-muted font-bold uppercase tracking-widest transition-all hover:text-brass group">
-                            <i data-lucide="check" class="w-3.5 h-3.5 text-brass group-hover:scale-110 transition-transform"></i>
+                // Amenities Split Grid
+                const grid1 = document.getElementById('amenities-grid-1');
+                const grid2 = document.getElementById('amenities-grid-2');
+                if (grid1 && grid2) {
+                    const mid = Math.ceil(room.amenities.length / 2);
+                    const renderAmenity = a => `
+                        <li class="flex items-center gap-4 text-[10px] text-text-muted font-bold uppercase tracking-widest transition-all hover:text-brass group">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-brass group-hover:scale-125 transition-transform"></i>
                             ${a}
-                        </div>
-                    `).join('');
-                    if (window.lucide) lucide.createIcons();
+                        </li>
+                    `;
+                    grid1.innerHTML = room.amenities.slice(0, mid).map(renderAmenity).join('');
+                    grid2.innerHTML = room.amenities.slice(mid).map(renderAmenity).join('');
                 }
 
+                // Booking Button Deep-link
+                const bookBtn = document.getElementById('book-now-btn');
+                if (bookBtn) bookBtn.href = `book.html?room=${roomId}`;
+
+                if (window.lucide) lucide.createIcons();
                 document.title = `${room.name} — Hearthside Retreat`;
+
+                // Re-init Reveal for newly visible content
+                if (window.ScrollReveal) window.ScrollReveal.init();
             }, 800);
           }
       }

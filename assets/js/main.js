@@ -52,40 +52,52 @@ const Navbar = {
     const updateNavbar = () => {
       const isScrolled = window.scrollY > 50;
       const isDynamic = n?.dataset.navDynamic === 'true';
+      const isLightHero = n?.dataset.navLightHero === 'true';
       
-      // Navbar Base
-      n?.classList.toggle('bg-white', isScrolled); 
-      n?.classList.toggle('dark:bg-ash', isScrolled);
-      n?.classList.remove('backdrop-blur-md', 'backdrop-blur-sm', 'backdrop-blur'); 
-      n?.classList.toggle('border-ink/8', isScrolled);
-      n?.classList.toggle('dark:border-parchment/8', isScrolled);
-      n?.classList.toggle('shadow-md', isScrolled);
+      // Use White Text logic: Only when at the top AND on a dynamic (hero) page AND not a light-bg hero
+      const useWhiteText = isDynamic && !isScrolled && !isLightHero;
+
+      // Navbar Background & Border Logic
+      if (isDynamic) {
+        // Dynamic Page (Hero): Transparent at top, Solid on scroll
+        n?.classList.toggle('bg-white', isScrolled); 
+        n?.classList.toggle('dark:bg-bg-panel', isScrolled);
+        n?.classList.toggle('border-transparent', !isScrolled);
+        n?.classList.toggle('border-ink/8', isScrolled);
+        n?.classList.toggle('dark:border-parchment/8', isScrolled);
+        n?.classList.toggle('shadow-md', isScrolled);
+        n?.classList.toggle('backdrop-blur-md', isScrolled);
+      } else {
+        // Standard Page: Always solid with consistent background
+        n?.classList.add('bg-white', 'dark:bg-bg-panel', 'border-ink/8', 'dark:border-parchment/8', 'shadow-md', 'backdrop-blur-md');
+        n?.classList.remove('border-transparent');
+      }
       
       // Brand & Logo
       if (brand) {
-        brand.classList.toggle('text-white', !isScrolled && !isDynamic);
-        brand.classList.toggle('text-text-headline', isScrolled || (isDynamic && !isScrolled));
+        brand.classList.toggle('text-white', useWhiteText);
+        brand.classList.toggle('text-text-headline', !useWhiteText);
       }
 
       links.forEach(link => {
-        link.classList.toggle('text-white', !isScrolled && !isDynamic);
+        link.classList.toggle('text-white', useWhiteText);
         link.classList.remove('text-white/70', 'text-parchment/50', 'text-parchment/60'); 
-        link.classList.toggle('text-text-body', isScrolled || (isDynamic && !isScrolled));
-        link.classList.toggle('hover:text-white', !isScrolled && !isDynamic);
-        link.classList.toggle('hover:text-brass', isScrolled || (isDynamic && !isScrolled));
+        link.classList.toggle('text-text-body', !useWhiteText);
+        link.classList.toggle('hover:text-white', useWhiteText);
+        link.classList.toggle('hover:text-brass', !useWhiteText);
       });
 
       // Buttons
       if (btnSecondary) {
-        btnSecondary.classList.toggle('border-white/50', !isScrolled && !isDynamic);
-        btnSecondary.classList.toggle('text-white', !isScrolled && !isDynamic);
-        btnSecondary.classList.toggle('hover:bg-white', !isScrolled && !isDynamic);
-        btnSecondary.classList.toggle('hover:text-ink', !isScrolled && !isDynamic);
+        btnSecondary.classList.toggle('border-white/50', useWhiteText);
+        btnSecondary.classList.toggle('text-white', useWhiteText);
+        btnSecondary.classList.toggle('hover:bg-white', useWhiteText);
+        btnSecondary.classList.toggle('hover:text-ink', useWhiteText);
 
-        btnSecondary.classList.toggle('border-ink/30', isScrolled || (isDynamic && !isScrolled));
-        btnSecondary.classList.toggle('text-text-body', isScrolled || (isDynamic && !isScrolled));
-        btnSecondary.classList.toggle('hover:bg-ink', isScrolled || (isDynamic && !isScrolled));
-        btnSecondary.classList.toggle('hover:text-white', isScrolled || (isDynamic && !isScrolled));
+        btnSecondary.classList.toggle('border-ink/30', !useWhiteText);
+        btnSecondary.classList.toggle('text-text-body', !useWhiteText);
+        btnSecondary.classList.toggle('hover:bg-ink', !useWhiteText);
+        btnSecondary.classList.toggle('hover:text-white', !useWhiteText);
       }
     };
 
@@ -103,8 +115,9 @@ const Navbar = {
     const cur = decodeURIComponent(window.location.pathname);
     
     document.querySelectorAll('nav a, aside a, [data-dropdown] button').forEach(el => {
-      // Skip branding/logo
+      // Skip branding/logo and Action Buttons (Book Now, etc.) from active highlighting
       if (el.classList.contains('font-display') && (el.classList.contains('text-2xl') || el.classList.contains('text-3xl'))) return;
+      if (el.hasAttribute('data-nav-btn')) return;
 
       const href = el.getAttribute('href');
       const text = el.textContent.trim().toLowerCase();
@@ -246,6 +259,11 @@ const Accordion = {
     });
   }
 };
+
+// Global Exposure for Dynamic Content
+window.DarkMode = DarkMode;
+window.Navbar = Navbar;
+window.ScrollReveal = ScrollReveal;
 
 document.addEventListener('DOMContentLoaded', () => {
   DarkMode.init();

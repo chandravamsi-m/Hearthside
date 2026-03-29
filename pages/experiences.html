@@ -74,20 +74,21 @@
 <body class="bg-bg-page text-text-body font-body transition-colors duration-300">
 
   <!-- Navbar -->
-  <nav data-navbar data-nav-dynamic="true" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+  <!-- Navbar -->
+  <nav data-navbar data-nav-dynamic="true" data-nav-light-hero="true" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         <div class="flex-shrink-0">
           <a href="../index.html" class="flex items-center gap-0 group">
             <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110" data-nav-logo>
-            <span class="font-display text-2xl font-bold text-text-headline tracking-tighter" data-nav-brand>Hearthside</span>
+            <span class="font-display text-2xl font-bold text-white tracking-tighter" data-nav-brand>Hearthside</span>
           </a>
         </div>
 
         <div class="hidden lg:flex items-center gap-8">
           <!-- Home Dropdown -->
           <div class="relative group" data-dropdown>
-            <button class="flex items-center gap-1.5 text-text-headline hover:text-brass font-semibold text-[15px] transition-colors py-8" data-nav-link>
+            <button class="flex items-center gap-1.5 text-white hover:text-white font-semibold text-[15px] transition-colors py-8" data-nav-link>
               <span>Home</span>
               <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
             </button>
@@ -97,14 +98,14 @@
             </div>
           </div>
 
-          <a href="about.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Story</a>
-          <a href="experiences.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Experiences</a>
-          <a href="rooms.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Rooms</a>
-          <a href="contact.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Contact</a>
+          <a href="about.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Story</a>
+          <a href="experiences.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Experiences</a>
+          <a href="rooms.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Rooms</a>
+          <a href="contact.html" class="text-white hover:text-white font-semibold text-[15px] transition-colors" data-nav-link>Contact</a>
 
           <!-- Dashboard Dropdown -->
           <div class="relative group" data-dropdown>
-            <button class="flex items-center gap-1.5 text-text-headline hover:text-brass font-semibold text-[15px] transition-colors py-8" data-nav-link>
+            <button class="flex items-center gap-1.5 text-white hover:text-white font-semibold text-[15px] transition-colors py-8" data-nav-link>
               <span>Dashboards</span>
               <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
             </button>
@@ -116,18 +117,18 @@
         </div>
 
         <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-          <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-text-headline hover:text-brass transition-colors rounded-full" data-nav-link>
+          <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-white hover:text-white transition-colors rounded-full" data-nav-link>
             <span class="text-[11px] font-bold tracking-widest leading-none" data-rtl-label>RTL</span>
             <i data-lucide="move-horizontal" class="w-4 h-4"></i>
           </button>
-          <button data-dark-toggle class="p-2 text-text-headline hover:text-brass transition-colors rounded-full" data-nav-link>
+          <button data-dark-toggle class="p-2 text-white hover:text-white transition-colors rounded-full" data-nav-link>
             <i data-lucide="moon" class="w-5 h-5"></i>
           </button>
-          <a href="rooms.html" class="hidden sm:block border border-ink/30 text-text-headline px-5 py-2 rounded-full text-[11px] font-bold transition-all hover:bg-ink hover:text-white dark:border-white/30 dark:hover:bg-white dark:hover:text-ink whitespace-nowrap" data-nav-btn="secondary">Book Now</a>
+          <a href="book.html" class="hidden sm:block border border-white/50 text-white px-5 py-2 rounded-full text-[11px] font-bold transition-all hover:bg-white hover:text-ink whitespace-nowrap" data-nav-btn="secondary">Book Now</a>
           <a href="../auth/login.html" class="bg-brass hover:bg-brass-light text-white px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all shadow-md whitespace-nowrap">Sign In</a>
         </div>
 
-        <button data-nav-hamburger class="p-2 lg:hidden text-text-headline hover:text-brass outline-none" data-nav-link>
+        <button data-nav-hamburger class="p-2 lg:hidden text-parchment hover:text-white outline-none" data-nav-link>
           <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
       </div>
@@ -159,7 +160,7 @@
           </button>
         </div>
         <div class="space-y-4 mt-auto">
-          <a href="rooms.html" class="block border-2 border-brass text-brass text-center py-4 rounded-2xl font-bold hover:bg-brass hover:text-white transition-all">Book Now</a>
+          <a href="book.html" class="block border-2 border-brass text-brass text-center py-4 rounded-2xl font-bold hover:bg-brass hover:text-white transition-all">Book Now</a>
           <a href="../auth/login.html" class="block bg-brass hover:bg-brass-light text-white text-center py-4 rounded-2xl font-bold shadow-lift transition-all">Sign In</a>
         </div>
       </div>
@@ -168,24 +169,24 @@
 
   <main>
     <!-- Page Header -->
-    <header class="relative pt-44 pb-20 overflow-hidden bg-bg-page">
-        <div class="max-w-4xl mx-auto px-4 text-center reveal">
-            <span class="text-brass uppercase tracking-[0.3em] text-[10px] font-bold mb-6 block">The Hearthside Way</span>
-            <h1 class="font-display text-5xl md:text-6xl text-text-headline font-bold mb-8">Curated <i class="font-normal italic">Experiences.</i></h1>
-            <p class="text-text-muted text-lg max-w-2xl mx-auto italic border-t border-ink/5 pt-8 mt-8">
-                "Moments designed to connect you to the restorative rhythm of the Cotswolds."
+    <header class="relative pt-44 pb-16 overflow-hidden bg-bg-page border-b border-ink/5">
+        <div class="max-w-7xl mx-auto px-4 text-center reveal">
+            <span class="text-brass uppercase tracking-[0.3em] text-[10px] font-bold mb-6 block">The Hearthside Life</span>
+            <h1 class="font-display text-5xl md:text-6xl text-text-headline font-bold mb-6">Curated <i class="font-normal italic">Experiences.</i></h1>
+            <p class="text-text-muted text-lg max-w-2xl mx-auto italic">
+                From foraging in the wolds to private fireside tastings, discover the luxury of slow living.
             </p>
         </div>
     </header>
 
     <!-- Experience pillars -->
-    <section class="py-24 px-4 bg-bg-section">
-        <div class="max-w-7xl mx-auto space-y-32">
+    <section class="py-16 px-4 bg-bg-section">
+        <div class="max-w-7xl mx-auto">
             <!-- Experience 1: Gastronomy -->
             <div class="flex flex-col lg:flex-row items-center gap-20">
                 <div class="flex-1 reveal">
                     <div class="relative group">
-                        <img src="../assets/images/breakfast_gourmet_main.png" alt="Seasonal Breakfasts" class="rounded-2xl shadow-lift w-full transition-transform duration-700 group-hover:scale-[1.02]">
+                        <img src="../assets/images/experience_breakfast.png" alt="Seasonal Breakfasts" class="rounded-2xl shadow-lift w-full transition-transform duration-700 group-hover:scale-[1.02]">
                     </div>
                 </div>
                 <div class="flex-1 reveal stagger-2">
@@ -201,7 +202,7 @@
                             <p class="text-[10px] text-text-muted font-bold uppercase tracking-widest leading-none">Pre-book Required</p>
                         </div>
                     </div>
-                    <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-3 bg-ink text-white rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lift hover:bg-brass transition-all group">View Dining Menu <i data-lucide="arrow-right" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"></i></a>
+                    <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-3 bg-brass text-white rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lift hover:bg-brass-light transition-all group">View Dining Menu <i data-lucide="arrow-right" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"></i></a>
                 </div>
             </div>
 
@@ -209,12 +210,12 @@
     </section>
 
     <!-- Experience 2: Wellness -->
-    <section class="py-24 px-4 bg-bg-page border-y border-ink/5">
+    <section class="py-16 px-4 bg-bg-page border-y border-ink/5">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col lg:flex-row-reverse items-center gap-20">
                 <div class="flex-1 reveal">
                     <div class="relative group">
-                        <img src="../assets/images/experience_trails_misty.png" alt="Wellness" class="rounded-2xl shadow-lift w-full transition-transform duration-700 group-hover:scale-[1.02]">
+                        <img src="../assets/images/experience-2.avif" alt="Wellness" class="rounded-2xl shadow-lift w-full transition-transform duration-700 group-hover:scale-[1.02]">
                     </div>
                 </div>
                 <div class="flex-1 reveal stagger-2">
@@ -224,45 +225,42 @@
                         <li class="flex items-center gap-3 text-sm text-text-body font-medium italic"><i data-lucide="check" class="w-4 h-4 text-brass"></i> Organic Wildsmith Skin Rituals</li>
                         <li class="flex items-center gap-3 text-sm text-text-body font-medium italic"><i data-lucide="check" class="w-4 h-4 text-brass"></i> Guided Morning Yoga (Saturdays)</li>
                     </ul>
-                    <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-3 border border-ink/30 text-text-headline rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-ink hover:text-white transition-all group">Request Treatment Menu <i data-lucide="arrow-right" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"></i></a>
+                    <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-3 bg-brass text-white rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lift hover:bg-brass-light transition-all group">Request Treatment Menu <i data-lucide="arrow-right" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Experience 3: The Library -->
-    <section class="py-32 px-4 bg-bg-section">
+    <section class="py-16 px-4 bg-bg-section">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col lg:flex-row items-center gap-20">
                 <div class="flex-1 reveal">
                     <div class="relative group">
-                        <img src="../assets/images/intro_interior.png" alt="The Library" class="rounded-2xl shadow-lift w-full transition-transform duration-700 group-hover:scale-[1.02]">
+                        <img src="../assets/images/experience-3.avif" alt="The Library" class="rounded-2xl shadow-lift w-full transition-transform duration-700 group-hover:scale-[1.02]">
                     </div>
                 </div>
                 <div class="flex-1 reveal stagger-2">
                     <h3 class="font-display text-4xl font-bold mb-6 text-text-headline">The Curator's <br>Library</h3>
                     <p class="text-text-muted text-lg leading-relaxed mb-8">Our ground-floor library is stocked with over 600 heritage titles, rare Cotswolds maps, and a collection of vintage film cameras available for guest use.</p>
-                    <p class="text-sm text-brass italic font-serif leading-relaxed font-bold border-l-2 border-brass/30 pl-6">
+                    <p class="text-sm text-brass italic font-serif leading-relaxed font-bold border-l-2 border-brass/30 pl-6 mb-10">
                         "A record player and a glass of local cider — the perfect afternoon."
                     </p>
+                    <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-3 bg-brass text-white rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lift hover:bg-brass-light transition-all group">Explore the Library <i data-lucide="arrow-right" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Experience Booking CTA -->
-    <section class="py-28 bg-coal text-white overflow-hidden relative border-t border-white/5">
-        <div class="absolute inset-0 opacity-10 pointer-events-none">
-            <div class="absolute top-0 left-0 w-64 h-64 bg-brass blur-[120px] -translate-x-1/2 -translate-y-1/2 opacity-30"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-brass blur-[150px] translate-x-1/2 translate-y-1/2 opacity-20"></div>
-        </div>
+    <section class="py-16 bg-bg-page overflow-hidden relative border-t border-ink/5">
         <div class="max-w-4xl mx-auto px-4 text-center reveal relative z-10">
             <span class="text-brass uppercase tracking-[0.4em] text-[10px] font-bold mb-6 block">Begin Your Journey</span>
-            <h2 class="font-display text-4xl md:text-5xl font-bold mb-8">Personalize Your <i class="font-normal italic text-brass">Retreat.</i></h2>
-            <p class="mb-12 text-parchment/60 max-w-2xl mx-auto leading-relaxed text-lg">Most experiences can be added during your booking process or requested via the Guest Dashboard after confirmation.</p>
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-8 text-text-headline">Personalize Your <i class="font-normal italic text-brass">Retreat.</i></h2>
+            <p class="mb-12 text-text-muted max-w-2xl mx-auto leading-relaxed text-lg">Most experiences can be added during your booking process or requested via the Guest Dashboard after confirmation.</p>
             <div class="flex flex-wrap justify-center gap-6">
                 <a href="../dashboard/availability.html" class="bg-brass hover:bg-brass-light text-white px-10 py-4 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-lift transition-all hover:scale-105 transition-transform">Book with Experiences</a>
-                <a href="../dashboard/login.html" class="border border-white/20 hover:bg-white hover:text-ink px-10 py-4 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-lift transition-all hover:scale-105 transition-transform">Guest Portal</a>
+                <a href="../dashboard/login.html" class="border border-ink/20 hover:bg-ink hover:text-white px-10 py-4 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-lift transition-all hover:scale-105 transition-transform text-text-headline">Guest Portal</a>
             </div>
         </div>
     </section>
