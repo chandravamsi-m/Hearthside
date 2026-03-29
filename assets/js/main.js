@@ -260,10 +260,33 @@ const Accordion = {
   }
 };
 
+const PasswordToggle = {
+  init() {
+    document.addEventListener('click', e => {
+      const btn = e.target.closest('[data-password-toggle]');
+      if (!btn) return;
+
+      const input = document.getElementById(btn.getAttribute('aria-controls'));
+      if (!input) return;
+
+      const isPassword = input.type === 'password';
+      input.type = isPassword ? 'text' : 'password';
+      
+      btn.innerHTML = isPassword 
+        ? `<i data-lucide="eye-off" class="w-4 h-4"></i>`
+        : `<i data-lucide="eye" class="w-4 h-4"></i>`;
+      
+      if (window.lucide) lucide.createIcons();
+    });
+  }
+};
+
 // Global Exposure for Dynamic Content
 window.DarkMode = DarkMode;
 window.Navbar = Navbar;
 window.ScrollReveal = ScrollReveal;
+window.PasswordToggle = PasswordToggle;
+
 
 document.addEventListener('DOMContentLoaded', () => {
   DarkMode.init();
@@ -273,5 +296,6 @@ document.addEventListener('DOMContentLoaded', () => {
   UI.init();
   FadeSlider.init();
   Accordion.init();
+  PasswordToggle.init();
   if (window.lucide) lucide.createIcons();
 });
