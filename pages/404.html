@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Not Found — Hearthside Retreat</title>
+  <title>Corner Not Found — Hearthside Retreat</title>
+  <meta name="description" content="The page you are looking for has wandered off into the orchard mists. Return to the hearth of the Cotswolds.">
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -15,25 +16,33 @@
       theme: {
         extend: {
           colors: {
-            'forest': '#2C4A3E',
-            'brass': '#B8956A',
-            'ink': '#1C2B26',
-            'coal': '#121514',
-            'parchment': '#F9F7F2',
-            'stone': '#E8E4D9',
+            ink: 'var(--color-ink)',
+            forest: 'var(--color-forest)',
+            'forest-light': 'var(--color-forest-light)',
+            brass: 'var(--color-brass)',
+            'brass-light': 'var(--color-brass-light)',
+            parchment: 'var(--color-parchment)',
+            stone: 'var(--color-stone)',
+            ash: 'var(--color-ash)',
+            coal: 'var(--color-coal)',
             'bg-page': 'var(--bg-page)',
             'bg-panel': 'var(--bg-panel)',
+            'bg-section': 'var(--bg-section)',
             'text-headline': 'var(--text-headline)',
             'text-body': 'var(--text-body)',
+            'text-muted': 'var(--text-muted)',
           },
           fontFamily: {
-            display: ['"Playfair Display"', 'serif'],
-            body: ['"Source Serif 4"', 'serif'],
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+          },
+          borderRadius: {
+            sm: '4px', md: '8px', lg: '16px', xl: '24px', '2xl': '32px',
           },
           boxShadow: {
-            'card': '0 10px 30px -10px rgba(28, 43, 38, 0.08)',
-            'lift': '0 20px 40px -15px rgba(28, 43, 38, 0.12)',
-          }
+            card: '0 4px 16px rgba(28,43,38,0.08)',
+            lift: '0 12px 40px rgba(28,43,38,0.14)',
+          },
         }
       }
     }
@@ -44,44 +53,201 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-  <!-- Custom CSS -->
+  <!-- Styling & Icons -->
   <link rel="stylesheet" href="../assets/css/custom.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-surface dark:bg-surface-dark text-gray-900 dark:text-gray-100 font-body transition-colors duration-300">
+<body class="bg-bg-page text-text-body font-body transition-colors duration-300">
 
-  <main class="min-h-screen flex items-center justify-center p-6 bg-bg-page">
-    <div class="max-w-xl text-center reveal">
-        <!-- Logo Branding -->
-        <a href="../index.html" class="flex flex-col items-center gap-0 mb-20 group">
-          <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-16 h-16 transition-all duration-700 group-hover:scale-110 group-hover:rotate-3">
-          <span class="font-display text-3xl font-bold text-ink dark:text-parchment tracking-tighter uppercase leading-none">Hearthside</span>
-        </a>
+  <!-- Navbar (Definitive Sync with index.html) -->
+  <nav data-navbar data-nav-dynamic="true" data-nav-light-hero="true" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex-shrink-0">
+          <a href="../index.html" class="flex items-center gap-0 group">
+            <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110" data-nav-logo>
+            <span class="font-display text-2xl font-bold text-text-headline tracking-tighter" data-nav-brand>Hearthside</span>
+          </a>
+        </div>
 
-        <!-- 404 Visual -->
-        <div class="relative inline-block mb-16">
-            <span class="font-display text-[12rem] md:text-[15rem] font-bold text-ink/5 dark:text-parchment/5 leading-none select-none tracking-tighter">404</span>
-            <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-48 h-48 rounded-[3rem] overflow-hidden border-8 border-bg-page shadow-lift transform -rotate-3 hover:rotate-0 transition-transform duration-700">
-                    <img src="https://images.unsplash.com/photo-1518398046578-8cca57782e17?auto=format&fit=crop&q=80&w=400" alt="Mist" class="w-full h-full object-cover grayscale opacity-80">
-                </div>
+        <div class="hidden lg:flex items-center gap-8">
+          <div class="relative group" data-dropdown>
+            <button class="flex items-center gap-1.5 text-text-headline hover:text-brass font-semibold text-[15px] transition-colors py-8" data-nav-link>
+              <span>Home</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
+            </button>
+            <div data-dropdown-menu class="absolute top-full left-0 w-48 bg-bg-panel dark:bg-bg-panel rounded-xl shadow-lift border border-ink/8 dark:border-parchment/8 hidden py-2 opacity-0 invisible group-hover:block group-hover:opacity-100 group-hover:visible transition-all">
+              <a href="../index.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Home 1 — Story</a>
+              <a href="home-2.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Home 2 — Direct</a>
             </div>
+          </div>
+
+          <a href="about.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Story</a>
+          <a href="experiences.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Experiences</a>
+          <a href="rooms.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Rooms</a>
+          <a href="contact.html" class="text-text-headline hover:text-brass font-semibold text-[15px] transition-colors" data-nav-link>Contact</a>
+
+          <div class="relative group" data-dropdown>
+            <button class="flex items-center gap-1.5 text-text-headline hover:text-brass font-semibold text-[15px] transition-colors py-8" data-nav-link>
+              <span>Dashboards</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
+            </button>
+            <div data-dropdown-menu class="absolute top-full left-0 w-48 bg-bg-panel dark:bg-bg-panel rounded-xl shadow-lift border border-ink/8 dark:border-parchment/8 hidden py-2 opacity-0 invisible group-hover:block group-hover:opacity-100 group-hover:visible transition-all">
+              <a href="../dashboard/index.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Guest Portal</a>
+              <a href="../admin/index.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Admin Workspace</a>
+            </div>
+          </div>
         </div>
 
-        <h1 class="font-display text-5xl font-bold text-text-headline mb-8">Lost in the <i class="font-normal italic">Cotswolds.</i></h1>
-        <p class="text-text-body text-xl max-w-sm mx-auto mb-16 italic font-medium opacity-80">The page you're looking for has wandered off into the orchard mists.</p>
+        <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+          <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-text-headline hover:text-brass transition-colors rounded-full" data-nav-link>
+            <span class="text-[11px] font-bold tracking-widest leading-none" data-rtl-label>RTL</span>
+            <i data-lucide="move-horizontal" class="w-4 h-4"></i>
+          </button>
+          <button data-dark-toggle class="p-2 text-text-headline hover:text-brass transition-colors rounded-full" data-nav-link>
+            <i data-lucide="moon" class="w-5 h-5"></i>
+          </button>
+          <a href="book.html" class="hidden sm:block border border-ink/30 text-text-headline px-5 py-2 rounded-full text-[11px] font-bold transition-all hover:bg-ink hover:text-white whitespace-nowrap" data-nav-btn="secondary">Book Now</a>
+          <a href="../auth/login.html" class="bg-brass hover:bg-brass-light text-white px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all shadow-md whitespace-nowrap">Sign In</a>
+        </div>
+
+        <button data-nav-hamburger class="p-2 lg:hidden text-parchment hover:text-white outline-none" data-nav-link>
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+    <div data-nav-overlay class="fixed inset-0 bg-ink/60 lg:hidden opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <aside data-nav-mobile class="fixed top-0 inset-inline-end-0 w-80 h-full bg-parchment dark:bg-ash shadow-lift lg:hidden translate-x-full rtl:-translate-x-full transition-transform duration-300 z-[60]">
+      <div class="p-10 space-y-10 h-full overflow-y-auto">
+        <div class="flex justify-between items-center mb-8">
+          <div class="flex items-center gap-2">
+            <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-8 h-8">
+            <span class="font-display text-xl font-bold text-ink dark:text-parchment">Hearthside</span>
+          </div>
+          <button data-nav-close class="p-2 text-ink/50 dark:text-parchment/50 hover:text-ink dark:hover:text-parchment transition-colors">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <div class="flex flex-col space-y-6 font-display text-3xl text-ink dark:text-parchment">
+          <a href="../index.html" class="hover:text-brass transition-colors">Home</a>
+          <a href="about.html" class="hover:text-brass transition-colors">Story</a>
+          <a href="experiences.html" class="hover:text-brass transition-colors">Experiences</a>
+          <a href="rooms.html" class="hover:text-brass transition-colors">Bedrooms</a>
+        </div>
+        <div class="space-y-4 mt-auto">
+          <a href="book.html" class="block border-2 border-forest-light text-forest-light text-center py-4 rounded-2xl font-bold hover:bg-forest-light hover:text-white transition-all">Book Now</a>
+          <a href="../auth/login.html" class="block bg-brass hover:bg-brass-light text-white text-center py-4 rounded-2xl font-bold shadow-lift transition-all">Sign In</a>
+        </div>
+      </div>
+    </aside>
+  </nav>
+
+  <!-- 404 Content (Typographic Highlight) -->
+  <main class="min-h-screen flex items-center justify-center pt-24 bg-stone/20 dark:bg-coal/20 relative overflow-hidden">
+    <div class="relative z-10 max-w-2xl text-center px-6 reveal-up">
+        <div class="mb-8">
+            <span class="text-brass uppercase tracking-[0.5em] text-[9px] font-bold mb-4 block">Sanctuary Path Lost</span>
+            <h1 class="font-display text-7xl md:text-8xl font-bold text-text-headline leading-none mb-6">404</h1>
+        </div>
         
-        <div class="flex flex-col sm:flex-row gap-6 justify-center">
-            <a href="../index.html" class="px-12 py-5 bg-forest hover:bg-forest-light text-white rounded-2xl font-bold uppercase tracking-widest text-[10px] shadow-lift transition-all active:scale-95">Return to Hearth</a>
-            <a href="rooms.html" class="px-12 py-5 border-2 border-ink/10 dark:border-parchment/10 text-text-headline rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:bg-stone/20 transition-all">Explore the Suites</a>
-        </div>
-
-        <div class="mt-24 pt-10 border-t border-ink/5 dark:border-parchment/10 flex justify-center gap-10 text-[10px] uppercase font-bold text-ash tracking-[0.3em]">
-            <a href="contact.html" class="hover:text-brass transition-colors">Inquiries</a>
-            <a href="about.html#faq" class="hover:text-brass transition-colors">Help</a>
-            <a href="experiences.html" class="hover:text-brass transition-colors">Journal</a>
+        <h2 class="font-display text-2xl md:text-3xl font-bold text-text-headline mb-6 border-b border-brass/20 pb-6 max-w-xs mx-auto">
+            Quiet Corner <i class="font-normal italic">Not Found.</i>
+        </h2>
+        
+        <p class="text-text-body text-lg max-w-md mx-auto mb-10 italic font-medium opacity-80 leading-relaxed font-display">
+            The path you're following has wandered off into the orchard mists. Let us lead you back to the warmth of the hearth.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="../index.html" class="bg-brass hover:bg-brass-light text-white px-9 py-3.5 rounded-full font-bold shadow-lift transition-all hover:-translate-y-1 uppercase tracking-widest text-[10px]">
+              Return to the Hearth
+            </a>
+            <a href="rooms.html" class="border border-ink/30 dark:border-parchment/30 text-text-headline px-9 py-3.5 rounded-full font-bold transition-all hover:bg-ink hover:text-white hover:-translate-y-1 hover:shadow-lift uppercase tracking-widest text-[10px]">
+              Explore the Suites
+            </a>
         </div>
     </div>
   </main>
+
+  <!-- Footer (Definitive Sync with index.html) -->
+  <footer class="bg-coal text-white pt-24 pb-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-8">
+        
+        <!-- Brand & Story -->
+        <div class="lg:col-span-4 space-y-6">
+          <a href="../index.html" class="flex items-center gap-0 group">
+            <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110 opacity-90">
+            <span class="font-display text-3xl font-bold text-white tracking-tighter uppercase leading-none">Hearthside</span>
+          </a>
+          <p class="text-parchment/60 leading-relaxed text-base max-w-sm">
+            A collection of heritage bedrooms and boutique suites in the heart of the Cotswolds. Designed for those who seek the luxury of the slow.
+          </p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Instagram">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Facebook">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Pinterest">
+              <i data-lucide="pinterest" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Grid -->
+        <div class="lg:col-span-4 grid grid-cols-2 gap-8">
+          <div class="space-y-6">
+            <h3 class="text-[10px] font-bold text-brass tracking-[0.4em] uppercase">Discover</h3>
+            <ul class="space-y-3 text-sm font-medium">
+              <li><a href="rooms.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Rooms</a></li>
+              <li><a href="experiences.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">The Experience</a></li>
+              <li><a href="about.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Our Story</a></li>
+              <li><a href="about.html#faq" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Help & FAQ</a></li>
+            </ul>
+          </div>
+          <div class="space-y-6">
+            <h3 class="text-[10px] font-bold text-brass tracking-[0.4em] uppercase">Local</h3>
+            <ul class="space-y-3 text-sm font-medium text-parchment/60">
+              <li class="leading-relaxed">Mill Lane, Thorntree,<br>Gloucestershire, UK</li>
+              <li>+44 (0) 1451 820 000</li>
+              <li><a href="contact.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Inquiries</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="p-6 border border-white/5 rounded-2xl bg-white/[0.02] backdrop-blur-sm">
+            <h3 class="text-[10px] font-bold text-white tracking-[0.4em] uppercase opacity-50 mb-3 font-display">The Registry</h3>
+            <p class="text-gray-400 text-xs mb-4 leading-relaxed italic opacity-70">Join for seasonal recipes and exclusive registry-only rates.</p>
+            <form class="space-y-3">
+              <input type="email" required placeholder="Enter your email" class="w-full bg-transparent border-b border-parchment/10 py-2 text-sm focus:border-brass outline-none text-white placeholder-parchment/30 transition-colors">
+              <button type="submit" class="w-full text-left text-brass text-[10px] font-bold uppercase tracking-widest hover:text-parchment transition-colors flex items-center group">
+                Join <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </button>
+            </form>
+           </div>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="pt-8 border-t border-parchment/5 flex flex-col md:flex-row justify-between items-center text-[10px] text-parchment/50 uppercase tracking-widest space-y-6 md:space-y-0">
+        <p>&copy; 2024 Hearthside Boutique Hotel. All Rights Reserved.</p>
+        <div class="flex space-x-12">
+          <a href="about.html#values" class="hover:text-brass transition-colors">Sustainability</a>
+          <a href="about.html#values" class="hover:text-brass transition-colors">Accessibility</a>
+          <a href="about.html#faq" class="hover:text-brass transition-colors">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button data-back-to-top class="fixed bottom-8 right-8 z-40 bg-brass hover:bg-brass-light text-white p-4 rounded-full shadow-lift opacity-0 translate-y-4 transition-all duration-300 pointer-events-none hover:-translate-y-1" aria-label="Back to top">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7 7 7M12 19V3"/></svg>
+  </button>
 
   <script src="../assets/js/main.js"></script>
 </body>

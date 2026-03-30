@@ -15,20 +15,30 @@
       theme: {
         extend: {
           colors: {
-            'forest': '#2C4A3E',
-            'brass': '#B8956A',
-            'ink': '#1C2B26',
-            'coal': '#121514',
-            'parchment': '#F9F7F2',
-            'stone': '#E8E4D9',
+            ink: 'var(--color-ink)',
+            forest: 'var(--color-forest)',
+            'forest-light': 'var(--color-forest-light)',
+            brass: 'var(--color-brass)',
+            'brass-light': 'var(--color-brass-light)',
+            parchment: 'var(--color-parchment)',
+            stone: 'var(--color-stone)',
+            ash: 'var(--color-ash)',
+            coal: 'var(--color-coal)',
+            'bg-page': 'var(--bg-page)',
+            'bg-panel': 'var(--bg-panel)',
+            'text-headline': 'var(--text-headline)',
+            'text-body': 'var(--text-body)',
+            'text-muted': 'var(--text-muted)',
           },
           fontFamily: {
-            display: ['"Playfair Display"', 'serif'],
-            body: ['"Source Serif 4"', 'serif'],
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+          },
+          borderRadius: {
+            sm: '4px', md: '8px', lg: '16px', xl: '24px', '2xl': '32px',
           },
           boxShadow: {
-            'card': '0 10px 30px -10px rgba(28, 43, 38, 0.08)',
-            'lift': '0 20px 40px -15px rgba(28, 43, 38, 0.12)',
+            lift: '0 12px 40px rgba(28,43,38,0.12)',
           }
         }
       }
@@ -44,35 +54,56 @@
   <link rel="stylesheet" href="../assets/css/custom.css">
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-  <main class="min-h-screen flex items-center justify-center p-6 relative overflow-hidden bg-ink">
+<body class="bg-bg-page text-text-body font-body transition-colors duration-300 min-h-screen relative overflow-hidden flex flex-col">
+  
+  <!-- ── Global Header (Sync with Auth Pages) ── -->
+  <header class="h-20 flex items-center bg-transparent relative z-50">
+    <div class="max-w-7xl mx-auto px-8 w-full flex justify-between items-center">
+      <div class="flex-shrink-0">
+        <a href="../index.html" class="flex items-center gap-0 group">
+          <img src="../assets/images/logo.svg" alt="Hearthside Logo" 
+               class="w-9 h-9 transition-transform duration-500 group-hover:scale-110">
+          <span class="font-display text-xl font-bold text-text-headline tracking-tighter uppercase leading-none">Hearthside</span>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <button data-rtl-toggle class="flex items-center gap-2 px-3 py-1.5 text-text-headline hover:text-brass transition-colors rounded-full font-bold">
+          <span class="text-[9px] tracking-widest leading-none" data-rtl-label>RTL</span>
+          <i data-lucide="move-horizontal" class="w-3.5 h-3.5"></i>
+        </button>
+        <button data-dark-toggle class="p-2 text-text-headline hover:text-brass transition-colors rounded-full">
+          <i data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 flex items-center justify-center p-6 relative">
     <!-- Animated Grain/Mist Overlay -->
-    <div class="absolute inset-0 opacity-10 pointer-events-none select-none bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] mix-blend-overlay"></div>
+    <div class="absolute inset-0 opacity-[0.02] dark:opacity-[0.06] pointer-events-none select-none bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] mix-blend-multiply dark:mix-blend-overlay"></div>
 
     <!-- Decorative Elements -->
-    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-forest/20 rounded-full blur-[120px] -mr-48 -mt-48"></div>
-    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brass/10 rounded-full blur-[100px] -ml-24 -mb-24"></div>
+    <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-forest/5 dark:bg-forest/15 rounded-full blur-[90px] -mr-32 -mt-32 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[240px] h-[240px] bg-brass/5 dark:bg-brass/10 rounded-full blur-[70px] -ml-20 -mb-20 pointer-events-none"></div>
 
-    <div class="max-w-xl text-center z-10 reveal">
-        <a href="../index.html" class="flex flex-col items-center gap-0 mb-20 group">
-          <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-20 h-20 transition-all duration-700 group-hover:scale-110 group-hover:rotate-3 brightness-0 invert opacity-90">
-          <span class="font-display text-4xl font-bold text-parchment tracking-tighter uppercase leading-none">Hearthside</span>
-        </a>
-
-        <span class="text-brass uppercase tracking-[0.4em] text-[10px] font-bold mb-8 block">Winter 2024</span>
-        <h1 class="font-display text-5xl md:text-8xl font-bold text-parchment mb-10 leading-tight">A New Path <br><i class="font-normal italic">Unfolding.</i></h1>
-        <p class="text-parchment/50 mb-16 max-w-sm mx-auto italic font-medium opacity-80 leading-relaxed text-lg">We are currently preparing something special in the heart of the Cotswolds.</p>
+    <div class="max-w-lg text-center z-10 reveal-up">
+        <span class="text-brass uppercase tracking-[0.6em] text-[9px] font-bold mb-6 block">Sanctuary Unfolding</span>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-text-headline mb-6 leading-tight tracking-tight">
+          A New Path <br><i class="font-normal italic">Is Emerging.</i>
+        </h1>
+        <p class="text-text-muted mb-8 max-w-sm mx-auto italic font-medium leading-relaxed font-display text-lg">
+          We are currently preparing something special in the heart of the Cotswolds. The hearth is being readied for your arrival.
+        </p>
         
-        <!-- Newsletter -->
-        <form class="flex flex-col sm:flex-row gap-3 mb-16">
-            <input type="email" placeholder="Email Address" class="flex-1 bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-sm font-medium text-white placeholder-white/30 focus:ring-2 focus:ring-brass/40 outline-none transition-all">
-            <button class="px-12 py-5 bg-brass hover:bg-brass-light text-ink rounded-2xl font-bold uppercase tracking-widest text-[10px] shadow-lift transition-all active:scale-95">Notify Me</button>
+        <!-- Newsletter (Refined Folio Style) -->
+        <form class="flex flex-col sm:flex-row gap-3 mb-10 max-w-sm mx-auto">
+            <input type="email" placeholder="Email Address" required 
+                   class="flex-1 bg-bg-panel border border-ink/5 dark:border-white/10 rounded-full px-6 py-3.5 text-sm font-medium text-text-headline placeholder-text-muted/40 focus:ring-1 focus:ring-brass/40 outline-none transition-all shadow-sm">
+            <button class="px-8 py-3.5 bg-brass hover:bg-brass-light text-white rounded-full font-bold uppercase tracking-widest text-[9px] shadow-lift transition-all hover:-translate-y-1">
+              Notify Me
+            </button>
         </form>
-
-        <div class="flex justify-center gap-12 text-[10px] uppercase font-bold text-parchment/30 tracking-[0.3em]">
-            <a href="contact.html" class="hover:text-brass transition-colors">Inquiries</a>
-            <a href="about.html" class="hover:text-brass transition-colors">Journal</a>
-            <a href="#" class="hover:text-brass transition-colors">Instagram</a>
-        </div>
     </div>
   </main>
 
