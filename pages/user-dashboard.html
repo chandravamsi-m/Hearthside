@@ -649,7 +649,6 @@
         'overview': 'Dashboard',
         'bookings': 'My Reservations',
         'book': 'Book New Stay',
-        'messages': 'Chat with Julian',
         'profile': 'Settings'
       };
 
@@ -685,6 +684,9 @@
         if (window.innerWidth < 1024) {
           setSidebar(false);
         }
+
+        // Reset Scroll Position
+        window.scrollTo({ top: 0, behavior: 'instant' });
       };
 
       navLinks.forEach(link => {

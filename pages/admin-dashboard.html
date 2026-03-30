@@ -604,6 +604,9 @@
       </div>
 
 
+
+      <!-- Settings Section -->
+      <div data-section="settings" class="reveal hidden">
         <!-- Editorial Header (Configuration) -->
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
           <div class="reveal-stagger">
@@ -766,6 +769,9 @@
         if (window.innerWidth < 1024) {
           setSidebar(false);
         }
+
+        // Reset Scroll Position
+        window.scrollTo({ top: 0, behavior: 'instant' });
       };
 
       navLinks.forEach(link => {
