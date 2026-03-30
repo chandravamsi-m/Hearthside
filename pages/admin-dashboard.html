@@ -82,10 +82,6 @@
               <i data-lucide="users" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
               Guest Registry
           </a>
-          <a href="#" data-admin-nav="messages" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-white/60 hover:text-white hover:bg-white/5 group relative">
-              <i data-lucide="message-square" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
-              Inbox
-          </a>
           <a href="#" data-admin-nav="settings" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-white/60 hover:text-white hover:bg-white/5 group">
               <i data-lucide="settings" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
               Site Settings
@@ -144,86 +140,122 @@
     <div class="p-8 flex-grow">
       <!-- Overview Section -->
       <div data-section="overview" class="reveal">
-        <!-- Admin Welcome Section -->
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
-          <div></div>
+        <!-- Editorial Header (Pulse) -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+          <div class="reveal-stagger">
+            <h2 class="text-[10px] uppercase font-bold tracking-[0.4em] text-brass mb-2">Steward Intelligence</h2>
+            <p class="font-display text-4xl font-bold text-ink dark:text-parchment italic">Managing the Sanctuary's <i class="font-normal not-italic text-brass">Rhythm</i></p>
+          </div>
           <div class="flex gap-4">
             <button class="px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center gap-2 text-text-main dark:text-parchment">
-              <i data-lucide="download" class="w-4 h-4 text-brass"></i> AUDIT LOG
+              <i data-lucide="download" class="w-4 h-4 text-brass"></i> Audit Log
             </button>
             <button class="bg-brass hover:bg-brass-light text-white px-6 py-2.5 rounded-full text-[11px] font-bold transition-all shadow-md">Export Ledger</button>
           </div>
         </div>
 
-        <!-- Performance Grid (Operational Metrics) -->
+        <!-- Performance Ledger (High-Fidelity) -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+          <div class="p-8 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest">Daily Revenue</h4>
-              <span class="text-[10px] font-bold text-forest bg-forest/10 px-2 py-0.5 rounded-full">+12%</span>
+              <i data-lucide="trending-up" class="w-4 h-4 text-forest"></i>
             </div>
-            <p class="text-3xl font-bold text-text-headline dark:text-parchment leading-none italic">£4,250.00</p>
+            <p class="text-4xl font-bold text-text-headline dark:text-parchment leading-none italic font-display">£4,250</p>
+            <p class="text-[9px] font-bold text-forest uppercase tracking-widest mt-2 ml-1">+12% vs yesterday</p>
           </div>
-          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+          <div class="p-8 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest">Occupancy</h4>
               <i data-lucide="activity" class="w-4 h-4 text-brass opacity-50"></i>
             </div>
-            <p class="text-3xl font-bold text-text-headline dark:text-parchment leading-none italic">92<span class="text-sm font-normal not-italic opacity-40 leading-none ml-1">%</span></p>
+            <p class="text-4xl font-bold text-text-headline dark:text-parchment leading-none italic font-display">92<span class="text-sm font-normal not-italic opacity-40 leading-none ml-1">%</span></p>
+            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-2 ml-1">11/12 units active</p>
           </div>
-          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+          <div class="p-8 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
             <div class="flex items-center justify-between mb-4">
-              <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest">Concierge Queue</h4>
-              <span class="w-1.5 h-1.5 bg-accent rounded-full animate-pulse-soft"></span>
+              <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest">Queue Status</h4>
+              <span class="w-2 h-2 bg-accent rounded-full animate-pulse-soft"></span>
             </div>
-            <p class="text-3xl font-bold text-text-headline dark:text-parchment leading-none italic">04</p>
+            <p class="text-4xl font-bold text-text-headline dark:text-parchment leading-none italic font-display">04</p>
+            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-2 ml-1">Requests pending</p>
           </div>
-          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+          <div class="p-8 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest">Active Guests</h4>
               <i data-lucide="users" class="w-4 h-4 text-forest opacity-50"></i>
             </div>
-            <p class="text-3xl font-bold text-text-headline dark:text-parchment leading-none italic">18</p>
+            <p class="text-4xl font-bold text-text-headline dark:text-parchment leading-none italic font-display">18</p>
+            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-2 ml-1">Residents on property</p>
           </div>
         </div>
 
-        <!-- Property Pulse (High-Fidelity) -->
+        <!-- Pulse Intelligence Section (Expanded) -->
         <section class="mb-12">
-          <div class="flex items-center justify-between mb-8">
-            <h2 class="font-display text-3xl font-bold text-text-headline dark:text-parchment italic font-normal">Property <i class="font-normal not-italic">Pulse</i></h2>
-          </div>
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Activity Feed -->
-            <div class="lg:col-span-2 bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-sm p-8">
-              <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-6">Live Activity</h4>
-              <div class="space-y-6">
-                <div class="flex gap-4 items-start">
-                  <div class="w-2 h-2 bg-forest rounded-full mt-1.5 animate-pulse-soft"></div>
-                  <div>
-                    <p class="text-sm font-bold text-text-main dark:text-parchment">Eleanor Roberts — <span class="text-gray-400 font-medium">Checked into the Rose Suite</span></p>
-                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Steward: Jameson • 10:30 AM</p>
+            <!-- Expanded Activity Feed -->
+            <div class="lg:col-span-2 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm p-10">
+              <div class="flex items-center justify-between mb-8">
+                <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Sanctuary Rhythm Log</h4>
+                <a href="#" class="text-[9px] font-bold text-brass uppercase tracking-widest border-b border-brass/30 hover:border-brass transition-all">View All Entries</a>
+              </div>
+              <div class="space-y-8">
+                <div class="flex gap-6 items-start p-4 bg-stone/5 dark:bg-ash/20 rounded-2xl border border-transparent hover:border-gray-100 dark:hover:border-white/5 transition-all group">
+                  <div class="w-10 h-10 bg-forest/10 rounded-full flex items-center justify-center text-forest group-hover:scale-110 transition-transform">
+                    <i data-lucide="check-circle" class="w-5 h-5"></i>
+                  </div>
+                  <div class="flex-grow">
+                    <div class="flex justify-between items-start mb-1">
+                      <p class="text-sm font-bold text-text-main dark:text-parchment">Eleanor Roberts — <span class="text-gray-400 font-medium">Checked into the Rose Suite</span></p>
+                      <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">10:30 AM</span>
+                    </div>
+                    <p class="text-[10px] font-bold text-forest-light uppercase tracking-widest opacity-60">Steward: Jameson Roberts</p>
                   </div>
                 </div>
-                <div class="flex gap-4 items-start">
-                  <div class="w-2 h-2 bg-brass rounded-full mt-1.5"></div>
-                  <div>
-                    <p class="text-sm font-bold text-text-main dark:text-parchment italic">Concierge Request — <span class="text-gray-400 font-medium italic">Sanctuary wildflowers for Orchard Room</span></p>
-                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Julian • 09:15 AM</p>
+                <div class="flex gap-6 items-start p-4 bg-stone/5 dark:bg-ash/20 rounded-2xl border border-transparent hover:border-gray-100 dark:hover:border-white/5 transition-all group">
+                  <div class="w-10 h-10 bg-brass/10 rounded-full flex items-center justify-center text-brass group-hover:scale-110 transition-transform">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                  </div>
+                  <div class="flex-grow">
+                    <div class="flex justify-between items-start mb-1">
+                      <p class="text-sm font-bold text-text-main dark:text-parchment italic">Concierge Request — <span class="text-gray-400 font-medium italic">Sanctuary wildflowers for Orchard Room</span></p>
+                      <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">09:15 AM</span>
+                    </div>
+                    <p class="text-[10px] font-bold text-brass uppercase tracking-widest mt-1">Steward: Julian Concierge</p>
+                  </div>
+                </div>
+                <div class="flex gap-6 items-start p-4 bg-stone/5 dark:bg-ash/20 rounded-2xl border border-transparent hover:border-gray-100 dark:hover:border-white/5 transition-all group">
+                  <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
+                    <i data-lucide="key" class="w-5 h-5"></i>
+                  </div>
+                  <div class="flex-grow">
+                    <div class="flex justify-between items-start mb-1">
+                      <p class="text-sm font-bold text-text-main dark:text-parchment">Room 12 (Garden Cottage) — <span class="text-gray-400 font-medium">Housekeeping Active</span></p>
+                      <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">08:45 AM</span>
+                    </div>
+                    <p class="text-[10px] font-bold text-accent-light uppercase tracking-widest opacity-60">Status: Preparing for arrival</p>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Financial Snapshot -->
-            <div class="bg-bg-panel border border-ink/8 dark:border-white/5 p-8 rounded-[2rem] shadow-sm flex flex-col justify-between relative overflow-hidden group">
-              <div class="absolute -right-16 -top-16 w-32 h-32 bg-brass/5 rounded-full blur-2xl group-hover:bg-brass/10 transition-all"></div>
+
+            <!-- Enhanced Financial Snapshot -->
+            <div class="bg-bg-panel border border-ink/8 dark:border-white/5 p-10 rounded-[2.5rem] shadow-sm flex flex-col justify-between relative overflow-hidden group h-full">
+              <div class="absolute -right-16 -top-16 w-48 h-48 bg-brass/5 rounded-full blur-3xl group-hover:bg-brass/10 transition-all duration-700"></div>
               <div class="relative z-10">
-                <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-6">Financial Context</h4>
-                <p class="text-4xl font-display font-bold text-text-headline dark:text-parchment">£12,450</p>
-                <p class="text-[10px] font-bold text-brass uppercase tracking-widest mt-2">Week-to-date Revenue</p>
+                <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-10">Financial Momentum</h4>
+                <p class="text-5xl font-display font-bold text-text-headline dark:text-parchment italic">£12,450</p>
+                <div class="flex items-center gap-2 mt-2">
+                  <i data-lucide="trending-up" class="w-4 h-4 text-forest"></i>
+                  <p class="text-[10px] font-bold text-brass uppercase tracking-widest">Week-to-date Revenue</p>
+                </div>
               </div>
-              <div class="relative z-10 pt-6 border-t border-gray-100 dark:border-white/5 flex items-center justify-between">
-                <span class="text-[10px] font-bold text-text-muted dark:text-gray-400 lowercase italic text-xs">projected completion: £48k</span>
-                <i data-lucide="trending-up" class="w-4 h-4 text-brass"></i>
+              <div class="relative z-10 space-y-6">
+                <div class="pt-6 border-t border-gray-100 dark:border-white/5 flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Projected Week-end</span>
+                  <span class="text-lg font-bold text-text-headline dark:text-parchment italic font-display">£48,200</span>
+                </div>
+                <button class="w-full bg-brass hover:bg-brass-light text-white py-4 rounded-full text-xs font-bold transition-all shadow-md shadow-brass/10">Analyze Revenue Deep-Dive</button>
               </div>
             </div>
           </div>
@@ -232,56 +264,111 @@
 
       <!-- Bookings (Reservations) Section -->
       <div data-section="bookings" class="reveal hidden">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
-            <div></div>
-            <div class="flex gap-4">
-              <input type="text" placeholder="Search references..." class="bg-bg-panel border border-ink/8 dark:border-white/5 rounded-full px-4 py-2 text-xs font-bold text-text-main dark:text-parchment focus:ring-1 focus:ring-brass outline-none w-64">
-              <button class="px-6 py-2 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center gap-2 text-text-main dark:text-parchment">
-                <i data-lucide="filter" class="w-4 h-4 text-brass"></i> Filter
-              </button>
-            </div>
+        <!-- Editorial Header (Ledger) -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+          <div class="reveal-stagger">
+            <h2 class="text-[10px] uppercase font-bold tracking-[0.4em] text-brass mb-2">Reservation Intelligence</h2>
+            <p class="font-display text-4xl font-bold text-ink dark:text-parchment italic">Sanctuary Ledger: Overseeing <i class="font-normal not-italic text-brass">Guest Journeys</i></p>
           </div>
+          <div class="flex gap-4">
+            <div class="relative group">
+              <input type="text" placeholder="Search references..." class="bg-bg-panel border border-ink/8 dark:border-white/5 rounded-full px-6 py-2.5 pl-12 text-[11px] font-bold text-text-main dark:text-parchment focus:ring-1 focus:ring-brass outline-none w-72 transition-all">
+              <i data-lucide="search" class="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-brass opacity-50 group-focus-within:opacity-100 transition-opacity"></i>
+            </div>
+            <button class="px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center gap-2 text-text-main dark:text-parchment">
+              <i data-lucide="filter" class="w-4 h-4 text-brass"></i> Filter
+            </button>
+          </div>
+        </div>
+
+        <!-- Operational Filter Ribbon -->
+        <div class="flex flex-wrap gap-4 mb-10 overflow-x-auto pb-2 scrollbar-none">
+          <button class="bg-brass text-white px-6 py-2.5 rounded-full text-[10px] font-bold shadow-md shadow-brass/20 flex items-center gap-2.5">
+            All Reservations <span class="bg-white/20 px-2 py-0.5 rounded-full">42</span>
+          </button>
+          <button class="bg-white dark:bg-bg-panel border border-gray-100 dark:border-white/5 text-gray-400 hover:text-brass px-6 py-2.5 rounded-full text-[10px] font-bold transition-all flex items-center gap-2.5">
+            Upcoming <span class="bg-stone/10 dark:bg-ash/50 px-2 py-0.5 rounded-full">12</span>
+          </button>
+          <button class="bg-white dark:bg-bg-panel border border-gray-100 dark:border-white/5 text-gray-400 hover:text-brass px-6 py-2.5 rounded-full text-[10px] font-bold transition-all flex items-center gap-2.5">
+            Checked-In <span class="bg-stone/10 dark:bg-ash/50 px-2 py-0.5 rounded-full">08</span>
+          </button>
+          <button class="bg-white dark:bg-bg-panel border border-gray-100 dark:border-white/5 text-gray-400 hover:text-brass px-6 py-2.5 rounded-full text-[10px] font-bold transition-all flex items-center gap-2.5">
+            Completed <span class="bg-stone/10 dark:bg-ash/50 px-2 py-0.5 rounded-full">22</span>
+          </button>
+        </div>
 
           <div class="bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden">
             <table class="w-full text-left border-collapse">
               <thead>
-                <tr class="bg-stone/20 dark:bg-ash/50 border-b border-gray-50 dark:border-white/5">
-                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Reference</th>
-                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Guest</th>
-                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Sanctuary</th>
-                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Stay Period</th>
-                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Status</th>
-                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest text-right">Revenue</th>
+                <tr class="bg-stone/10 dark:bg-ash/50 border-b border-gray-50 dark:border-white/5">
+                  <th class="px-10 py-6 text-[10px] uppercase font-bold text-gray-400 tracking-widest whitespace-nowrap">Reference</th>
+                  <th class="px-10 py-6 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Guest Journey</th>
+                  <th class="px-10 py-6 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Unit</th>
+                  <th class="px-10 py-6 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Stay Period</th>
+                  <th class="px-10 py-6 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Status</th>
+                  <th class="px-10 py-6 text-[10px] uppercase font-bold text-gray-400 tracking-widest text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody class="text-sm font-bold">
+              <tbody class="text-[13px] font-bold">
+                <!-- Row 01 -->
                 <tr class="group hover:bg-stone/5 dark:hover:bg-ash/30 transition-all border-b border-gray-50 dark:border-white/5">
-                  <td class="px-8 py-6 text-text-main dark:text-parchment uppercase tracking-tighter">HSB-2024-0891</td>
-                  <td class="px-8 py-6">
-                    <div class="flex items-center gap-3">
-                      <div class="w-8 h-8 rounded-full overflow-hidden border border-brass/20">
-                        <img src="../assets/images/eleanor_profile.png" class="w-full h-full object-cover">
+                  <td class="px-10 py-8 text-brass uppercase tracking-tighter">HSB-24-0891</td>
+                  <td class="px-10 py-8">
+                    <div class="flex items-center gap-4">
+                      <div class="w-10 h-10 bg-forest/10 rounded-full flex items-center justify-center text-[10px] font-bold text-forest">ER</div>
+                      <div>
+                        <p class="text-text-main dark:text-parchment">Eleanor Roberts</p>
+                        <p class="text-[9px] font-bold text-brass uppercase tracking-widest opacity-60">Steward Member</p>
                       </div>
-                      <span>Eleanor Roberts</span>
                     </div>
                   </td>
-                  <td class="px-8 py-6 text-gray-400 italic font-medium">The Rose Suite</td>
-                  <td class="px-8 py-6">14 Feb — 17 Feb, 2025</td>
-                  <td class="px-8 py-6 text-green-500">Confirmed</td>
-                  <td class="px-8 py-6 text-right">£1,260.00</td>
+                  <td class="px-10 py-8">
+                    <p class="text-text-headline dark:text-parchment">The Rose Suite</p>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest italic">Unit 04</p>
+                  </td>
+                  <td class="px-10 py-8">
+                    <p class="text-text-main dark:text-parchment">14 Feb — 17 Feb, 2025</p>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest italic mt-1">3 Nights</p>
+                  </td>
+                  <td class="px-10 py-8">
+                    <span class="flex items-center gap-2 text-forest">
+                      <span class="w-1.5 h-1.5 bg-forest rounded-full"></span>
+                      Confirmed
+                    </span>
+                  </td>
+                  <td class="px-10 py-8 text-right">
+                    <button class="bg-brass hover:bg-brass-light text-white px-5 py-2 rounded-full text-[10px] font-bold transition-all shadow-md shadow-brass/10 group-hover:scale-105">View Journey</button>
+                  </td>
                 </tr>
+                <!-- Row 02 -->
                 <tr class="group hover:bg-stone/5 dark:hover:bg-ash/30 transition-all border-b border-gray-50 dark:border-white/5">
-                  <td class="px-8 py-6 text-text-main dark:text-parchment uppercase tracking-tighter">HSB-2024-0756</td>
-                  <td class="px-8 py-6">
-                    <div class="flex items-center gap-3">
-                      <div class="w-8 h-8 bg-forest/10 rounded-full flex items-center justify-center text-[10px] font-bold text-forest">JD</div>
-                      <span>Jameson Dewhurst</span>
+                  <td class="px-10 py-8 text-brass uppercase tracking-tighter">HSB-24-0756</td>
+                  <td class="px-10 py-8">
+                    <div class="flex items-center gap-4">
+                      <div class="w-10 h-10 bg-forest/10 rounded-full flex items-center justify-center text-[10px] font-bold text-forest">JD</div>
+                      <div>
+                        <p class="text-text-main dark:text-parchment">Jameson Dewhurst</p>
+                        <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest opacity-60">Guest Collective</p>
+                      </div>
                     </div>
                   </td>
-                  <td class="px-8 py-6 text-gray-400 italic font-medium">The Orchard Room</td>
-                  <td class="px-8 py-6">20 Sep — 22 Sep, 2024</td>
-                  <td class="px-8 py-6 text-gray-400">Completed</td>
-                  <td class="px-8 py-6 text-right">£440.00</td>
+                  <td class="px-10 py-8">
+                    <p class="text-text-headline dark:text-parchment">The Orchard Room</p>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest italic">Unit 09</p>
+                  </td>
+                  <td class="px-10 py-8">
+                    <p class="text-text-main dark:text-parchment">20 Sep — 22 Sep, 2024</p>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest italic mt-1">2 Nights</p>
+                  </td>
+                  <td class="px-10 py-8">
+                    <span class="flex items-center gap-2 text-gray-400">
+                      <span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
+                      Completed
+                    </span>
+                  </td>
+                  <td class="px-10 py-8 text-right">
+                    <button class="bg-gray-100 dark:bg-ash text-gray-400 hover:text-brass px-5 py-2 rounded-full text-[10px] font-bold transition-all hover:bg-brass/5">Audit History</button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -290,85 +377,125 @@
 
       <!-- Rooms Section -->
       <div data-section="rooms" class="reveal hidden">
-          <div class="flex items-center justify-between mb-12">
-            <div></div>
-            <div class="flex gap-4">
-              <span class="flex items-center gap-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest"><span class="w-2 h-2 bg-green-500 rounded-full"></span> 08 Available</span>
-              <span class="flex items-center gap-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest"><span class="w-2 h-2 bg-forest rounded-full"></span> 04 Occupied</span>
-            </div>
+        <!-- Editorial Header (Board) -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+          <div class="reveal-stagger">
+            <h2 class="text-[10px] uppercase font-bold tracking-[0.4em] text-brass mb-2">Property Logistics</h2>
+            <p class="font-display text-4xl font-bold text-ink dark:text-parchment italic">Steward's Board: Sanctuary <i class="font-normal not-italic text-brass">Readiness</i></p>
           </div>
+          <div class="flex flex-wrap gap-4">
+            <span class="flex items-center gap-2.5 px-5 py-2 bg-green-500/10 text-green-600 dark:text-green-400 rounded-full text-[10px] font-bold uppercase tracking-widest border border-green-500/20">
+              <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse-soft"></span> Ready (08)
+            </span>
+            <span class="flex items-center gap-2.5 px-5 py-2 bg-brass/10 text-brass rounded-full text-[10px] font-bold uppercase tracking-widest border border-brass/20">
+              <span class="w-1.5 h-1.5 bg-brass rounded-full"></span> Turnover (02)
+            </span>
+            <span class="flex items-center gap-2.5 px-5 py-2 bg-accent/10 text-accent rounded-full text-[10px] font-bold uppercase tracking-widest border border-accent/20">
+              <span class="w-1.5 h-1.5 bg-accent rounded-full"></span> Maint. (01)
+            </span>
+            <span class="flex items-center gap-2.5 px-5 py-2 bg-stone/10 dark:bg-ash/50 text-gray-400 rounded-full text-[10px] font-bold uppercase tracking-widest border border-gray-100 dark:border-white/5">
+              Occupied (04)
+            </span>
+          </div>
+        </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Room Status Item -->
-            <div class="bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 p-8 group shadow-sm">
-              <div class="flex items-center justify-between mb-8">
-                <div class="w-16 h-16 rounded-2xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
-                  <img src="../assets/images/rose_suite.png" class="w-full h-full object-cover">
+            <!-- Unit Card 01: Rose Suite -->
+            <div class="bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 p-10 group shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+              <div class="flex items-center justify-between mb-10">
+                <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-brass p-1 flex-shrink-0 bg-stone/5 dark:bg-ash/80 transition-all duration-700 group-hover:scale-105">
+                  <img src="../assets/images/rose_suite.png" class="w-full h-full object-cover rounded-full text-[0px] transition-all duration-700">
                 </div>
                 <div class="text-right">
-                  <h4 class="font-display text-lg font-bold text-text-headline dark:text-parchment">Rose Suite</h4>
-                  <p class="text-[10px] font-bold text-forest uppercase tracking-widest mt-1">Steward Occupied</p>
+                  <h4 class="font-display text-xl font-bold text-text-headline dark:text-parchment italic">Rose Suite</h4>
+                  <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mt-1">Unit 04</p>
+                  <span class="inline-block mt-3 px-3 py-1 bg-forest/10 text-forest rounded-full text-[9px] font-bold uppercase tracking-widest">Steward Occupied</span>
                 </div>
               </div>
-              <div class="space-y-4 pt-6 border-t border-gray-100 dark:border-white/5">
+              
+              <div class="space-y-6 pt-8 border-t border-gray-100 dark:border-white/5">
                 <div class="flex items-center justify-between">
-                  <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Housekeeping</span>
-                  <span class="text-[10px] font-bold text-forest uppercase tracking-widest">Clean</span>
+                  <div>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Sanitized</p>
+                    <p class="text-xs font-bold text-text-main dark:text-parchment italic">10:15 AM today</p>
+                  </div>
+                  <span class="text-[10px] font-bold text-forest uppercase tracking-widest bg-forest/10 px-3 py-1 rounded-full border border-forest/20">Clean</span>
                 </div>
                 <div class="flex items-center justify-between">
-                  <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Maintenance</span>
-                  <button class="w-10 h-6 bg-forest rounded-full relative transition-all duration-300">
-                    <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></span>
+                  <span class="text-xs font-bold text-text-main dark:text-parchment">Health Maintenance</span>
+                  <button class="w-11 h-6 bg-forest rounded-full relative transition-all duration-500 shadow-inner group/switch">
+                    <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-lg transition-transform duration-300"></span>
                   </button>
                 </div>
+                <button class="w-full mt-6 text-[9px] font-bold text-gray-400 uppercase tracking-widest hover:text-brass transition-all flex items-center justify-center gap-2 py-4 border-t border-gray-50 dark:border-white/5">
+                  <i data-lucide="history" class="w-3.5 h-3.5 mt-[-1px]"></i> View Unit History
+                </button>
               </div>
             </div>
-            <!-- Room Status Item (Orchard) -->
-            <div class="bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 p-8 group shadow-sm">
-              <div class="flex items-center justify-between mb-8">
-                <div class="w-16 h-16 rounded-2xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
-                  <img src="../assets/images/orchard_room.png" class="w-full h-full object-cover">
+
+            <!-- Unit Card 02: Orchard Room -->
+            <div class="bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 p-10 group shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+              <div class="flex items-center justify-between mb-10">
+                <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-brass p-1 flex-shrink-0 bg-stone/5 dark:bg-ash/80 transition-all duration-700 group-hover:scale-105">
+                  <img src="../assets/images/orchard_room.png" class="w-full h-full object-cover rounded-full text-[0px] transition-all duration-700">
                 </div>
                 <div class="text-right">
-                  <h4 class="font-display text-lg font-bold text-text-headline dark:text-parchment">Orchard Room</h4>
-                  <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Arriving 2PM</p>
+                  <h4 class="font-display text-xl font-bold text-text-headline dark:text-parchment italic">Orchard Room</h4>
+                  <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mt-1">Unit 09</p>
+                  <span class="inline-block mt-3 px-3 py-1 bg-brass/10 text-brass rounded-full text-[9px] font-bold uppercase tracking-widest">Arriving 2PM</span>
                 </div>
               </div>
-              <div class="space-y-4 pt-6 border-t border-gray-100 dark:border-white/5">
+              
+              <div class="space-y-6 pt-8 border-t border-gray-100 dark:border-white/5">
                 <div class="flex items-center justify-between">
-                  <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Housekeeping</span>
-                  <span class="text-[10px] font-bold text-brass uppercase tracking-widest">In Progress</span>
+                  <div>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Turnover Status</p>
+                    <p class="text-xs font-bold text-text-main dark:text-parchment italic font-normal">Steward: Julian</p>
+                  </div>
+                  <span class="text-[10px] font-bold text-brass uppercase tracking-widest bg-brass/10 px-3 py-1 rounded-full border border-brass/20">In Progress</span>
                 </div>
                 <div class="flex items-center justify-between">
-                  <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Maintenance</span>
-                  <button class="w-10 h-6 bg-gray-200 dark:bg-ash rounded-full relative transition-all duration-300">
-                    <span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></span>
+                  <span class="text-xs font-bold text-text-main dark:text-parchment">Health Maintenance</span>
+                  <button class="w-11 h-6 bg-gray-200 dark:bg-ash rounded-full relative transition-all duration-500 shadow-inner group/switch opacity-60">
+                    <span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-lg transition-transform duration-300"></span>
                   </button>
                 </div>
+                <button class="w-full mt-6 text-[9px] font-bold text-gray-400 uppercase tracking-widest hover:text-brass transition-all flex items-center justify-center gap-2 py-4 border-t border-gray-50 dark:border-white/5">
+                  <i data-lucide="history" class="w-3.5 h-3.5 mt-[-1px]"></i> View Unit History
+                </button>
               </div>
             </div>
-            <!-- Room Status Item (Cottage) -->
-            <div class="bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 p-8 group shadow-sm">
-              <div class="flex items-center justify-between mb-8">
-                <div class="w-16 h-16 rounded-2xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
-                  <img src="../assets/images/garden_cottage.png" class="w-full h-full object-cover">
+
+            <!-- Unit Card 03: Garden Cottage -->
+            <div class="bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 p-10 group shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+              <div class="flex items-center justify-between mb-10">
+                <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-brass p-1 flex-shrink-0 bg-stone/5 dark:bg-ash/80 transition-all duration-700 group-hover:scale-105">
+                  <img src="../assets/images/garden_cottage.png" class="w-full h-full object-cover rounded-full text-[0px] transition-all duration-700">
                 </div>
                 <div class="text-right">
-                  <h4 class="font-display text-lg font-bold text-text-headline dark:text-parchment">Garden Cottage</h4>
-                  <p class="text-[10px] font-bold text-green-500 uppercase tracking-widest mt-1">Available</p>
+                  <h4 class="font-display text-xl font-bold text-text-headline dark:text-parchment italic">Garden Cottage</h4>
+                  <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mt-1">Unit 12</p>
+                  <span class="inline-block mt-3 px-3 py-1 bg-green-500/10 text-green-600 dark:text-green-400 rounded-full text-[9px] font-bold uppercase tracking-widest border border-green-500/20">Ready for Arrival</span>
                 </div>
               </div>
-              <div class="space-y-4 pt-6 border-t border-gray-100 dark:border-white/5">
+              
+              <div class="space-y-6 pt-8 border-t border-gray-100 dark:border-white/5">
                 <div class="flex items-center justify-between">
-                  <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Housekeeping</span>
-                  <span class="text-[10px] font-bold text-forest uppercase tracking-widest font-bold">Inspected</span>
+                  <div>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Sanitized</p>
+                    <p class="text-xs font-bold text-text-main dark:text-parchment italic">08:45 AM today</p>
+                  </div>
+                  <span class="text-[10px] font-bold text-green-500 uppercase tracking-widest bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">Clean</span>
                 </div>
                 <div class="flex items-center justify-between">
-                  <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Maintenance</span>
-                  <button class="w-10 h-6 bg-gray-200 dark:bg-ash rounded-full relative transition-all duration-300">
-                    <span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></span>
+                  <span class="text-xs font-bold text-text-main dark:text-parchment">Health Maintenance</span>
+                  <button class="w-11 h-6 bg-forest rounded-full relative transition-all duration-500 shadow-inner group/switch">
+                    <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-lg transition-transform duration-300"></span>
                   </button>
                 </div>
+                <button class="w-full mt-6 text-[9px] font-bold text-gray-400 uppercase tracking-widest hover:text-brass transition-all flex items-center justify-center gap-2 py-4 border-t border-gray-50 dark:border-white/10">
+                  <i data-lucide="history" class="w-3.5 h-3.5 mt-[-1px]"></i> View Unit History
+                </button>
               </div>
             </div>
           </div>
@@ -376,73 +503,189 @@
 
       <!-- Guests Section -->
       <div data-section="guests" class="reveal hidden">
-          <div class="flex items-center justify-between mb-12">
-            <div></div>
+        <!-- Editorial Header (Registry) -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+          <div class="reveal-stagger">
+            <h2 class="text-[10px] uppercase font-bold tracking-[0.4em] text-brass mb-2">Community Intelligence</h2>
+            <p class="font-display text-4xl font-bold text-ink dark:text-parchment italic">Guest Collective: Cultivating <i class="font-normal not-italic text-brass">Relationships</i></p>
           </div>
+          <div class="flex gap-4">
+            <div class="relative group">
+              <input type="text" placeholder="Search collective..." class="bg-bg-panel border border-ink/8 dark:border-white/5 rounded-full px-6 py-2.5 pl-12 text-[11px] font-bold text-text-main dark:text-parchment focus:ring-1 focus:ring-brass outline-none w-72 transition-all">
+              <i data-lucide="search" class="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-brass opacity-50 group-focus-within:opacity-100 transition-opacity"></i>
+            </div>
+            <button class="px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center gap-2 text-text-main dark:text-parchment">
+              <i data-lucide="download" class="w-4 h-4 text-brass"></i> Export Registry
+            </button>
+          </div>
+        </div>
+
+        <!-- Membership Tier Ribbon -->
+        <div class="flex flex-wrap gap-4 mb-10 overflow-x-auto pb-2 scrollbar-none">
+          <button class="bg-brass text-white px-6 py-2.5 rounded-full text-[10px] font-bold shadow-md shadow-brass/20 flex items-center gap-2.5">
+            All Residents <span class="bg-white/20 px-2 py-0.5 rounded-full">156</span>
+          </button>
+          <button class="bg-white dark:bg-bg-panel border border-gray-100 dark:border-white/5 text-gray-400 hover:text-brass px-6 py-2.5 rounded-full text-[10px] font-bold transition-all flex items-center gap-2.5">
+            Steward Grade <span class="bg-stone/10 dark:bg-ash/50 px-2 py-0.5 rounded-full">42</span>
+          </button>
+          <button class="bg-white dark:bg-bg-panel border border-gray-100 dark:border-white/5 text-gray-400 hover:text-brass px-6 py-2.5 rounded-full text-[10px] font-bold transition-all flex items-center gap-2.5">
+            Guest Collective <span class="bg-stone/10 dark:bg-ash/50 px-2 py-0.5 rounded-full">114</span>
+          </button>
+          <button class="bg-white dark:bg-bg-panel border border-gray-100 dark:border-white/5 text-gray-400 hover:text-brass px-6 py-2.5 rounded-full text-[10px] font-bold transition-all flex items-center gap-2.5">
+            New Registrants <span class="bg-stone/10 dark:bg-ash/50 px-2 py-0.5 rounded-full">08</span>
+          </button>
+        </div>
           
           <div class="bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden">
             <table class="w-full text-left border-collapse">
               <thead>
-                <tr class="bg-stone/20 dark:bg-ash/50 border-b border-gray-50 dark:border-white/5">
-                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Name</th>
-                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Email</th>
-                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Loyalty Tier</th>
-                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest text-right">Lifetime Retail</th>
+                <tr class="bg-stone/10 dark:bg-ash/50 border-b border-gray-50 dark:border-white/5">
+                  <th class="px-10 py-6 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Resident Portfolio</th>
+                  <th class="px-10 py-6 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Contact Identity</th>
+                  <th class="px-10 py-6 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Loyalty Metrics</th>
+                  <th class="px-10 py-6 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Last Sanctuary Visit</th>
+                  <th class="px-10 py-6 text-[10px] uppercase font-bold text-gray-400 tracking-widest text-right">Portfolio Action</th>
                 </tr>
               </thead>
-              <tbody class="text-sm font-bold">
+              <tbody class="text-[13px] font-bold">
+                <!-- Guest 01 -->
                 <tr class="group hover:bg-stone/5 dark:hover:bg-ash/30 transition-all border-b border-gray-50 dark:border-white/5">
-                  <td class="px-8 py-6 text-text-main dark:text-parchment">
-                    <div class="flex items-center gap-3">
-                      <div class="w-8 h-8 rounded-full overflow-hidden border border-brass/20">
-                        <img src="../assets/images/eleanor_profile.png" class="w-full h-full object-cover">
+                  <td class="px-10 py-8">
+                    <div class="flex items-center gap-4">
+                      <div class="w-10 h-10 rounded-full overflow-hidden border border-brass p-0.5 group-hover:scale-105 transition-transform">
+                        <img src="../assets/images/eleanor_profile.png" class="w-full h-full object-cover rounded-full text-[0px]">
                       </div>
-                      <span>Eleanor Roberts</span>
+                      <div>
+                        <p class="text-text-main dark:text-parchment">Eleanor Roberts</p>
+                        <p class="text-[9px] font-bold text-brass uppercase tracking-widest opacity-60">Steward Member</p>
+                      </div>
                     </div>
                   </td>
-                  <td class="px-8 py-6 text-gray-400 italic font-medium">eleanor.r@sanctuary.com</td>
-                  <td class="px-8 py-6"><span class="px-3 py-1 bg-brass/10 text-brass text-[9px] uppercase tracking-widest rounded-full font-bold">Steward Grade</span></td>
-                  <td class="px-8 py-6 text-right">£14,250.00</td>
+                  <td class="px-10 py-8 text-gray-400 italic font-medium">eleanor.r@sanctuary.com</td>
+                  <td class="px-10 py-8">
+                    <p class="text-text-headline dark:text-parchment italic leading-none">12 <span class="text-[9px] uppercase font-bold not-italic tracking-widest opacity-40 leading-none">Total Stays</span></p>
+                    <p class="text-[9px] font-bold text-forest uppercase tracking-widest mt-1.5 opacity-60">High Repeat Frequency</p>
+                  </td>
+                  <td class="px-10 py-8">
+                    <p class="text-text-main dark:text-parchment">14 Feb 2025</p>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest italic mt-1">HSB-24-0891</p>
+                  </td>
+                  <td class="px-10 py-8 text-right">
+                    <button class="bg-brass hover:bg-brass-light text-white px-5 py-2 rounded-full text-[10px] font-bold transition-all shadow-md shadow-brass/10 group-hover:scale-105">View Portfolio</button>
+                  </td>
+                </tr>
+                <!-- Guest 02 -->
+                <tr class="group hover:bg-stone/5 dark:hover:bg-ash/30 transition-all border-b border-gray-50 dark:border-white/5">
+                  <td class="px-10 py-8">
+                    <div class="flex items-center gap-4">
+                      <div class="w-10 h-10 bg-forest/10 rounded-full flex items-center justify-center text-[10px] font-bold text-forest group-hover:scale-105 transition-transform">JD</div>
+                      <div>
+                        <p class="text-text-main dark:text-parchment">Jameson Dewhurst</p>
+                        <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest opacity-60">Guest Collective</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-10 py-8 text-gray-400 italic font-medium">j.dewhurst@collective.io</td>
+                  <td class="px-10 py-8">
+                    <p class="text-text-headline dark:text-parchment italic leading-none">04 <span class="text-[9px] uppercase font-bold not-italic tracking-widest opacity-40 leading-none">Total Stays</span></p>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-1.5 opacity-60">Standard Frequency</p>
+                  </td>
+                  <td class="px-10 py-8">
+                    <p class="text-text-main dark:text-parchment">20 Sep 2024</p>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest italic mt-1">HSB-24-0756</p>
+                  </td>
+                  <td class="px-10 py-8 text-right">
+                    <button class="bg-gray-100 dark:bg-ash text-gray-400 hover:text-brass px-5 py-2 rounded-full text-[10px] font-bold transition-all hover:bg-brass/5">Contact Resident</button>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
       </div>
 
-      <!-- Messages Section -->
-      <div data-section="messages" class="reveal hidden">
-          <div class="flex items-center justify-between mb-12">
-            <div></div>
-          </div>
-          <div class="text-center p-20 bg-stone/20 dark:bg-white/5 rounded-[2.5rem] border border-dashed border-gray-200 dark:border-white/10">
-            <i data-lucide="inbox" class="w-12 h-12 text-gray-300 mx-auto mb-6"></i>
-            <p class="text-sm text-gray-400 italic font-medium">All operational queues are currently clear.</p>
-          </div>
-      </div>
 
-      <!-- Settings Section -->
-      <div data-section="settings" class="reveal hidden">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
-            <div class="p-8 bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5">
-              <h3 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-6">Property Availability</h3>
+        <!-- Editorial Header (Configuration) -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+          <div class="reveal-stagger">
+            <h2 class="text-[10px] uppercase font-bold tracking-[0.4em] text-brass mb-2">Global Logistics</h2>
+            <p class="font-display text-4xl font-bold text-ink dark:text-parchment italic">Sanctuary Configuration: Defining the <i class="font-normal not-italic text-brass">Pulse</i></p>
+          </div>
+          <button class="bg-brass hover:bg-brass-light text-white px-8 py-3 rounded-full text-[11px] font-bold transition-all shadow-md shadow-brass/10">Synchronize Sanctuary Pulse</button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Operational Health -->
+          <div class="p-10 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
+            <h3 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-10 italic">Operational <i class="font-normal not-italic text-brass">Health</i></h3>
+            <div class="space-y-8">
               <div class="flex items-center justify-between">
-                <span class="text-sm font-bold text-text-main dark:text-parchment">Accept New Bookings</span>
-                <button class="w-10 h-6 bg-forest rounded-full relative transition-all duration-300">
-                  <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></span>
+                <div>
+                  <p class="text-sm font-bold text-text-main dark:text-parchment">Accept New Bookings</p>
+                  <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Global Availability Control</p>
+                </div>
+                <button class="w-11 h-6 bg-forest rounded-full relative transition-all duration-500 shadow-inner group/switch">
+                  <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-lg"></span>
                 </button>
               </div>
-            </div>
-            <div class="p-8 bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5">
-              <h3 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-6">Maintenance Mode</h3>
+              <div class="flex items-center justify-between p-6 bg-stone/5 dark:bg-ash/20 rounded-2xl border border-transparent hover:border-gray-100 dark:hover:border-white/5 transition-all">
+                <div>
+                  <p class="text-sm font-bold text-text-main dark:text-parchment">Maintenance Mode</p>
+                  <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1 italic">System Steward Lock</p>
+                </div>
+                <button class="w-11 h-6 bg-gray-200 dark:bg-ash rounded-full relative transition-all duration-500 shadow-inner group/switch opacity-60">
+                  <span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-lg"></span>
+                </button>
+              </div>
               <div class="flex items-center justify-between">
-                <span class="text-sm font-bold text-text-main dark:text-parchment opacity-60 italic">System Steward Lock</span>
-                <button class="w-10 h-6 bg-gray-200 dark:bg-ash rounded-full relative transition-all duration-300">
-                  <span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></span>
+                <div>
+                  <p class="text-sm font-bold text-text-main dark:text-parchment">Public Visibility</p>
+                  <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Live Sanctuary Preview</p>
+                </div>
+                <button class="w-11 h-6 bg-forest rounded-full relative transition-all duration-500 shadow-inner group/switch">
+                  <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-lg"></span>
                 </button>
               </div>
             </div>
           </div>
-      </div>
+
+          <!-- Experience Mapping -->
+          <div class="p-10 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
+            <h3 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-10 italic">Experience <i class="font-normal not-italic text-brass">Mapping</i></h3>
+            <div class="space-y-8">
+              <div class="grid grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label class="text-[9px] font-bold text-gray-400 uppercase tracking-widest ml-1">Scent Mapping</label>
+                  <select class="w-full bg-stone/5 dark:bg-ash/30 border border-gray-100 dark:border-white/5 rounded-xl px-4 py-3 text-xs font-bold text-text-main dark:text-parchment outline-none focus:ring-1 focus:ring-brass transition-all appearance-none cursor-pointer">
+                    <option>Lavender Sanctuary</option>
+                    <option>Sandalwood Mist</option>
+                    <option>Pine Forest</option>
+                  </select>
+                </div>
+                <div class="space-y-2">
+                  <label class="text-[9px] font-bold text-gray-400 uppercase tracking-widest ml-1">Soundtrack</label>
+                  <select class="w-full bg-stone/5 dark:bg-ash/30 border border-gray-100 dark:border-white/5 rounded-xl px-4 py-3 text-xs font-bold text-text-main dark:text-parchment outline-none focus:ring-1 focus:ring-brass transition-all appearance-none cursor-pointer">
+                    <option>Ambient Jazz</option>
+                    <option>Modern Minimal</option>
+                    <option>Nature Silence</option>
+                  </select>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label class="text-[9px] font-bold text-gray-400 uppercase tracking-widest ml-1">Check-in Window Buffer (Mins)</label>
+                <div class="relative">
+                  <input type="number" value="30" class="w-full bg-stone/5 dark:bg-ash/30 border border-gray-100 dark:border-white/5 rounded-xl px-6 py-3.5 text-sm font-bold text-text-main dark:text-parchment outline-none focus:ring-1 focus:ring-brass transition-all">
+                  <i data-lucide="clock" class="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-brass opacity-50"></i>
+                </div>
+              </div>
+              <div class="flex items-center justify-between pt-4">
+                <span class="text-xs font-bold text-text-main dark:text-parchment">Automated Turnover Protocol</span>
+                <button class="w-11 h-6 bg-forest rounded-full relative transition-all duration-500 shadow-inner group/switch">
+                  <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-lg"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
   </main>
 
@@ -488,7 +731,6 @@
         'bookings': 'Reservations',
         'rooms': 'Room Status',
         'guests': 'Guest Registry',
-        'messages': 'Inbox',
         'settings': 'Site Settings'
       };
 
