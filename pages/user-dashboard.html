@@ -77,10 +77,6 @@
               <i data-lucide="plus-circle" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
               Book New Stay
           </a>
-          <a href="#" data-nav-link="messages" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-white/60 hover:text-white hover:bg-white/5 group relative">
-              <i data-lucide="message-square" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
-              Chat with Julian
-          </a>
           <a href="#" data-nav-link="profile" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-white/60 hover:text-white hover:bg-white/5 group">
               <i data-lucide="user" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
               Settings
@@ -138,9 +134,12 @@
     <div class="p-8 flex-grow">
       <!-- Overview Section -->
       <div data-section="overview" class="reveal">
-        <!-- Welcome Section (Personalized) -->
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
-          <div></div>
+        <!-- Welcome Section (Editorial Greeting) -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+          <div class="reveal-stagger">
+            <h2 class="text-[10px] uppercase font-bold tracking-[0.4em] text-brass mb-2">Your Sanctuary Path</h2>
+            <p class="font-display text-4xl font-bold text-ink dark:text-parchment italic">Welcome back, <i class="font-normal not-italic">Eleanor</i></p>
+          </div>
           <div class="flex gap-4">
             <button class="px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center gap-2 text-text-main dark:text-parchment">
               <i data-lucide="download" class="w-4 h-4 text-brass"></i> ITINERARY
@@ -263,7 +262,7 @@
               </div>
             </div>
             <div class="group relative h-48 rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all">
-              <img src="../assets/images/orchard_room.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+              <img src="../assets/images/orchard_room.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
                 <span class="text-[8px] font-bold uppercase tracking-[0.3em] text-brass mb-1">Heritage</span>
                 <span class="text-xs font-bold text-white uppercase tracking-widest">Our Story</span>
@@ -273,37 +272,81 @@
         </section>
       </div>
 
-      <!-- Bookings Section -->
+      <!-- Bookings (Sanctuary Ledger) Section -->
       <div data-section="bookings" class="reveal hidden">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
-            <div></div>
-            <button class="px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all text-text-main dark:text-parchment">Download All Receipts</button>
+        <!-- Editorial Header (Sanctuary Ledger) -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+          <div class="reveal-stagger">
+            <h2 class="text-[10px] uppercase font-bold tracking-[0.4em] text-brass mb-2">The Sanctuary Ledger</h2>
+            <p class="font-display text-4xl font-bold text-ink dark:text-parchment italic">The Chronicled Journey of <i class="font-normal not-italic text-brass">Eleanor</i></p>
           </div>
+          <button class="px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all text-text-main dark:text-parchment flex items-center gap-2">
+            <i data-lucide="download" class="w-4 h-4 text-brass"></i> Download All Receipts
+          </button>
+        </div>
+
+        <!-- Retreat Summary Bar (New) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div class="p-6 bg-stone/20 dark:bg-coal/40 rounded-3xl border border-gray-100 dark:border-white/5 flex items-center gap-4">
+            <div class="w-10 h-10 bg-brass/10 rounded-full flex items-center justify-center text-brass">
+              <i data-lucide="calendar" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Collective History</p>
+              <p class="text-sm font-bold text-text-headline dark:text-parchment">12 Retreats • 34 Nights</p>
+            </div>
+          </div>
+          <div class="p-6 bg-stone/20 dark:bg-coal/40 rounded-3xl border border-gray-100 dark:border-white/5 flex items-center gap-4">
+            <div class="w-10 h-10 bg-forest/10 rounded-full flex items-center justify-center text-forest">
+              <i data-lucide="award" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Favourite Sanctuary</p>
+              <p class="text-sm font-bold text-text-headline dark:text-parchment italic">The Rose Suite</p>
+            </div>
+          </div>
+          <div class="p-6 bg-stone/20 dark:bg-coal/40 rounded-3xl border border-gray-100 dark:border-white/5 flex items-center gap-4">
+            <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+              <i data-lucide="gift" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Stored Value Used</p>
+              <p class="text-sm font-bold text-text-headline dark:text-parchment">£1,450.00 <span class="text-[9px] font-normal opacity-50 ml-1">in points</span></p>
+            </div>
+          </div>
+        </div>
 
           <div class="space-y-6">
             <!-- Reservation Card: Upcoming -->
-            <div class="bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 p-8 flex flex-col md:flex-row items-center gap-8 shadow-sm">
-              <div class="w-full md:w-48 h-32 rounded-2xl overflow-hidden shadow-inner">
-                <img src="../assets/images/rose_suite.png" alt="Rose Suite" class="w-full h-full object-cover">
+            <div class="bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 p-8 flex flex-col md:flex-row items-center gap-8 shadow-sm group">
+              <div class="w-full md:w-56 h-36 rounded-2xl overflow-hidden relative">
+                <img src="../assets/images/rose_suite.png" alt="Rose Suite" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-ink/5 group-hover:bg-transparent transition-all"></div>
               </div>
               <div class="flex-grow">
                 <div class="flex items-center gap-3 mb-2">
-                  <span class="px-2 py-0.5 bg-forest-light/10 text-forest-light text-[8px] font-bold uppercase tracking-widest rounded-full">Confirmed</span>
+                  <span class="px-2 py-0.5 bg-forest/10 text-forest text-[8px] font-bold uppercase tracking-widest rounded-full">Confirmed</span>
                   <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">HSB-2024-0891</span>
                 </div>
                 <h3 class="font-display text-2xl font-bold text-text-headline dark:text-parchment mb-1">The Rose Suite</h3>
                 <p class="text-sm text-text-muted dark:text-gray-400 italic">14 Feb — 17 Feb, 2025 • 3 Nights</p>
+                <div class="mt-4 flex gap-4 text-[9px] font-bold text-gray-400 uppercase tracking-widest leading-none">
+                  <span>booked oct 12, 2024</span>
+                  <span class="w-1 h-1 bg-gray-200 dark:bg-ash rounded-full mt-1"></span>
+                  <span class="text-text-main dark:text-parchment italic font-bold">£1,260.00 total</span>
+                </div>
               </div>
-              <div class="flex gap-3">
-                <button class="bg-brass hover:bg-brass-light text-white px-6 py-2.5 rounded-full text-[11px] font-bold transition-all shadow-md">Itinerary</button>
-                <button class="p-3 border border-ink/8 dark:border-white/5 rounded-full text-gray-400 hover:text-red-400 transition-all"><i data-lucide="x" class="w-4 h-4"></i></button>
+              <div class="flex flex-col gap-2">
+                <button class="bg-brass hover:bg-brass-light text-white px-8 py-3 rounded-full text-[11px] font-bold transition-all shadow-md">Journey Itinerary</button>
+                <button class="px-6 py-2 text-red-400 hover:bg-red-400/5 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all">Cancel Stay</button>
               </div>
             </div>
 
-            <!-- Reservation Card: Past -->
-            <div class="bg-white/50 dark:bg-bg-panel/50 rounded-[2rem] border border-gray-100 dark:border-white/5 p-8 flex flex-col md:flex-row items-center gap-8 transition-opacity opacity-80 hover:opacity-100">
-              <div class="w-full md:w-48 h-32 rounded-2xl overflow-hidden grayscale">
-                <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&q=80&w=400" alt="Orchard Room" class="w-full h-full object-cover">
+            <!-- Reservation Card: Past (Orchard) -->
+            <div class="bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 p-8 flex flex-col md:flex-row items-center gap-8 group transition-all shadow-sm">
+              <div class="w-full md:w-56 h-36 rounded-2xl overflow-hidden relative">
+                <img src="../assets/images/orchard_room.png" alt="Orchard Room" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-ink/5 group-hover:bg-transparent transition-all"></div>
               </div>
               <div class="flex-grow">
                 <div class="flex items-center gap-3 mb-2">
@@ -312,163 +355,253 @@
                 </div>
                 <h3 class="font-display text-2xl font-bold text-text-headline dark:text-parchment mb-1">The Orchard Room</h3>
                 <p class="text-sm text-text-muted dark:text-gray-400 italic">20 Sep — 22 Sep, 2024 • 2 Nights</p>
+                <div class="mt-4 flex gap-4 text-[9px] font-bold text-gray-400 uppercase tracking-widest leading-none">
+                  <span>stayed sep 22, 2024</span>
+                  <span class="w-1 h-1 bg-gray-200 dark:bg-ash rounded-full mt-1"></span>
+                  <span class="text-text-main dark:text-parchment italic font-bold">£440.00 total</span>
+                </div>
               </div>
-              <button class="bg-brass hover:bg-brass-light text-white px-6 py-2.5 rounded-full text-[11px] font-bold transition-all shadow-md">Rebook Room</button>
+              <button class="bg-brass hover:bg-brass-light text-white px-8 py-3 rounded-full text-[11px] font-bold transition-all shadow-md">Rebook Sanctuary</button>
+            </div>
+
+            <!-- Reservation Card: Past (Cottage) -->
+            <div class="bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 p-8 flex flex-col md:flex-row items-center gap-8 group transition-all shadow-sm">
+              <div class="w-full md:w-56 h-36 rounded-2xl overflow-hidden relative">
+                <img src="../assets/images/garden_cottage.png" alt="Garden Cottage" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-ink/5 group-hover:bg-transparent transition-all"></div>
+              </div>
+              <div class="flex-grow">
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="px-2 py-0.5 bg-gray-200 dark:bg-ash text-gray-400 text-[8px] font-bold uppercase tracking-widest rounded-full">Completed</span>
+                  <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">HSB-2024-0422</span>
+                </div>
+                <h3 class="font-display text-2xl font-bold text-text-headline dark:text-parchment mb-1">The Garden Cottage</h3>
+                <p class="text-sm text-text-muted dark:text-gray-400 italic">15 Jun — 18 Jun, 2024 • 3 Nights</p>
+                <div class="mt-4 flex gap-4 text-[9px] font-bold text-gray-400 uppercase tracking-widest leading-none">
+                  <span>stayed jun 18, 2024</span>
+                  <span class="w-1 h-1 bg-gray-200 dark:bg-ash rounded-full mt-1"></span>
+                  <span class="text-text-main dark:text-parchment italic font-bold">£680.00 total</span>
+                </div>
+              </div>
+              <button class="bg-brass hover:bg-brass-light text-white px-8 py-3 rounded-full text-[11px] font-bold transition-all shadow-md">Rebook Sanctuary</button>
             </div>
           </div>
       </div>
 
-      <!-- Book Section -->
+      <!-- Book (Sanctuary Selection) Section -->
       <div data-section="book" class="reveal hidden">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
-            <div></div>
+        <!-- Editorial Header (Selection) -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+          <div class="reveal-stagger">
+            <h2 class="text-[10px] uppercase font-bold tracking-[0.4em] text-brass mb-2">Sanctuary Selection</h2>
+            <p class="font-display text-4xl font-bold text-ink dark:text-parchment italic">Discover Your Next <i class="font-normal not-italic text-brass">Retreat</i></p>
           </div>
+        </div>
 
-          <!-- Date Picker Block -->
-          <div class="p-6 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm mb-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div class="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="flex flex-col gap-2">
-                  <label class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] ml-2">Arrive</label>
-                  <input type="date" class="bg-stone/20 dark:bg-ash/50 border-none rounded-2xl px-6 py-4 text-sm font-bold text-text-main dark:text-parchment focus:ring-2 focus:ring-brass/30 transition-all">
+          <!-- Date Picker & Category Filter -->
+          <div class="space-y-6 mb-12">
+            <div class="p-6 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div class="flex flex-col gap-2">
+                    <label class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] ml-2">Arrive</label>
+                    <input type="date" class="bg-stone/20 dark:bg-ash/50 border-none rounded-2xl px-6 py-4 text-sm font-bold text-text-main dark:text-parchment focus:ring-2 focus:ring-brass/30 transition-all">
+                  </div>
+                  <div class="flex flex-col gap-2">
+                    <label class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] ml-2">Depart</label>
+                    <input type="date" class="bg-stone/20 dark:bg-ash/50 border-none rounded-2xl px-6 py-4 text-sm font-bold text-text-main dark:text-parchment focus:ring-2 focus:ring-brass/30 transition-all">
+                  </div>
+                  <div class="flex flex-col gap-2">
+                    <label class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] ml-2">Sanctuary For</label>
+                    <select class="bg-stone/20 dark:bg-ash/50 border-none rounded-2xl px-6 py-4 text-sm font-bold text-text-main dark:text-parchment focus:ring-2 focus:ring-brass/30 transition-all appearance-none cursor-pointer">
+                      <option>2 Adults, 0 Children</option>
+                      <option>1 Adult</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="flex flex-col gap-2">
-                  <label class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] ml-2">Depart</label>
-                  <input type="date" class="bg-stone/20 dark:bg-ash/50 border-none rounded-2xl px-6 py-4 text-sm font-bold text-text-main dark:text-parchment focus:ring-2 focus:ring-brass/30 transition-all">
-                </div>
-                <div class="flex flex-col gap-2">
-                  <label class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] ml-2">Sanctuary For</label>
-                  <select class="bg-stone/20 dark:bg-ash/50 border-none rounded-2xl px-6 py-4 text-sm font-bold text-text-main dark:text-parchment focus:ring-2 focus:ring-brass/30 transition-all appearance-none cursor-pointer">
-                    <option>2 Adults, 0 Children</option>
-                    <option>1 Adult</option>
-                  </select>
+                <div class="flex items-end">
+                  <button class="w-full h-14 bg-brass hover:bg-brass-light text-white px-6 py-4 rounded-full text-xs font-bold transition-all shadow-md shadow-brass/10">Check Availability</button>
                 </div>
               </div>
-              <div class="flex items-end">
-                <button class="w-full h-14 bg-brass hover:bg-brass-light text-white px-6 py-4 rounded-full text-xs font-bold transition-all shadow-md shadow-brass/10">Check Availability</button>
-              </div>
+            </div>
+
+            <!-- Category Filter Row -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+              <button class="px-5 py-2 bg-brass text-white rounded-full text-[10px] font-bold uppercase tracking-wider whitespace-nowrap">All Sanctuaries</button>
+              <button class="px-5 py-2 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[10px] font-bold uppercase tracking-wider text-text-main dark:text-parchment whitespace-nowrap transition-all">Suites</button>
+              <button class="px-5 py-2 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[10px] font-bold uppercase tracking-wider text-text-main dark:text-parchment whitespace-nowrap transition-all">Double Rooms</button>
+              <button class="px-5 py-2 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[10px] font-bold uppercase tracking-wider text-text-main dark:text-parchment whitespace-nowrap transition-all">Garden Cottages</button>
             </div>
           </div>
 
-          <!-- Room Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Room Card 1 -->
+          <!-- Room Grid (Expanded Selection) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <!-- Room Card: Rose Suite -->
+            <div class="bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 overflow-hidden group shadow-sm hover:shadow-xl transition-all duration-500">
+              <div class="relative h-48 overflow-hidden">
+                <img src="../assets/images/rose_suite.png" alt="Rose Suite" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute bottom-4 right-4 text-white font-display text-xl font-bold drop-shadow-md">£340<span class="text-xs font-normal opacity-70 ml-1">/nt</span></div>
+                <div class="absolute top-4 left-4 px-3 py-1 bg-brass text-white text-[8px] font-bold uppercase tracking-widest rounded-full">Featured Suite</div>
+              </div>
+              <div class="p-6">
+                <h4 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-2">The Rose Suite</h4>
+                <p class="text-text-muted dark:text-gray-400 text-xs mb-6 italic">Our flagship four-poster retreat with a private stone terrace.</p>
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="flex items-center gap-1.5 text-gray-400"><i data-lucide="users" class="w-3 h-3"></i> <span class="text-[9px] font-bold uppercase">2 Guests</span></div>
+                  <div class="flex items-center gap-1.5 text-gray-400"><i data-lucide="expand" class="w-3 h-3"></i> <span class="text-[9px] font-bold uppercase">52 m²</span></div>
+                  <div class="flex items-center gap-1.5 text-gray-400"><i data-lucide="map-pin" class="w-3 h-3"></i> <span class="text-[9px] font-bold uppercase">Garden View</span></div>
+                </div>
+                <button class="w-full bg-brass hover:bg-brass-light text-white px-6 py-3.5 rounded-full text-[11px] font-bold transition-all shadow-md">Select Sanctuary</button>
+              </div>
+            </div>
+
+            <!-- Room Card: Orchard Room -->
             <div class="bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 overflow-hidden group shadow-sm hover:shadow-xl transition-all duration-500">
               <div class="relative h-48 overflow-hidden">
                 <img src="../assets/images/orchard_room.png" alt="Orchard Room" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <div class="absolute bottom-4 right-4 text-white font-display text-xl font-bold drop-shadow-md">£220<span class="text-xs font-normal">/nt</span></div>
+                <div class="absolute bottom-4 right-4 text-white font-display text-xl font-bold drop-shadow-md">£220<span class="text-xs font-normal opacity-70 ml-1">/nt</span></div>
               </div>
               <div class="p-6">
                 <h4 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-2">The Orchard Room</h4>
-                <p class="text-text-muted dark:text-gray-400 text-xs mb-6 italic">A sunlit retreat with views across our apple orchard.</p>
+                <p class="text-text-muted dark:text-gray-400 text-xs mb-6 italic">A sunlit country double overlook the ancient apple orchard.</p>
                 <div class="flex items-center gap-4 mb-6">
                   <div class="flex items-center gap-1.5 text-gray-400"><i data-lucide="users" class="w-3 h-3"></i> <span class="text-[9px] font-bold uppercase">2 Guests</span></div>
-                  <div class="flex items-center gap-1.5 text-gray-400"><i data-lucide="expand" class="w-3 h-3"></i> <span class="text-[9px] font-bold uppercase">28 m²</span></div>
+                  <div class="flex items-center gap-1.5 text-gray-400"><i data-lucide="expand" class="w-3 h-3"></i> <span class="text-[9px] font-bold uppercase">36 m²</span></div>
+                  <div class="flex items-center gap-1.5 text-gray-400"><i data-lucide="map-pin" class="w-3 h-3"></i> <span class="text-[9px] font-bold uppercase">Orchard View</span></div>
                 </div>
-                <button class="w-full bg-brass hover:bg-brass-light text-white px-6 py-3.5 rounded-full text-[11px] font-bold transition-all shadow-md">View Details & Book</button>
+                <button class="w-full bg-brass hover:bg-brass-light text-white px-6 py-3.5 rounded-full text-[11px] font-bold transition-all shadow-md">Select Sanctuary</button>
               </div>
             </div>
-            <!-- More room cards... -->
+
+            <!-- Room Card: Loft Suite -->
+            <div class="bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 overflow-hidden group shadow-sm hover:shadow-xl transition-all duration-500">
+              <div class="relative h-48 overflow-hidden">
+                <img src="../assets/images/wellness_experience.png" alt="Loft Suite" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute bottom-4 right-4 text-white font-display text-xl font-bold drop-shadow-md">£420<span class="text-xs font-normal opacity-70 ml-1">/nt</span></div>
+                <div class="absolute top-4 left-4 px-3 py-1 bg-forest text-white text-[8px] font-bold uppercase tracking-widest rounded-full">Available Now</div>
+              </div>
+              <div class="p-6">
+                <h4 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-2">The Loft Suite</h4>
+                <p class="text-text-muted dark:text-gray-400 text-xs mb-6 italic">Panoramic panoramic barn loft with vaulted beams and hot tub.</p>
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="flex items-center gap-1.5 text-gray-400"><i data-lucide="users" class="w-3 h-3"></i> <span class="text-[9px] font-bold uppercase">2 Guests</span></div>
+                  <div class="flex items-center gap-1.5 text-gray-400"><i data-lucide="expand" class="w-3 h-3"></i> <span class="text-[9px] font-bold uppercase">68 m²</span></div>
+                  <div class="flex items-center gap-1.5 text-gray-400"><i data-lucide="map-pin" class="w-3 h-3"></i> <span class="text-[9px] font-bold uppercase">Countryside View</span></div>
+                </div>
+                <button class="w-full bg-brass hover:bg-brass-light text-white px-6 py-3.5 rounded-full text-[11px] font-bold transition-all shadow-md">Select Sanctuary</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Steward Perks Ribbon (New) -->
+          <div class="p-8 bg-ink text-white rounded-[2rem] flex flex-col md:flex-row items-center justify-between gap-8 border border-white/5 shadow-xl">
+            <div class="flex items-center gap-6">
+              <div class="w-12 h-12 bg-brass/10 rounded-full flex items-center justify-center text-brass">
+                <i data-lucide="shield-check" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h4 class="font-display text-lg font-bold">Steward Member Benefits</h4>
+                <p class="text-[10px] font-bold text-brass uppercase tracking-widest">Active for Eleanor Roberts</p>
+              </div>
+            </div>
+            <div class="flex gap-8 text-center md:text-left">
+              <div>
+                <p class="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1">Guaranteed</p>
+                <p class="text-xs font-bold italic">Best Rate</p>
+              </div>
+              <div>
+                <p class="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1">Priority</p>
+                <p class="text-xs font-bold italic">Check-In</p>
+              </div>
+              <div>
+                <p class="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1">Gifted</p>
+                <p class="text-xs font-bold italic">Spa Credit</p>
+              </div>
+            </div>
           </div>
       </div>
 
-      <!-- Messages Section -->
-      <div data-section="messages" class="reveal hidden h-[calc(100vh-12rem)] flex flex-col">
-          <div class="flex items-center justify-between mb-8">
-            <div></div>
-            <div class="flex items-center gap-4">
-              <span class="flex items-center gap-2 text-[10px] font-bold text-forest uppercase tracking-widest">
-                <span class="w-2 h-2 bg-forest rounded-full animate-pulse-soft"></span>
-                Julian is online
-              </span>
-            </div>
-          </div>
 
-          <div class="flex-grow bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden flex flex-col">
-            <!-- Chat Window -->
-            <div class="flex-grow p-8 overflow-y-auto space-y-8">
-              <!-- Admin Message -->
-              <div class="flex gap-4 max-w-2xl">
-                <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border border-brass p-0.5">
-                  <img src="../assets/images/julian_concierge.png" class="w-full h-full object-cover rounded-full">
-                </div>
-                <div class="bg-stone/30 dark:bg-ash/50 p-6 rounded-2xl rounded-tl-none">
-                  <p class="text-sm text-text-main dark:text-parchment leading-relaxed">Good morning, Eleanor. It's a pleasure to assist you today. I see your check-in for the Rose Suite is approaching on the 14th. Would you like me to arrange a private transport from the station for your arrival?</p>
-                  <span class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mt-4 block">Julian • 09:42 AM</span>
-                </div>
-              </div>
-
-              <!-- Guest Message -->
-              <div class="flex gap-4 max-w-2xl ml-auto flex-row-reverse">
-                <div class="w-10 h-10 rounded-full bg-forest flex-shrink-0 flex items-center justify-center text-white font-bold text-sm shadow-sm ring-4 ring-forest/5 transition-all">E</div>
-                <div class="bg-forest text-white p-6 rounded-2xl rounded-tr-none shadow-lg shadow-forest/10">
-                  <p class="text-sm leading-relaxed">Yes, please! That would be lovely. We'll be arriving on the 2:15 PM train. Also, could we ensure there are some local wildflowers in the room?</p>
-                  <span class="text-[8px] font-bold text-white/40 uppercase tracking-widest mt-4 block text-right">You • 10:05 AM</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Input Area -->
-            <div class="p-6 bg-stone/10 dark:bg-ash/30 border-t border-gray-100 dark:border-white/5">
-              <div class="relative">
-                <textarea placeholder="Type your message to Julian..." class="w-full bg-white dark:bg-ash border border-gray-100 dark:border-white/5 rounded-2xl px-6 py-4 pr-32 text-sm font-medium text-text-main dark:text-parchment focus:ring-2 focus:ring-brass/30 outline-none resize-none transition-all h-16"></textarea>
-                <div class="absolute right-4 top-1/2 -translate-y-1/2 flex gap-2">
-                  <button class="p-2.5 text-gray-400 hover:text-brass transition-all"><i data-lucide="paperclip" class="w-4 h-4"></i></button>
-                  <button class="bg-brass hover:bg-brass-light text-white px-6 py-2.5 rounded-full text-[11px] font-bold transition-all shadow-md">Send</button>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-
-      <!-- Profile Section -->
+      <!-- Profile (Sanctuary Account) Section: Streamlined -->
       <div data-section="profile" class="reveal hidden">
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <!-- Sidebar Nav for Settings -->
-            <div class="space-y-2">
-              <button class="w-full text-left px-6 py-4 rounded-xl font-bold text-sm bg-stone/30 dark:bg-white/5 text-brass">General Profile</button>
-              <button class="w-full text-left px-6 py-4 rounded-xl font-bold text-sm text-gray-400 hover:bg-stone/10 dark:hover:bg-ash transition-all">Sanctuary Preferences</button>
-              <button class="w-full text-left px-6 py-4 rounded-xl font-bold text-sm text-gray-400 hover:bg-stone/10 dark:hover:bg-ash transition-all">Privacy & Data</button>
-              <button class="w-full text-left px-6 py-4 rounded-xl font-bold text-sm text-gray-400 hover:bg-stone/10 dark:hover:bg-ash transition-all">Payment Methods</button>
+        <!-- Editorial Header (Account) -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+          <div class="reveal-stagger">
+            <h2 class="text-[10px] uppercase font-bold tracking-[0.4em] text-brass mb-2">Your Sanctuary Account</h2>
+            <p class="font-display text-4xl font-bold text-ink dark:text-parchment italic">Managing Your <i class="font-normal not-italic text-brass">Haven</i></p>
+          </div>
+        </div>
+
+        <div class="w-full space-y-12">
+          <!-- Identity & Contact (Merged) -->
+          <div class="p-10 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 relative overflow-hidden group shadow-sm transition-all hover:shadow-md">
+            <h3 class="font-display text-2xl font-bold text-text-headline dark:text-parchment mb-10 italic">Identity & <i class="font-normal not-italic">Contact</i></h3>
+            
+            <div class="flex flex-col md:flex-row items-start gap-12">
+              <div class="relative group/avatar">
+                <div class="w-32 h-32 rounded-full overflow-hidden border-2 border-brass p-1 flex-shrink-0 bg-stone/20 dark:bg-ash/50 transition-transform duration-500 group-hover/avatar:scale-105">
+                  <img src="../assets/images/eleanor_profile_1774854804057.png" alt="Eleanor Roberts" class="w-full h-full object-cover rounded-full text-[0px] select-none">
+                </div>
+                <button class="absolute -bottom-2 -right-2 w-10 h-10 bg-brass text-white rounded-full flex items-center justify-center shadow-lg hover:bg-brass-light transition-all border-4 border-white dark:border-ash/80"><i data-lucide="camera" class="w-4 h-4"></i></button>
+              </div>
+
+              <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-1.5">
+                  <label class="text-[9px] font-bold text-gray-400 uppercase tracking-widest ml-1">Full Name</label>
+                  <input type="text" value="Eleanor Roberts" class="w-full bg-stone/5 dark:bg-ash/30 border border-gray-100 dark:border-white/5 rounded-xl px-6 py-3.5 text-sm font-bold text-text-main dark:text-parchment outline-none focus:ring-1 focus:ring-brass transition-all">
+                </div>
+                <div class="space-y-1.5">
+                  <label class="text-[9px] font-bold text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
+                  <input type="email" value="eleanor.r@sanctuary.com" class="w-full bg-stone/5 dark:bg-ash/30 border border-gray-100 dark:border-white/5 rounded-xl px-6 py-3.5 text-sm font-bold text-text-main dark:text-parchment outline-none focus:ring-1 focus:ring-brass transition-all">
+                </div>
+                <div class="md:col-span-2 pt-6">
+                  <button class="bg-brass hover:bg-brass-light text-white px-10 py-3 rounded-full text-[11px] font-bold transition-all shadow-md shadow-brass/10">Save Identity Changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sanctuary Preferences (Compact) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-10 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm transition-all hover:shadow-md">
+              <h3 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-8 italic">Sanctuary <i class="font-normal not-italic text-brass">Setup</i></h3>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 bg-stone/10 dark:bg-ash/30 rounded-xl">
+                  <span class="text-xs font-bold text-text-main dark:text-parchment">High Floor preference</span>
+                  <button class="w-8 h-4 bg-brass rounded-full relative"><span class="absolute right-0.5 top-0.5 w-3 h-3 bg-white rounded-full shadow-sm"></span></button>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-stone/10 dark:bg-ash/30 rounded-xl opacity-70">
+                  <span class="text-xs font-bold text-text-main dark:text-parchment italic">Aromatherapy Misting</span>
+                  <span class="text-[9px] font-bold text-brass uppercase tracking-widest">Lavender</span>
+                </div>
+              </div>
             </div>
 
-            <!-- Settings Content -->
-            <div class="lg:col-span-2 space-y-12">
-              <!-- General Info -->
-              <section>
-                <h3 class="font-display text-2xl font-bold text-text-headline dark:text-parchment mb-8 italic">General <i class="font-normal not-italic">Identity</i></h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div class="space-y-2">
-                    <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-2">Full Name</label>
-                    <input type="text" value="Eleanor Roberts" class="w-full bg-white dark:bg-bg-panel border border-gray-100 dark:border-white/5 rounded-xl px-4 py-3 text-sm font-bold text-text-main dark:text-parchment outline-none focus:ring-1 focus:ring-brass transition-all">
+            <!-- Payment (Minimalist) -->
+            <div class="p-10 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm transition-all hover:shadow-md">
+              <h3 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-8 italic">Preferred <i class="font-normal not-italic text-brass">Payment</i></h3>
+              <div class="flex flex-col h-full justify-between">
+                <div class="flex items-center justify-between p-5 border border-brass/20 rounded-2xl bg-brass/5">
+                  <div class="flex items-center gap-4">
+                    <div class="p-2.5 bg-brass/10 rounded-lg text-brass"><i data-lucide="credit-card" class="w-5 h-5"></i></div>
+                    <span class="text-[11px] font-bold text-text-main dark:text-parchment tracking-[0.2em] uppercase">VISA •••• 1284</span>
                   </div>
-                  <div class="space-y-2">
-                    <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-2">Email Address</label>
-                    <input type="email" value="eleanor.r@sanctuary.com" class="w-full bg-white dark:bg-bg-panel border border-gray-100 dark:border-white/5 rounded-xl px-4 py-3 text-sm font-bold text-text-main dark:text-parchment outline-none focus:ring-1 focus:ring-brass transition-all">
-                  </div>
+                  <span class="text-[8px] font-bold text-brass uppercase tracking-[0.2em] bg-brass/10 px-2.5 py-1 rounded-full">Primary</span>
                 </div>
-                <button class="mt-8 bg-brass hover:bg-brass-light text-white px-8 py-4 rounded-full text-xs font-bold transition-all shadow-md">Save Identity Changes</button>
-              </section>
-
-              <!-- Notifications -->
-              <section class="p-8 bg-stone/10 dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5">
-                <h3 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-6">Julian's Alerts</h3>
-                <div class="space-y-4">
-                  <div class="flex items-center justify-between">
-                    <span class="text-sm font-bold text-text-main dark:text-parchment">Sanctuary Prep Alerts</span>
-                    <button class="w-10 h-6 bg-forest rounded-full relative transition-all duration-300">
-                      <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></span>
-                    </button>
-                  </div>
-                  <div class="flex items-center justify-between">
-                    <span class="text-sm font-bold text-text-main dark:text-parchment italic opacity-60">Marketing Invitations</span>
-                    <button class="w-10 h-6 bg-gray-200 dark:bg-ash rounded-full relative transition-all duration-300">
-                      <span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></span>
-                    </button>
-                  </div>
-                </div>
-              </section>
+                <button class="mt-8 text-[10px] font-bold text-gray-400 uppercase tracking-widest hover:text-brass transition-all flex items-center gap-2.5 group">
+                  <i data-lucide="plus-circle" class="w-4 h-4 group-hover:scale-110 transition-transform"></i> <span class="border-b border-transparent group-hover:border-brass">Update Payment Method</span>
+                </button>
+              </div>
             </div>
+          </div>
+
+          <!-- Account Actions (Subtle) -->
+          <div class="flex justify-center gap-8 pt-8 border-t border-gray-100 dark:border-white/5">
+            <button class="text-[9px] font-bold text-gray-400 hover:text-ink dark:hover:text-parchment uppercase tracking-widest transition-all">Download Sanctuary Data</button>
+            <button class="text-[9px] font-bold text-red-300 hover:text-red-400 uppercase tracking-widest transition-all">Deactivate Account</button>
+          </div>
+        </div>
+      </div>
           </div>
       </div>
     </div>
