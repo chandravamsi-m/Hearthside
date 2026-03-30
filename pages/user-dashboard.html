@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Dashboard — Hearthside</title>
+  
+  <!-- SEO & Social -->
+  <meta name="description" content="Manage your reservations, explore exclusive experiences, and connect with your concierge at Hearthside.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Styling & Icons -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'forest': '#2C4A3E',
+            'forest-light': '#3D6358',
+            'brass': '#B8956A',
+            'brass-light': '#D4AF8A',
+            'ink': '#1C2B26',
+            'coal': '#121514',
+            'parchment': '#FAF8F4',
+            'stone': '#F0EBE3',
+            'ash': '#1A1E1C',
+            'accent': '#B8956A',
+            'primary': '#2C4A3E',
+            'bg-page': 'var(--bg-page)',
+            'bg-panel': 'var(--bg-panel)',
+            'text-main': 'var(--text-main)',
+            'text-body': 'var(--text-body)',
+            'text-muted': 'var(--text-muted)'
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            body: ['"Source Serif 4"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-bg-page dark:bg-ash text-text-body font-body transition-colors duration-300 antialiased overflow-x-hidden">
+
+  <!-- Dashboard Sidebar Component (Minimal) -->
+  <aside data-sidebar class="fixed inset-y-0 inset-inline-start-0 w-72 bg-ink text-white z-50 transition-transform duration-500 ease-in-out shadow-2xl lg:shadow-none border-inline-end border-white/5 ltr:-translate-x-full rtl:translate-x-full lg:ltr:translate-x-0 lg:rtl:translate-x-0">
+      <div class="h-24 flex flex-col justify-center px-8 border-b border-white/5">
+          <a href="../index.html" class="flex items-center gap-0 group">
+              <img src="../assets/images/logo.svg" alt="Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110">
+              <span class="font-display text-2xl font-bold tracking-tighter text-white">Hearthside</span>
+          </a>
+          <span class="text-[8px] uppercase font-bold text-brass tracking-[0.4em] mt-1.5 ml-10 opacity-70">Guest Portal</span>
+      </div>
+
+      <!-- Navigation (Minimal) -->
+      <nav class="p-6 space-y-1.5 font-body">
+          <a href="#" data-nav-link="overview" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all bg-white/5 text-brass group">
+              <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+              Dashboard
+          </a>
+          <a href="#" data-nav-link="bookings" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-white/60 hover:text-white hover:bg-white/5 group">
+              <i data-lucide="calendar" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
+              My Reservations
+          </a>
+          <a href="#" data-nav-link="book" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-white/60 hover:text-white hover:bg-white/5 group">
+              <i data-lucide="plus-circle" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
+              Book New Stay
+          </a>
+          <a href="#" data-nav-link="messages" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-white/60 hover:text-white hover:bg-white/5 group relative">
+              <i data-lucide="message-square" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
+              Chat with Julian
+          </a>
+          <a href="#" data-nav-link="profile" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-white/60 hover:text-white hover:bg-white/5 group">
+              <i data-lucide="user" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
+              Settings
+          </a>
+          <a href="../auth/login.html" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-red-300/60 hover:text-red-300 hover:bg-red-400/5 group">
+              <i data-lucide="log-out" class="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity"></i>
+              Sign Out
+          </a>
+      </nav>
+  </aside>
+
+  <!-- Overlay for Mobile Sidebar -->
+  <div id="sidebar-overlay" class="fixed inset-0 bg-ink/60 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity duration-300 opacity-0 pointer-events-none"></div>
+
+  <!-- Main Content Wrapper -->
+  <main class="lg:ms-72 min-h-screen flex flex-col transition-all duration-300 dark:bg-ash">
+    
+    <!-- Dashboard Topbar Component (Refined) -->
+    <header data-topbar class="sticky top-0 h-24 bg-white/80 dark:bg-coal/80 backdrop-blur-xl z-40 border-b border-gray-100 dark:border-white/5 px-8 flex items-center justify-between transition-all duration-300">
+        <!-- Title & Breadcrumbs -->
+        <div class="reveal">
+            <h2 id="page-title" class="font-display text-2xl font-bold text-ink dark:text-parchment">Dashboard</h2>
+        </div>
+
+        <!-- Actions (Professionalized) -->
+        <div class="flex items-center gap-6">
+            <!-- Theme & RTL Toggles (Matched with Navbar) -->
+            <div class="flex items-center gap-2">
+                <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-ink/60 dark:text-parchment/60 hover:text-brass transition-all rounded-full border border-gray-100 dark:border-white/5 bg-gray-50 dark:bg-white/5">
+                    <span class="text-[11px] font-bold tracking-widest leading-none uppercase" data-rtl-label>RTL</span>
+                    <i data-lucide="move-horizontal" class="w-4 h-4"></i>
+                </button>
+                <button data-dark-toggle class="p-2 text-ink/60 dark:text-parchment/60 hover:text-brass transition-all rounded-full bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5">
+                    <i data-lucide="moon" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Profile Lockup -->
+            <button class="flex items-center gap-3 pl-6 border-l border-gray-100 dark:border-white/5 group text-left">
+                <div class="relative w-10 h-10 rounded-full overflow-hidden border border-brass/20 transition-all group-hover:border-brass ring-4 ring-brass/5 shadow-sm">
+                    <img src="../assets/images/eleanor_profile.png" alt="Eleanor Roberts" class="w-full h-full object-cover">
+                </div>
+                <div class="hidden xl:block">
+                  <p class="text-[10px] font-bold text-ink dark:text-parchment leading-tight">Eleanor Roberts</p>
+                  <p class="text-[8px] font-bold text-brass uppercase tracking-widest leading-tight mt-0.5 opacity-60 font-body">Guest Collective</p>
+                </div>
+            </button>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-sidebar-toggle" class="lg:hidden w-10 h-10 flex items-center justify-center text-ink dark:text-parchment hover:text-brass transition-all bg-gray-50 dark:bg-white/5 rounded-full">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </header>    <!-- Content Area (Dynamic) -->
+    <div class="p-8 flex-grow">
+      <!-- Overview Section -->
+      <div data-section="overview" class="reveal">
+        <!-- Welcome Section (Personalized) -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+          <div></div>
+          <div class="flex gap-4">
+            <button class="px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center gap-2 text-text-main dark:text-parchment">
+              <i data-lucide="download" class="w-4 h-4 text-brass"></i> ITINERARY
+            </button>
+            <button class="bg-brass hover:bg-brass-light text-white px-6 py-2.5 rounded-full text-[11px] font-bold transition-all shadow-md">Direct Book</button>
+          </div>
+        </div>
+
+        <!-- Quick Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+            <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-3">Loyalty Grade</h4>
+            <p class="text-xl font-bold text-text-headline dark:text-parchment italic">Steward Grade</p>
+          </div>
+          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+            <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-3">Stored Points</h4>
+            <p class="text-xl font-bold text-text-headline dark:text-parchment">2,450 <span class="text-[10px] opacity-40 uppercase ml-1">pts</span></p>
+          </div>
+          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+            <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-3">Total Retreats</h4>
+            <p class="text-xl font-bold text-text-headline dark:text-parchment">12</p>
+          </div>
+          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+            <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-3">Next Check-In</h4>
+            <p class="text-xl font-bold text-text-headline dark:text-parchment">In 14 Days</p>
+          </div>
+        </div>
+
+        <!-- Primary Layout Grid -->
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-8 mb-12">
+          <!-- Next Stay Highlight -->
+          <div class="xl:col-span-2 group">
+            <div class="relative h-full bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+              <div class="grid grid-cols-1 md:grid-cols-2 h-full">
+                <div class="relative h-64 md:h-full overflow-hidden">
+                  <img src="../assets/images/rose_suite.png" alt="Rose Suite" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:hidden"></div>
+                  <div class="absolute bottom-6 left-8 md:hidden">
+                    <span class="px-3 py-1 bg-brass text-white text-[10px] font-bold uppercase tracking-widest rounded-full">Confirmed</span>
+                  </div>
+                </div>
+                <div class="p-10 flex flex-col justify-between">
+                  <div>
+                    <div class="hidden md:flex items-center justify-between mb-8">
+                      <span class="px-3 py-1 bg-brass/10 text-brass text-[10px] font-bold uppercase tracking-widest rounded-full">Upcoming Retreat</span>
+                      <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Ref: HSB-2024-0891</span>
+                    </div>
+                    <h3 class="font-display text-4xl font-bold text-text-headline dark:text-parchment mb-4">The Rose Suite</h3>
+                    <p class="text-text-muted dark:text-gray-400 text-sm italic mb-8">14 Feb — 17 Feb, 2025 (3 Nights)</p>
+                    <div class="grid grid-cols-2 gap-6 pt-6 border-t border-gray-100 dark:border-white/5">
+                      <div>
+                        <h5 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Guests</h5>
+                        <p class="text-sm font-bold text-text-main dark:text-parchment">2 Adults</p>
+                      </div>
+                      <div>
+                        <h5 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Inclusions</h5>
+                        <p class="text-sm font-bold text-text-main dark:text-parchment italic">Champagne, Breakfast</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex gap-4 mt-10">
+                    <button class="flex-grow bg-brass hover:bg-brass-light text-white px-6 py-4 rounded-full text-xs font-bold transition-all shadow-md">Manage Sanctuary Prep</button>
+                    <button class="w-14 h-14 flex items-center justify-center border border-ink/8 dark:border-white/5 rounded-full text-gray-400 hover:text-accent transition-all">
+                      <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct Concierge Sidecard -->
+          <div class="bg-bg-panel border border-ink/8 dark:border-white/5 p-10 rounded-[2.5rem] flex flex-col justify-between relative overflow-hidden group shadow-sm">
+            <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-brass/5 rounded-full blur-3xl group-hover:bg-brass/10 transition-all duration-700"></div>
+            <div class="relative z-10">
+              <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-brass p-0.5">
+                  <img src="../assets/images/julian_concierge.png" alt="Julian" class="w-full h-full object-cover rounded-full">
+                </div>
+                <div>
+                  <h4 class="font-display text-xl font-bold text-text-headline dark:text-parchment">Julian V.</h4>
+                  <p class="text-[10px] font-bold text-brass uppercase tracking-widest">Head Concierge</p>
+                </div>
+              </div>
+              <h3 class="font-display text-3xl font-bold leading-tight mb-6 text-text-headline dark:text-parchment">Need a dinner <br><i class="font-normal italic text-brass">arrangement?</i></h3>
+              <p class="text-text-muted dark:text-gray-400 text-sm font-medium leading-relaxed mb-8">Julian is ready to handle your transport, dining, and local sanctuary needs for your next stay.</p>
+            </div>
+            <a href="#" class="relative z-10 bg-brass hover:bg-brass-light text-white w-full py-4 rounded-full flex items-center justify-center gap-3 text-xs font-bold transition-all shadow-md">
+              Open Private Chat
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Local Guides Section (High-Fidelity) -->
+        <section class="bg-stone/20 dark:bg-bg-panel p-10 rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden relative">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="font-display text-2xl font-bold text-text-headline dark:text-parchment italic">The Hearthside <i class="font-normal not-italic text-lg">Guide</i></h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="group relative h-48 rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all">
+              <img src="../assets/images/dining_experience.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
+                <span class="text-[8px] font-bold uppercase tracking-[0.3em] text-brass mb-1">Gourmet</span>
+                <span class="text-xs font-bold text-white uppercase tracking-widest">The Kitchen</span>
+              </div>
+            </div>
+            <div class="group relative h-48 rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all">
+              <img src="../assets/images/wellness_experience.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
+                <span class="text-[8px] font-bold uppercase tracking-[0.3em] text-brass mb-1">Sanctuary</span>
+                <span class="text-xs font-bold text-white uppercase tracking-widest">Self & Care</span>
+              </div>
+            </div>
+            <div class="group relative h-48 rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all">
+              <img src="../assets/images/garden_cottage.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
+                <span class="text-[8px] font-bold uppercase tracking-[0.3em] text-brass mb-1">Estate</span>
+                <span class="text-xs font-bold text-white uppercase tracking-widest">Nature Trails</span>
+              </div>
+            </div>
+            <div class="group relative h-48 rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all">
+              <img src="../assets/images/orchard_room.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
+                <span class="text-[8px] font-bold uppercase tracking-[0.3em] text-brass mb-1">Heritage</span>
+                <span class="text-xs font-bold text-white uppercase tracking-widest">Our Story</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Bookings Section -->
+      <div data-section="bookings" class="reveal hidden">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+            <div></div>
+            <button class="px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all text-text-main dark:text-parchment">Download All Receipts</button>
+          </div>
+
+          <div class="space-y-6">
+            <!-- Reservation Card: Upcoming -->
+            <div class="bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 p-8 flex flex-col md:flex-row items-center gap-8 shadow-sm">
+              <div class="w-full md:w-48 h-32 rounded-2xl overflow-hidden shadow-inner">
+                <img src="../assets/images/rose_suite.png" alt="Rose Suite" class="w-full h-full object-cover">
+              </div>
+              <div class="flex-grow">
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="px-2 py-0.5 bg-forest-light/10 text-forest-light text-[8px] font-bold uppercase tracking-widest rounded-full">Confirmed</span>
+                  <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">HSB-2024-0891</span>
+                </div>
+                <h3 class="font-display text-2xl font-bold text-text-headline dark:text-parchment mb-1">The Rose Suite</h3>
+                <p class="text-sm text-text-muted dark:text-gray-400 italic">14 Feb — 17 Feb, 2025 • 3 Nights</p>
+              </div>
+              <div class="flex gap-3">
+                <button class="bg-brass hover:bg-brass-light text-white px-6 py-2.5 rounded-full text-[11px] font-bold transition-all shadow-md">Itinerary</button>
+                <button class="p-3 border border-ink/8 dark:border-white/5 rounded-full text-gray-400 hover:text-red-400 transition-all"><i data-lucide="x" class="w-4 h-4"></i></button>
+              </div>
+            </div>
+
+            <!-- Reservation Card: Past -->
+            <div class="bg-white/50 dark:bg-bg-panel/50 rounded-[2rem] border border-gray-100 dark:border-white/5 p-8 flex flex-col md:flex-row items-center gap-8 transition-opacity opacity-80 hover:opacity-100">
+              <div class="w-full md:w-48 h-32 rounded-2xl overflow-hidden grayscale">
+                <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&q=80&w=400" alt="Orchard Room" class="w-full h-full object-cover">
+              </div>
+              <div class="flex-grow">
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="px-2 py-0.5 bg-gray-200 dark:bg-ash text-gray-400 text-[8px] font-bold uppercase tracking-widest rounded-full">Completed</span>
+                  <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">HSB-2024-0756</span>
+                </div>
+                <h3 class="font-display text-2xl font-bold text-text-headline dark:text-parchment mb-1">The Orchard Room</h3>
+                <p class="text-sm text-text-muted dark:text-gray-400 italic">20 Sep — 22 Sep, 2024 • 2 Nights</p>
+              </div>
+              <button class="bg-brass hover:bg-brass-light text-white px-6 py-2.5 rounded-full text-[11px] font-bold transition-all shadow-md">Rebook Room</button>
+            </div>
+          </div>
+      </div>
+
+      <!-- Book Section -->
+      <div data-section="book" class="reveal hidden">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+            <div></div>
+          </div>
+
+          <!-- Date Picker Block -->
+          <div class="p-6 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div class="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="flex flex-col gap-2">
+                  <label class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] ml-2">Arrive</label>
+                  <input type="date" class="bg-stone/20 dark:bg-ash/50 border-none rounded-2xl px-6 py-4 text-sm font-bold text-text-main dark:text-parchment focus:ring-2 focus:ring-brass/30 transition-all">
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] ml-2">Depart</label>
+                  <input type="date" class="bg-stone/20 dark:bg-ash/50 border-none rounded-2xl px-6 py-4 text-sm font-bold text-text-main dark:text-parchment focus:ring-2 focus:ring-brass/30 transition-all">
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] ml-2">Sanctuary For</label>
+                  <select class="bg-stone/20 dark:bg-ash/50 border-none rounded-2xl px-6 py-4 text-sm font-bold text-text-main dark:text-parchment focus:ring-2 focus:ring-brass/30 transition-all appearance-none cursor-pointer">
+                    <option>2 Adults, 0 Children</option>
+                    <option>1 Adult</option>
+                  </select>
+                </div>
+              </div>
+              <div class="flex items-end">
+                <button class="w-full h-14 bg-brass hover:bg-brass-light text-white px-6 py-4 rounded-full text-xs font-bold transition-all shadow-md shadow-brass/10">Check Availability</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Room Card 1 -->
+            <div class="bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 overflow-hidden group shadow-sm hover:shadow-xl transition-all duration-500">
+              <div class="relative h-48 overflow-hidden">
+                <img src="../assets/images/orchard_room.png" alt="Orchard Room" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute bottom-4 right-4 text-white font-display text-xl font-bold drop-shadow-md">£220<span class="text-xs font-normal">/nt</span></div>
+              </div>
+              <div class="p-6">
+                <h4 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-2">The Orchard Room</h4>
+                <p class="text-text-muted dark:text-gray-400 text-xs mb-6 italic">A sunlit retreat with views across our apple orchard.</p>
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="flex items-center gap-1.5 text-gray-400"><i data-lucide="users" class="w-3 h-3"></i> <span class="text-[9px] font-bold uppercase">2 Guests</span></div>
+                  <div class="flex items-center gap-1.5 text-gray-400"><i data-lucide="expand" class="w-3 h-3"></i> <span class="text-[9px] font-bold uppercase">28 m²</span></div>
+                </div>
+                <button class="w-full bg-brass hover:bg-brass-light text-white px-6 py-3.5 rounded-full text-[11px] font-bold transition-all shadow-md">View Details & Book</button>
+              </div>
+            </div>
+            <!-- More room cards... -->
+          </div>
+      </div>
+
+      <!-- Messages Section -->
+      <div data-section="messages" class="reveal hidden h-[calc(100vh-12rem)] flex flex-col">
+          <div class="flex items-center justify-between mb-8">
+            <div></div>
+            <div class="flex items-center gap-4">
+              <span class="flex items-center gap-2 text-[10px] font-bold text-forest uppercase tracking-widest">
+                <span class="w-2 h-2 bg-forest rounded-full animate-pulse-soft"></span>
+                Julian is online
+              </span>
+            </div>
+          </div>
+
+          <div class="flex-grow bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden flex flex-col">
+            <!-- Chat Window -->
+            <div class="flex-grow p-8 overflow-y-auto space-y-8">
+              <!-- Admin Message -->
+              <div class="flex gap-4 max-w-2xl">
+                <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border border-brass p-0.5">
+                  <img src="../assets/images/julian_concierge.png" class="w-full h-full object-cover rounded-full">
+                </div>
+                <div class="bg-stone/30 dark:bg-ash/50 p-6 rounded-2xl rounded-tl-none">
+                  <p class="text-sm text-text-main dark:text-parchment leading-relaxed">Good morning, Eleanor. It's a pleasure to assist you today. I see your check-in for the Rose Suite is approaching on the 14th. Would you like me to arrange a private transport from the station for your arrival?</p>
+                  <span class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mt-4 block">Julian • 09:42 AM</span>
+                </div>
+              </div>
+
+              <!-- Guest Message -->
+              <div class="flex gap-4 max-w-2xl ml-auto flex-row-reverse">
+                <div class="w-10 h-10 rounded-full bg-forest flex-shrink-0 flex items-center justify-center text-white font-bold text-sm shadow-sm ring-4 ring-forest/5 transition-all">E</div>
+                <div class="bg-forest text-white p-6 rounded-2xl rounded-tr-none shadow-lg shadow-forest/10">
+                  <p class="text-sm leading-relaxed">Yes, please! That would be lovely. We'll be arriving on the 2:15 PM train. Also, could we ensure there are some local wildflowers in the room?</p>
+                  <span class="text-[8px] font-bold text-white/40 uppercase tracking-widest mt-4 block text-right">You • 10:05 AM</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="p-6 bg-stone/10 dark:bg-ash/30 border-t border-gray-100 dark:border-white/5">
+              <div class="relative">
+                <textarea placeholder="Type your message to Julian..." class="w-full bg-white dark:bg-ash border border-gray-100 dark:border-white/5 rounded-2xl px-6 py-4 pr-32 text-sm font-medium text-text-main dark:text-parchment focus:ring-2 focus:ring-brass/30 outline-none resize-none transition-all h-16"></textarea>
+                <div class="absolute right-4 top-1/2 -translate-y-1/2 flex gap-2">
+                  <button class="p-2.5 text-gray-400 hover:text-brass transition-all"><i data-lucide="paperclip" class="w-4 h-4"></i></button>
+                  <button class="bg-brass hover:bg-brass-light text-white px-6 py-2.5 rounded-full text-[11px] font-bold transition-all shadow-md">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- Profile Section -->
+      <div data-section="profile" class="reveal hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <!-- Sidebar Nav for Settings -->
+            <div class="space-y-2">
+              <button class="w-full text-left px-6 py-4 rounded-xl font-bold text-sm bg-stone/30 dark:bg-white/5 text-brass">General Profile</button>
+              <button class="w-full text-left px-6 py-4 rounded-xl font-bold text-sm text-gray-400 hover:bg-stone/10 dark:hover:bg-ash transition-all">Sanctuary Preferences</button>
+              <button class="w-full text-left px-6 py-4 rounded-xl font-bold text-sm text-gray-400 hover:bg-stone/10 dark:hover:bg-ash transition-all">Privacy & Data</button>
+              <button class="w-full text-left px-6 py-4 rounded-xl font-bold text-sm text-gray-400 hover:bg-stone/10 dark:hover:bg-ash transition-all">Payment Methods</button>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="lg:col-span-2 space-y-12">
+              <!-- General Info -->
+              <section>
+                <h3 class="font-display text-2xl font-bold text-text-headline dark:text-parchment mb-8 italic">General <i class="font-normal not-italic">Identity</i></h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="space-y-2">
+                    <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-2">Full Name</label>
+                    <input type="text" value="Eleanor Roberts" class="w-full bg-white dark:bg-bg-panel border border-gray-100 dark:border-white/5 rounded-xl px-4 py-3 text-sm font-bold text-text-main dark:text-parchment outline-none focus:ring-1 focus:ring-brass transition-all">
+                  </div>
+                  <div class="space-y-2">
+                    <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-2">Email Address</label>
+                    <input type="email" value="eleanor.r@sanctuary.com" class="w-full bg-white dark:bg-bg-panel border border-gray-100 dark:border-white/5 rounded-xl px-4 py-3 text-sm font-bold text-text-main dark:text-parchment outline-none focus:ring-1 focus:ring-brass transition-all">
+                  </div>
+                </div>
+                <button class="mt-8 bg-brass hover:bg-brass-light text-white px-8 py-4 rounded-full text-xs font-bold transition-all shadow-md">Save Identity Changes</button>
+              </section>
+
+              <!-- Notifications -->
+              <section class="p-8 bg-stone/10 dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5">
+                <h3 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-6">Julian's Alerts</h3>
+                <div class="space-y-4">
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm font-bold text-text-main dark:text-parchment">Sanctuary Prep Alerts</span>
+                    <button class="w-10 h-6 bg-forest rounded-full relative transition-all duration-300">
+                      <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></span>
+                    </button>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm font-bold text-text-main dark:text-parchment italic opacity-60">Marketing Invitations</span>
+                    <button class="w-10 h-6 bg-gray-200 dark:bg-ash rounded-full relative transition-all duration-300">
+                      <span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  <!-- Dashboard Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Sidebar Toggle Logic
+      const sidebar = document.querySelector('[data-sidebar]');
+      const toggle = document.getElementById('mobile-sidebar-toggle');
+      const overlay = document.getElementById('sidebar-overlay');
+      
+      const setSidebar = (open) => {
+        const isRTL = document.documentElement.dir === 'rtl';
+        if (open) {
+          sidebar.classList.remove('ltr:-translate-x-full', 'rtl:translate-x-full', '-translate-x-full', 'translate-x-full');
+          sidebar.classList.add('translate-x-0');
+        } else {
+          sidebar.classList.remove('translate-x-0');
+          if (isRTL) {
+            sidebar.classList.add('translate-x-full');
+          } else {
+            sidebar.classList.add('-translate-x-full');
+          }
+        }
+        overlay.classList.toggle('hidden', !open);
+        setTimeout(() => {
+          overlay.classList.toggle('opacity-0', !open);
+          overlay.classList.toggle('pointer-events-none', !open);
+        }, 10);
+        document.body.style.overflow = open ? 'hidden' : '';
+      };
+
+      toggle?.addEventListener('click', () => setSidebar(true));
+      overlay?.addEventListener('click', () => setSidebar(false));
+
+      // Section Switching Logic
+      const navLinks = document.querySelectorAll('[data-nav-link]');
+      const sections = document.querySelectorAll('[data-section]');
+      const pageTitle = document.getElementById('page-title');
+
+      const titleMap = {
+        'overview': 'Dashboard',
+        'bookings': 'My Reservations',
+        'book': 'Book New Stay',
+        'messages': 'Chat with Julian',
+        'profile': 'Settings'
+      };
+
+      const switchSection = (sectionId) => {
+        // Toggle Sections
+        sections.forEach(s => {
+          if (s.dataset.section === sectionId) {
+            s.classList.remove('hidden');
+          } else {
+            s.classList.add('hidden');
+          }
+        });
+
+        // Update Nav Links
+        navLinks.forEach(l => {
+          if (l.dataset.navLink === sectionId) {
+            l.classList.add('bg-white/5', 'text-brass');
+            l.classList.remove('text-white/60');
+            l.querySelector('i')?.classList.remove('opacity-50');
+          } else {
+            l.classList.remove('bg-white/5', 'text-brass');
+            l.classList.add('text-white/60');
+            l.querySelector('i')?.classList.add('opacity-50');
+          }
+        });
+
+        // Update Title
+        if (pageTitle && titleMap[sectionId]) {
+          pageTitle.innerText = titleMap[sectionId];
+        }
+
+        // Close Sidebar on Mobile
+        if (window.innerWidth < 1024) {
+          setSidebar(false);
+        }
+      };
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const sid = link.dataset.navLink;
+          if (sid) switchSection(sid);
+        });
+      });
+    });
+  </script>
+  
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

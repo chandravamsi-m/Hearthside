@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Hearthside</title>
+  
+  <!-- SEO & Social -->
+  <meta name="description" content="Manage property operations, reservations, and guest experiences at Hearthside.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Styling & Icons -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'forest': '#2C4A3E',
+            'forest-light': '#3D6358',
+            'brass': '#B8956A',
+            'brass-light': '#D4AF8A',
+            'ink': '#1C2B26',
+            'coal': '#121514',
+            'parchment': '#FAF8F4',
+            'stone': '#F0EBE3',
+            'ash': '#1A1E1C',
+            'accent': '#B8956A',
+            'primary': '#2C4A3E',
+            'bg-page': 'var(--bg-page)',
+            'bg-panel': 'var(--bg-panel)',
+            'text-main': 'var(--text-main)',
+            'text-body': 'var(--text-body)',
+            'text-muted': 'var(--text-muted)'
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            body: ['"Source Serif 4"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-bg-page dark:bg-ash text-text-body font-body transition-colors duration-300 antialiased overflow-x-hidden">
+
+  <!-- Admin Sidebar Component (Minimal) -->
+  <aside data-sidebar class="fixed inset-y-0 inset-inline-start-0 w-72 bg-ink text-gray-300 z-50 transition-transform duration-500 ease-in-out shadow-2xl lg:shadow-none border-inline-end border-white/5 ltr:-translate-x-full rtl:translate-x-full lg:ltr:translate-x-0 lg:rtl:translate-x-0">
+      <!-- Brand Header -->
+      <div class="h-24 flex flex-col justify-center px-8 border-b border-white/5">
+          <a href="../index.html" class="flex items-center gap-0 group">
+              <img src="../assets/images/logo.svg" alt="Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110">
+              <span class="font-display text-2xl font-bold tracking-tighter text-white">Hearthside</span>
+          </a>
+          <span class="text-[8px] uppercase font-bold text-brass tracking-[0.4em] mt-1.5 ml-10 opacity-70">Admin Portal</span>
+      </div>
+
+      <!-- Navigation (Minimal) -->
+      <nav class="p-6 space-y-1 font-body">
+          <a href="#" data-admin-nav="overview" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all bg-white/5 text-brass group">
+              <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+              Overview
+          </a>
+          <a href="#" data-admin-nav="bookings" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-white/60 hover:text-white hover:bg-white/5 group">
+              <i data-lucide="calendar" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
+              Reservations
+          </a>
+          <a href="#" data-admin-nav="rooms" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-white/60 hover:text-white hover:bg-white/5 group">
+              <i data-lucide="home" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
+              Room Status
+          </a>
+          <a href="#" data-admin-nav="guests" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-white/60 hover:text-white hover:bg-white/5 group">
+              <i data-lucide="users" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
+              Guest Registry
+          </a>
+          <a href="#" data-admin-nav="messages" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-white/60 hover:text-white hover:bg-white/5 group relative">
+              <i data-lucide="message-square" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
+              Inbox
+          </a>
+          <a href="#" data-admin-nav="settings" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-white/60 hover:text-white hover:bg-white/5 group">
+              <i data-lucide="settings" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
+              Site Settings
+          </a>
+          <a href="../auth/login.html" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-red-300/60 hover:text-red-300 hover:bg-red-400/5 group mt-auto">
+              <i data-lucide="log-out" class="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity"></i>
+              Sign Out
+          </a>
+      </nav>
+  </aside>
+
+  <!-- Overlay for Mobile Sidebar -->
+  <div id="sidebar-overlay" class="fixed inset-0 bg-ink/60 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity duration-300 opacity-0 pointer-events-none"></div>
+
+  <!-- Main Content Wrapper -->
+  <main class="lg:ms-72 min-h-screen flex flex-col transition-all duration-300 dark:bg-ash">
+    
+    <!-- Admin Topbar (Refined) -->
+    <header data-topbar class="sticky top-0 h-24 bg-white/80 dark:bg-coal/80 backdrop-blur-xl z-40 border-b border-gray-100 dark:border-white/5 px-8 flex items-center justify-between transition-all duration-300">
+        <!-- Title & Breadcrumbs -->
+        <div class="reveal">
+            <h2 id="page-title" class="font-display text-2xl font-bold text-ink dark:text-parchment">Overview</h2>
+        </div>
+
+        <!-- Actions (Professionalized) -->
+        <div class="flex items-center gap-6">
+            <!-- Theme & RTL Toggles (Matched with Navbar) -->
+            <div class="flex items-center gap-2">
+                <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-ink/60 dark:text-parchment/60 hover:text-brass transition-all rounded-full border border-gray-100 dark:border-white/5 bg-gray-50 dark:bg-white/5">
+                    <span class="text-[11px] font-bold tracking-widest leading-none uppercase" data-rtl-label>RTL</span>
+                    <i data-lucide="move-horizontal" class="w-4 h-4"></i>
+                </button>
+                <button data-dark-toggle class="p-2 text-ink/60 dark:text-parchment/60 hover:text-brass transition-all rounded-full bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5">
+                    <i data-lucide="moon" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <button class="flex items-center gap-3 pl-6 border-l border-gray-100 dark:border-white/5 group text-left">
+                <div class="relative w-10 h-10 rounded-xl overflow-hidden shadow-sm ring-4 ring-brass/5 border border-forest-light/20 transition-all group-hover:border-forest-light">
+                    <img src="../assets/images/steward_profile.png" alt="Master Steward" class="w-full h-full object-cover">
+                </div>
+                <div class="hidden xl:block">
+                  <p class="text-[10px] font-bold text-ink dark:text-parchment leading-tight">Master Steward</p>
+                  <p class="text-[8px] font-bold text-forest-light uppercase tracking-widest leading-tight mt-0.5 opacity-60 font-body">Systems Active</p>
+                </div>
+            </button>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-sidebar-toggle" class="lg:hidden w-10 h-10 flex items-center justify-center text-ink dark:text-parchment hover:text-brass transition-all bg-gray-50 dark:bg-white/5 rounded-full">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Content Area (Dynamic) -->
+    <div class="p-8 flex-grow">
+      <!-- Overview Section -->
+      <div data-section="overview" class="reveal">
+        <!-- Admin Welcome Section -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+          <div></div>
+          <div class="flex gap-4">
+            <button class="px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center gap-2 text-text-main dark:text-parchment">
+              <i data-lucide="download" class="w-4 h-4 text-brass"></i> AUDIT LOG
+            </button>
+            <button class="bg-brass hover:bg-brass-light text-white px-6 py-2.5 rounded-full text-[11px] font-bold transition-all shadow-md">Export Ledger</button>
+          </div>
+        </div>
+
+        <!-- Performance Grid (Operational Metrics) -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest">Daily Revenue</h4>
+              <span class="text-[10px] font-bold text-forest bg-forest/10 px-2 py-0.5 rounded-full">+12%</span>
+            </div>
+            <p class="text-3xl font-bold text-text-headline dark:text-parchment leading-none italic">£4,250.00</p>
+          </div>
+          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest">Occupancy</h4>
+              <i data-lucide="activity" class="w-4 h-4 text-brass opacity-50"></i>
+            </div>
+            <p class="text-3xl font-bold text-text-headline dark:text-parchment leading-none italic">92<span class="text-sm font-normal not-italic opacity-40 leading-none ml-1">%</span></p>
+          </div>
+          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest">Concierge Queue</h4>
+              <span class="w-1.5 h-1.5 bg-accent rounded-full animate-pulse-soft"></span>
+            </div>
+            <p class="text-3xl font-bold text-text-headline dark:text-parchment leading-none italic">04</p>
+          </div>
+          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest">Active Guests</h4>
+              <i data-lucide="users" class="w-4 h-4 text-forest opacity-50"></i>
+            </div>
+            <p class="text-3xl font-bold text-text-headline dark:text-parchment leading-none italic">18</p>
+          </div>
+        </div>
+
+        <!-- Property Pulse (High-Fidelity) -->
+        <section class="mb-12">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="font-display text-3xl font-bold text-text-headline dark:text-parchment italic font-normal">Property <i class="font-normal not-italic">Pulse</i></h2>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Activity Feed -->
+            <div class="lg:col-span-2 bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-sm p-8">
+              <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-6">Live Activity</h4>
+              <div class="space-y-6">
+                <div class="flex gap-4 items-start">
+                  <div class="w-2 h-2 bg-forest rounded-full mt-1.5 animate-pulse-soft"></div>
+                  <div>
+                    <p class="text-sm font-bold text-text-main dark:text-parchment">Eleanor Roberts — <span class="text-gray-400 font-medium">Checked into the Rose Suite</span></p>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Steward: Jameson • 10:30 AM</p>
+                  </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                  <div class="w-2 h-2 bg-brass rounded-full mt-1.5"></div>
+                  <div>
+                    <p class="text-sm font-bold text-text-main dark:text-parchment italic">Concierge Request — <span class="text-gray-400 font-medium italic">Sanctuary wildflowers for Orchard Room</span></p>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Julian • 09:15 AM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Financial Snapshot -->
+            <div class="bg-bg-panel border border-ink/8 dark:border-white/5 p-8 rounded-[2rem] shadow-sm flex flex-col justify-between relative overflow-hidden group">
+              <div class="absolute -right-16 -top-16 w-32 h-32 bg-brass/5 rounded-full blur-2xl group-hover:bg-brass/10 transition-all"></div>
+              <div class="relative z-10">
+                <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-6">Financial Context</h4>
+                <p class="text-4xl font-display font-bold text-text-headline dark:text-parchment">£12,450</p>
+                <p class="text-[10px] font-bold text-brass uppercase tracking-widest mt-2">Week-to-date Revenue</p>
+              </div>
+              <div class="relative z-10 pt-6 border-t border-gray-100 dark:border-white/5 flex items-center justify-between">
+                <span class="text-[10px] font-bold text-text-muted dark:text-gray-400 lowercase italic text-xs">projected completion: £48k</span>
+                <i data-lucide="trending-up" class="w-4 h-4 text-brass"></i>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Bookings (Reservations) Section -->
+      <div data-section="bookings" class="reveal hidden">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+            <div></div>
+            <div class="flex gap-4">
+              <input type="text" placeholder="Search references..." class="bg-bg-panel border border-ink/8 dark:border-white/5 rounded-full px-4 py-2 text-xs font-bold text-text-main dark:text-parchment focus:ring-1 focus:ring-brass outline-none w-64">
+              <button class="px-6 py-2 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center gap-2 text-text-main dark:text-parchment">
+                <i data-lucide="filter" class="w-4 h-4 text-brass"></i> Filter
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-stone/20 dark:bg-ash/50 border-b border-gray-50 dark:border-white/5">
+                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Reference</th>
+                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Guest</th>
+                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Sanctuary</th>
+                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Stay Period</th>
+                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Status</th>
+                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest text-right">Revenue</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm font-bold">
+                <tr class="group hover:bg-stone/5 dark:hover:bg-ash/30 transition-all border-b border-gray-50 dark:border-white/5">
+                  <td class="px-8 py-6 text-text-main dark:text-parchment uppercase tracking-tighter">HSB-2024-0891</td>
+                  <td class="px-8 py-6">
+                    <div class="flex items-center gap-3">
+                      <div class="w-8 h-8 rounded-full overflow-hidden border border-brass/20">
+                        <img src="../assets/images/eleanor_profile.png" class="w-full h-full object-cover">
+                      </div>
+                      <span>Eleanor Roberts</span>
+                    </div>
+                  </td>
+                  <td class="px-8 py-6 text-gray-400 italic font-medium">The Rose Suite</td>
+                  <td class="px-8 py-6">14 Feb — 17 Feb, 2025</td>
+                  <td class="px-8 py-6 text-green-500">Confirmed</td>
+                  <td class="px-8 py-6 text-right">£1,260.00</td>
+                </tr>
+                <tr class="group hover:bg-stone/5 dark:hover:bg-ash/30 transition-all border-b border-gray-50 dark:border-white/5">
+                  <td class="px-8 py-6 text-text-main dark:text-parchment uppercase tracking-tighter">HSB-2024-0756</td>
+                  <td class="px-8 py-6">
+                    <div class="flex items-center gap-3">
+                      <div class="w-8 h-8 bg-forest/10 rounded-full flex items-center justify-center text-[10px] font-bold text-forest">JD</div>
+                      <span>Jameson Dewhurst</span>
+                    </div>
+                  </td>
+                  <td class="px-8 py-6 text-gray-400 italic font-medium">The Orchard Room</td>
+                  <td class="px-8 py-6">20 Sep — 22 Sep, 2024</td>
+                  <td class="px-8 py-6 text-gray-400">Completed</td>
+                  <td class="px-8 py-6 text-right">£440.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+
+      <!-- Rooms Section -->
+      <div data-section="rooms" class="reveal hidden">
+          <div class="flex items-center justify-between mb-12">
+            <div></div>
+            <div class="flex gap-4">
+              <span class="flex items-center gap-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest"><span class="w-2 h-2 bg-green-500 rounded-full"></span> 08 Available</span>
+              <span class="flex items-center gap-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest"><span class="w-2 h-2 bg-forest rounded-full"></span> 04 Occupied</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Room Status Item -->
+            <div class="bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 p-8 group shadow-sm">
+              <div class="flex items-center justify-between mb-8">
+                <div class="w-16 h-16 rounded-2xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
+                  <img src="../assets/images/rose_suite.png" class="w-full h-full object-cover">
+                </div>
+                <div class="text-right">
+                  <h4 class="font-display text-lg font-bold text-text-headline dark:text-parchment">Rose Suite</h4>
+                  <p class="text-[10px] font-bold text-forest uppercase tracking-widest mt-1">Steward Occupied</p>
+                </div>
+              </div>
+              <div class="space-y-4 pt-6 border-t border-gray-100 dark:border-white/5">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Housekeeping</span>
+                  <span class="text-[10px] font-bold text-forest uppercase tracking-widest">Clean</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Maintenance</span>
+                  <button class="w-10 h-6 bg-forest rounded-full relative transition-all duration-300">
+                    <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Room Status Item (Orchard) -->
+            <div class="bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 p-8 group shadow-sm">
+              <div class="flex items-center justify-between mb-8">
+                <div class="w-16 h-16 rounded-2xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
+                  <img src="../assets/images/orchard_room.png" class="w-full h-full object-cover">
+                </div>
+                <div class="text-right">
+                  <h4 class="font-display text-lg font-bold text-text-headline dark:text-parchment">Orchard Room</h4>
+                  <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Arriving 2PM</p>
+                </div>
+              </div>
+              <div class="space-y-4 pt-6 border-t border-gray-100 dark:border-white/5">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Housekeeping</span>
+                  <span class="text-[10px] font-bold text-brass uppercase tracking-widest">In Progress</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Maintenance</span>
+                  <button class="w-10 h-6 bg-gray-200 dark:bg-ash rounded-full relative transition-all duration-300">
+                    <span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Room Status Item (Cottage) -->
+            <div class="bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5 p-8 group shadow-sm">
+              <div class="flex items-center justify-between mb-8">
+                <div class="w-16 h-16 rounded-2xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
+                  <img src="../assets/images/garden_cottage.png" class="w-full h-full object-cover">
+                </div>
+                <div class="text-right">
+                  <h4 class="font-display text-lg font-bold text-text-headline dark:text-parchment">Garden Cottage</h4>
+                  <p class="text-[10px] font-bold text-green-500 uppercase tracking-widest mt-1">Available</p>
+                </div>
+              </div>
+              <div class="space-y-4 pt-6 border-t border-gray-100 dark:border-white/5">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Housekeeping</span>
+                  <span class="text-[10px] font-bold text-forest uppercase tracking-widest font-bold">Inspected</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Maintenance</span>
+                  <button class="w-10 h-6 bg-gray-200 dark:bg-ash rounded-full relative transition-all duration-300">
+                    <span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- Guests Section -->
+      <div data-section="guests" class="reveal hidden">
+          <div class="flex items-center justify-between mb-12">
+            <div></div>
+          </div>
+          
+          <div class="bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-stone/20 dark:bg-ash/50 border-b border-gray-50 dark:border-white/5">
+                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Name</th>
+                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Email</th>
+                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Loyalty Tier</th>
+                  <th class="px-8 py-5 text-[10px] uppercase font-bold text-gray-400 tracking-widest text-right">Lifetime Retail</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm font-bold">
+                <tr class="group hover:bg-stone/5 dark:hover:bg-ash/30 transition-all border-b border-gray-50 dark:border-white/5">
+                  <td class="px-8 py-6 text-text-main dark:text-parchment">
+                    <div class="flex items-center gap-3">
+                      <div class="w-8 h-8 rounded-full overflow-hidden border border-brass/20">
+                        <img src="../assets/images/eleanor_profile.png" class="w-full h-full object-cover">
+                      </div>
+                      <span>Eleanor Roberts</span>
+                    </div>
+                  </td>
+                  <td class="px-8 py-6 text-gray-400 italic font-medium">eleanor.r@sanctuary.com</td>
+                  <td class="px-8 py-6"><span class="px-3 py-1 bg-brass/10 text-brass text-[9px] uppercase tracking-widest rounded-full font-bold">Steward Grade</span></td>
+                  <td class="px-8 py-6 text-right">£14,250.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+
+      <!-- Messages Section -->
+      <div data-section="messages" class="reveal hidden">
+          <div class="flex items-center justify-between mb-12">
+            <div></div>
+          </div>
+          <div class="text-center p-20 bg-stone/20 dark:bg-white/5 rounded-[2.5rem] border border-dashed border-gray-200 dark:border-white/10">
+            <i data-lucide="inbox" class="w-12 h-12 text-gray-300 mx-auto mb-6"></i>
+            <p class="text-sm text-gray-400 italic font-medium">All operational queues are currently clear.</p>
+          </div>
+      </div>
+
+      <!-- Settings Section -->
+      <div data-section="settings" class="reveal hidden">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+            <div class="p-8 bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5">
+              <h3 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-6">Property Availability</h3>
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-bold text-text-main dark:text-parchment">Accept New Bookings</span>
+                <button class="w-10 h-6 bg-forest rounded-full relative transition-all duration-300">
+                  <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></span>
+                </button>
+              </div>
+            </div>
+            <div class="p-8 bg-white dark:bg-bg-panel rounded-[2rem] border border-gray-100 dark:border-white/5">
+              <h3 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-6">Maintenance Mode</h3>
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-bold text-text-main dark:text-parchment opacity-60 italic">System Steward Lock</span>
+                <button class="w-10 h-6 bg-gray-200 dark:bg-ash rounded-full relative transition-all duration-300">
+                  <span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Dashboard Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Sidebar Toggle Logic
+      const sidebar = document.querySelector('[data-sidebar]');
+      const toggle = document.getElementById('mobile-sidebar-toggle');
+      const overlay = document.getElementById('sidebar-overlay');
+      
+      const setSidebar = (open) => {
+        const isRTL = document.documentElement.dir === 'rtl';
+        if (open) {
+          sidebar.classList.remove('ltr:-translate-x-full', 'rtl:translate-x-full', '-translate-x-full', 'translate-x-full');
+          sidebar.classList.add('translate-x-0');
+        } else {
+          sidebar.classList.remove('translate-x-0');
+          if (isRTL) {
+            sidebar.classList.add('translate-x-full');
+          } else {
+            sidebar.classList.add('-translate-x-full');
+          }
+        }
+        overlay.classList.toggle('hidden', !open);
+        setTimeout(() => {
+          overlay.classList.toggle('opacity-0', !open);
+          overlay.classList.toggle('pointer-events-none', !open);
+        }, 10);
+        document.body.style.overflow = open ? 'hidden' : '';
+      };
+
+      toggle?.addEventListener('click', () => setSidebar(true));
+      overlay?.addEventListener('click', () => setSidebar(false));
+
+      // Section Switching Logic
+      const navLinks = document.querySelectorAll('[data-admin-nav]');
+      const sections = document.querySelectorAll('[data-section]');
+      const pageTitle = document.getElementById('page-title');
+
+      const titleMap = {
+        'overview': 'Overview',
+        'bookings': 'Reservations',
+        'rooms': 'Room Status',
+        'guests': 'Guest Registry',
+        'messages': 'Inbox',
+        'settings': 'Site Settings'
+      };
+
+      const switchSection = (sectionId) => {
+        // Toggle Sections
+        sections.forEach(s => {
+          if (s.dataset.section === sectionId) {
+            s.classList.remove('hidden');
+          } else {
+            s.classList.add('hidden');
+          }
+        });
+
+        // Update Nav Links
+        navLinks.forEach(l => {
+          if (l.dataset.adminNav === sectionId) {
+            l.classList.add('bg-white/5', 'text-brass');
+            l.classList.remove('text-white/60');
+            l.querySelector('i')?.classList.remove('opacity-50');
+          } else {
+            l.classList.remove('bg-white/5', 'text-brass');
+            l.classList.add('text-white/60');
+            l.querySelector('i')?.classList.add('opacity-50');
+          }
+        });
+
+        // Update Title
+        if (pageTitle && titleMap[sectionId]) {
+          pageTitle.innerText = titleMap[sectionId];
+        }
+
+        // Close Sidebar on Mobile
+        if (window.innerWidth < 1024) {
+          setSidebar(false);
+        }
+      };
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const sid = link.dataset.adminNav;
+          if (sid) switchSection(sid);
+        });
+      });
+    });
+  </script>
+  
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
