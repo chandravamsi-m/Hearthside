@@ -1,0 +1,32 @@
+/* ── Hearthside — Dark Mode Logic ───────────────────────────── */
+
+:root.dark {
+  /* ── Functional Tokens — Dark Mode ──────────────────────── */
+  --bg-page:        var(--color-ash);
+  --bg-section:     var(--color-coal);
+  --bg-panel:       #222825;
+  --bg-deep:        var(--color-coal);
+
+  --text-headline:  var(--color-parchment);
+  --text-body:      #B8C2BE;
+  --text-muted:     #6B7A74;
+  --text-inverse:   var(--color-ink);
+
+  --border-subtle:  rgba(250, 248, 244, 0.08);
+  --border-accent:  rgba(184, 149, 106, 0.2);
+
+  /* Legacy aliases */
+  --text-main:      var(--text-headline);
+  --bg-neutral:     var(--color-coal);
+}
+
+/* ── Component Themes ───────────────────────────────────────── */
+.dark .skeleton {
+  background: linear-gradient(90deg, #1f2321 25%, #2a2e2c 50%, #1f2321 75%);
+  background-size: 200% 100%;
+}
+
+/* ── Dark Mode Toggle Rotate ───────────────────────────────── */
+[data-dark-toggle] svg { transition: transform 0.4s ease, opacity 0.3s ease; }
+[data-dark-toggle]:hover svg { transform: rotate(20deg); }
+

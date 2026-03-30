@@ -39,26 +39,6 @@
   --bg-neutral:     var(--color-stone);
 }
 
-:root.dark {
-  /* ── Functional Tokens — Dark Mode ──────────────────────── */
-  --bg-page:        var(--color-ash);
-  --bg-section:     var(--color-coal);
-  --bg-panel:       #222825;
-  --bg-deep:        var(--color-coal);
-
-  --text-headline:  var(--color-parchment);
-  --text-body:      #B8C2BE;
-  --text-muted:     #6B7A74;
-  --text-inverse:   var(--color-ink);
-
-  --border-subtle:  rgba(250, 248, 244, 0.08);
-  --border-accent:  rgba(184, 149, 106, 0.2);
-
-  /* Legacy aliases */
-  --text-main:      var(--text-headline);
-  --bg-neutral:     var(--color-coal);
-}
-
 /* ============================================================ */
 
 /* ── Keyframe Animations ───────────────────────────────────── */
@@ -82,11 +62,7 @@
   to   { background-position: 200% 0; }
 }
 
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25%       { transform: translateX(-4px); }
-  75%       { transform: translateX(4px); }
-}
+/* Keyframes handled in ltr/rtl layers */
 
 @keyframes pulse-soft {
   0%, 100% { opacity: 1; }
@@ -98,20 +74,11 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slide-in-right {
-  from { transform: translateX(100%); opacity: 0; }
-  to   { transform: translateX(0); opacity: 1; }
-}
+/* Keyframes handled in ltr/rtl layers */
 
-@keyframes slide-out-right {
-  from { transform: translateX(0); opacity: 1; }
-  to   { transform: translateX(100%); opacity: 0; }
-}
+/* Keyframes handled in ltr/rtl layers */
 
-@keyframes slide-in-left {
-  from { transform: translateX(-100%); opacity: 0; }
-  to   { transform: translateX(0); opacity: 1; }
-}
+/* Keyframes handled in ltr/rtl layers */
 
 @keyframes progress-bar {
   from { width: 100%; }
@@ -164,10 +131,6 @@
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
   border-radius: 4px;
-}
-.dark .skeleton {
-  background: linear-gradient(90deg, #1f2321 25%, #2a2e2c 50%, #1f2321 75%);
-  background-size: 200% 100%;
 }
 
 /* ── Custom Scrollbar ──────────────────────────────────────── */
@@ -253,19 +216,17 @@
 .nav-open .hamburger-line:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-open .hamburger-line:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-/* ── Dark Mode Toggle Rotate ───────────────────────────────── */
-[data-dark-toggle] svg { transition: transform 0.4s ease, opacity 0.3s ease; }
-[data-dark-toggle]:hover svg { transform: rotate(20deg); }
+/* Theme toggles handled in ltr/rtl layers */
 
 /* ── Availability Badge Pulse ──────────────────────────────── */
 .badge-pulse { animation: pulse-soft 2s ease-in-out infinite; }
 
-/* ── Table Row Left Border Reveal ──────────────────────────── */
+/* ── Table Row Highlighter (Logical) ────────────────────────── */
 tbody tr {
-  border-left: 3px solid transparent;
+  border-inline-start: 3px solid transparent;
   transition: border-color 0.2s ease, background-color 0.15s ease;
 }
-tbody tr:hover { border-left-color: var(--color-accent); }
+tbody tr:hover { border-inline-start-color: var(--color-accent); }
 
 /* ── Lightbox ──────────────────────────────────────────────── */
 #lightbox {
@@ -275,9 +236,7 @@ tbody tr:hover { border-left-color: var(--color-accent); }
   animation: modal-in 0.25s ease;
 }
 
-/* ── RTL Sidebar Override ──────────────────────────────────── */
-[dir="rtl"] .sidebar { right: 0; left: auto; }
-[dir="rtl"] .toast   { left: 1.5rem; right: auto; }
+/* ============================================================ */
 
 /* ── Print Styles (Invoices) ───────────────────────────────── */
 @media print {
