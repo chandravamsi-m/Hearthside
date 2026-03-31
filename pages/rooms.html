@@ -218,11 +218,11 @@
 
   <main>
     <!-- Page Header & Selection -->
-    <header class="relative pt-44 pb-16 overflow-hidden bg-bg-page border-b border-ink/5">
+    <header class="relative min-h-[50vh] lg:min-h-0 flex items-center lg:block pt-32 sm:pt-44 pb-12 sm:pb-16 lg:pb-16 overflow-hidden bg-bg-page border-b border-ink/5">
       <div class="max-w-7xl mx-auto px-4 text-center reveal">
         <span class="text-brass uppercase tracking-[0.3em] text-[10px] font-bold mb-6 block">Collection</span>
-        <h1 class="font-display text-3xl sm:text-5xl md:text-6xl text-text-headline font-bold mb-8">Our Rooms <i class="font-normal italic">& Suites.</i></h1>
-        <p class="text-text-muted text-lg max-w-2xl mx-auto italic mb-12">
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-text-headline font-bold mb-6 sm:mb-8">Our Rooms <i class="font-normal italic text-brass">Suites.</i></h1>
+        <p class="text-text-muted text-base sm:text-lg max-w-2xl mx-auto italic mb-8 sm:mb-12">
           "From the sun-drenched Orchard Room to the expansive Barn Loft, every space is a world of its own."
         </p>
 
@@ -242,8 +242,8 @@
     </header>
 
     <!-- Rooms Catalog Grid -->
-    <section class="py-16 px-4 bg-bg-section">
-      <div data-gallery-grid class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+    <section class="py-10 sm:py-16 px-4 sm:px-6 lg:px-8 bg-bg-section">
+      <div data-gallery-grid class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
         <!-- Skeletons (Visible while loading) -->
         <div data-grid-skeleton class="flex flex-col items-center">
           <div class="w-full aspect-[4/5] bg-ink/5 dark:bg-white/5 rounded-2xl animate-pulse mb-8"></div>
@@ -264,20 +264,20 @@
     </section>
 
     <!-- Comparison Table (Optional/SEO) -->
-    <section class="py-16 bg-bg-page border-t border-ink/5 overflow-x-auto px-4">
+    <section class="py-10 sm:py-16 bg-bg-page border-t border-ink/5 overflow-x-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto reveal">
-        <h2 class="font-display text-4xl font-bold mb-12 text-center text-text-headline">At a <i
-            class="font-normal italic">Glance.</i></h2>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold mb-10 sm:mb-12 text-center text-text-headline italic">At a <span
+            class="font-normal italic text-brass">Glance.</span></h2>
         <div class="inline-block min-w-full align-middle">
           <table class="min-w-full text-left text-sm border-collapse">
             <thead>
               <tr class="border-b border-ink/10 uppercase tracking-[0.4em] text-[10px] text-brass font-bold">
-                <th class="pb-8 w-[30%]">Collection Name</th>
-                <th class="pb-8 px-4">
+                <th class="pb-8 w-[40%] sm:w-[30%]">Collection Name</th>
+                <th class="pb-8 px-4 hidden sm:table-cell">
                   <div class="flex items-center gap-2"><i data-lucide="maximize" class="w-3 h-3 opacity-50"></i> Size
                   </div>
                 </th>
-                <th class="pb-8 px-4">
+                <th class="pb-8 px-4 hidden sm:table-cell">
                   <div class="flex items-center gap-2"><i data-lucide="bed" class="w-3.5 h-3.5 opacity-50"></i> Bed
                   </div>
                 </th>
@@ -290,11 +290,11 @@
             </thead>
             <tbody class="divide-y divide-ink/5">
               <tr class="group hover:bg-bg-section transition-colors">
-                <td class="py-8 font-display text-2xl font-bold text-text-headline">The Rose Suite</td>
-                <td class="py-8 px-4 text-text-muted italic">52 m²</td>
-                <td class="py-8 px-4 text-text-muted italic text-base">King-size</td>
-                <td class="py-8 px-4 text-brass italic font-bold">Copper Bath</td>
-                <td class="py-8 text-right">
+                <td class="py-4 sm:py-8 font-display text-base sm:text-2xl font-bold text-text-headline">The Rose Suite</td>
+                <td class="py-4 sm:py-8 px-4 text-text-muted italic hidden sm:table-cell">52 m²</td>
+                <td class="py-4 sm:py-8 px-4 text-text-muted italic text-base hidden sm:table-cell">King-size</td>
+                <td class="py-4 sm:py-8 px-4 text-brass italic font-bold">Copper Bath</td>
+                <td class="py-4 sm:py-8 text-right">
                   <a href="book.html?room=rose-suite"
                     class="text-brass text-[10px] font-bold uppercase tracking-widest hover:text-ink transition-colors flex items-center justify-end group/link">
                     Book <i data-lucide="arrow-right"
@@ -303,11 +303,11 @@
                 </td>
               </tr>
               <tr class="group hover:bg-bg-section transition-colors">
-                <td class="py-8 font-display text-2xl font-bold text-text-headline">The Loft Suite</td>
-                <td class="py-8 px-4 text-text-muted italic">68 m²</td>
-                <td class="py-8 px-4 text-text-muted italic text-base">Super King</td>
-                <td class="py-8 px-4 text-brass italic font-bold">Hot Tub</td>
-                <td class="py-8 text-right">
+                <td class="py-4 sm:py-8 font-display text-base sm:text-2xl font-bold text-text-headline">The Loft Suite</td>
+                <td class="py-4 sm:py-8 px-4 text-text-muted italic hidden sm:table-cell">68 m²</td>
+                <td class="py-4 sm:py-8 px-4 text-text-muted italic text-base hidden sm:table-cell">Super King</td>
+                <td class="py-4 sm:py-8 px-4 text-brass italic font-bold">Hot Tub</td>
+                <td class="py-4 sm:py-8 text-right">
                   <a href="book.html?room=loft-suite"
                     class="text-brass text-[10px] font-bold uppercase tracking-widest hover:text-ink transition-colors flex items-center justify-end group/link">
                     Book <i data-lucide="arrow-right"
@@ -316,11 +316,11 @@
                 </td>
               </tr>
               <tr class="group hover:bg-bg-section transition-colors">
-                <td class="py-8 font-display text-2xl font-bold text-text-headline">The Orchard Room</td>
-                <td class="py-8 px-4 text-text-muted italic">34 m²</td>
-                <td class="py-8 px-4 text-text-muted italic text-base">Double</td>
-                <td class="py-8 px-4 text-brass italic font-bold">Orchard Views</td>
-                <td class="py-8 text-right">
+                <td class="py-4 sm:py-8 font-display text-base sm:text-2xl font-bold text-text-headline">The Orchard Room</td>
+                <td class="py-4 sm:py-8 px-4 text-text-muted italic hidden sm:table-cell">34 m²</td>
+                <td class="py-4 sm:py-8 px-4 text-text-muted italic text-base hidden sm:table-cell">Double</td>
+                <td class="py-4 sm:py-8 px-4 text-brass italic font-bold">Orchard Views</td>
+                <td class="py-4 sm:py-8 text-right">
                   <a href="book.html?room=orchard-room"
                     class="text-brass text-[10px] font-bold uppercase tracking-widest hover:text-ink transition-colors flex items-center justify-end group/link">
                     Book <i data-lucide="arrow-right"
@@ -329,11 +329,11 @@
                 </td>
               </tr>
               <tr class="group hover:bg-bg-section transition-colors">
-                <td class="py-8 font-display text-2xl font-bold text-text-headline">The Library Room</td>
-                <td class="py-8 px-4 text-text-muted italic">30 m²</td>
-                <td class="py-8 px-4 text-text-muted italic text-base">King</td>
-                <td class="py-8 px-4 text-brass italic font-bold">Victorian Hearth</td>
-                <td class="py-8 text-right">
+                <td class="py-4 sm:py-8 font-display text-base sm:text-2xl font-bold text-text-headline">The Library Room</td>
+                <td class="py-4 sm:py-8 px-4 text-text-muted italic hidden sm:table-cell">30 m²</td>
+                <td class="py-4 sm:py-8 px-4 text-text-muted italic text-base hidden sm:table-cell">King</td>
+                <td class="py-4 sm:py-8 px-4 text-brass italic font-bold">Victorian Hearth</td>
+                <td class="py-4 sm:py-8 text-right">
                   <a href="book.html?room=library-room"
                     class="text-brass text-[10px] font-bold uppercase tracking-widest hover:text-ink transition-colors flex items-center justify-end group/link">
                     Book <i data-lucide="arrow-right"
@@ -348,20 +348,20 @@
     </section>
 
     <!-- Contact CTA -->
-    <section class="py-16 px-4 text-center bg-bg-section border-t border-ink/5">
+    <section class="py-10 sm:py-16 px-4 sm:px-6 lg:px-8 text-center bg-bg-section border-t border-ink/5">
       <div class="max-w-4xl mx-auto reveal">
         <span class="text-brass uppercase tracking-[0.4em] text-[10px] font-bold mb-6 block">Assistance</span>
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-8 text-text-headline">Need assistance choosing your <i
-            class="font-normal italic text-brass">perfect stay?</i></h2>
-        <p class="text-text-muted text-lg max-w-2xl mx-auto italic mb-12">"Our concierge is happy to help you find the
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-text-headline italic">Need assistance choosing your <span
+            class="font-normal italic text-brass">perfect stay?</span></h2>
+        <p class="text-text-muted text-base sm:text-lg max-w-2xl mx-auto italic mb-8 sm:mb-12">"Our concierge is happy to help you find the
           perfect room for your occasion, or arrange group reservations for entire house buyouts."</p>
-        <div class="flex flex-wrap justify-center gap-6">
+        <div class="flex flex-row justify-center gap-2 sm:gap-6">
           <a href="contact.html"
-            class="bg-brass hover:bg-brass-light text-white px-10 py-4 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-lift transition-all hover:scale-105 transition-transform">Inquire
+            class="flex-1 sm:flex-none flex justify-center items-center bg-brass hover:bg-brass-light text-white px-4 sm:px-10 py-3.5 sm:py-4 rounded-full text-[9px] sm:text-[11px] font-bold uppercase tracking-widest shadow-lift transition-all hover:scale-105 transition-transform whitespace-nowrap">Inquire
             Now</a>
           <a href="tel:+441451820000"
-            class="border border-ink/20 hover:bg-ink hover:text-white px-10 py-4 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-lift transition-all hover:scale-105 transition-transform text-text-headline">Call
-            +44 1451 820 000</a>
+            class="flex-1 sm:flex-none flex justify-center items-center border border-ink/20 hover:bg-ink hover:text-white px-4 sm:px-10 py-3.5 sm:py-4 rounded-full text-[9px] sm:text-[11px] font-bold uppercase tracking-widest shadow-lift transition-all hover:scale-105 transition-transform text-text-headline whitespace-nowrap">Call
+            +44 1451 820</a>
         </div>
       </div>
     </section>
@@ -457,15 +457,17 @@
 
         grid.innerHTML = data.map(room => `
           <div class="group cursor-pointer reveal flex flex-col items-center text-center" data-category="${room.type}">
-            <a href="room-detail.html?room=${room.id}" class="block relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-8 shadow-card group-hover:shadow-lift transition-all">
+            <a href="room-detail.html?room=${room.id}" class="block relative w-full aspect-[3/2] sm:aspect-[4/5] rounded-2xl overflow-hidden mb-6 sm:mb-8 shadow-card group-hover:shadow-lift transition-all">
               <img src="../${room.images.hero}" alt="${room.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-              <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end text-white opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0 duration-300">
+              <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end text-white sm:opacity-0 group-hover:opacity-100 transition-opacity sm:translate-y-4 group-hover:translate-y-0 duration-300">
                 <span class="text-[10px] font-bold uppercase tracking-widest">Explore Suite →</span>
                 <span class="text-[10px] bg-brass px-4 py-1.5 rounded-full font-bold">from £${room.rate.base}</span>
               </div>
             </a>
-            <h3 class="font-display text-2xl font-bold mb-2 transition-colors group-hover:text-brass text-text-headline">${room.name}</h3>
-            <p class="text-[10px] uppercase tracking-[0.2em] text-text-muted font-bold">${room.type.toUpperCase()}</p>
+            <div class="w-full flex flex-row items-baseline justify-between mb-2">
+              <h3 class="font-display text-lg sm:text-2xl font-bold transition-colors group-hover:text-brass text-text-headline italic">${room.name}</h3>
+              <p class="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-text-muted font-bold">${room.type.toUpperCase()}</p>
+            </div>
           </div>
         `).join('');
 
