@@ -97,13 +97,15 @@ const Navbar = {
       
       // Brand & Logo
       if (brand) {
+        brand.classList.remove('text-white', 'text-text-headline');
         brand.classList.toggle('text-white', useWhiteText);
         brand.classList.toggle('text-text-headline', !useWhiteText);
       }
 
       links.forEach(link => {
         link.classList.toggle('text-white', useWhiteText);
-        link.classList.remove('text-white/70', 'text-parchment/50', 'text-parchment/60'); 
+        // Explicitly remove all potential conflicting color classes
+        link.classList.remove('text-text-body', 'text-parchment', 'text-white/70', 'text-parchment/50', 'text-parchment/60'); 
         link.classList.toggle('text-text-body', !useWhiteText);
         link.classList.toggle('hover:text-white', useWhiteText);
         link.classList.toggle('hover:text-brass', !useWhiteText);
