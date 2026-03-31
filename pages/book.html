@@ -256,19 +256,19 @@
 
 
   <!-- ── Integrated Booking Suite ── -->
-  <header class="relative pt-44 pb-8 bg-bg-page border-b border-ink/5 dark:border-parchment/5">
+  <header class="relative pt-32 sm:pt-44 pb-8 sm:pb-12 bg-bg-page border-b border-ink/5 dark:border-parchment/5">
     <div class="max-w-7xl mx-auto px-4 flex flex-col items-center gap-10 sm:gap-12">
 
       <!-- Page Title Editorial (Scaled for Consistency) -->
       <div class="text-center space-y-3 reveal-up active">
         <span class="text-brass uppercase tracking-[0.4em] text-[9px] font-bold block">Registry Portal</span>
-        <h1 class="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-text-headline leading-[1.1] tracking-tight">Your
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-text-headline leading-[1.1] tracking-tight">Your
           Cotswold <br><i class="font-normal italic text-brass">Sanctuary.</i></h1>
       </div>
 
-      <!-- Integrated Progress Hub (Refined) -->
+      <!-- Integrated Progress Hub (Refinement) -->
       <div
-        class="w-full max-w-lg bg-bg-panel/50 backdrop-blur-xl rounded-full border border-ink/5 dark:border-parchment/5 p-1.5 px-6 flex items-center justify-between relative shadow-sm group">
+        class="w-full max-w-lg bg-bg-panel/50 backdrop-blur-xl rounded-full border border-ink/5 dark:border-parchment/5 p-1.5 px-4 sm:px-6 flex items-center justify-between relative shadow-sm group">
         <!-- Background Progress Line -->
         <div class="absolute top-1/2 left-10 right-10 h-[1.5px] bg-ink/5 dark:bg-parchment/10 -translate-y-1/2 -z-10">
           <div id="progress-bar-fill" class="h-full bg-brass transition-all duration-1000 ease-in-out"
@@ -309,7 +309,7 @@
   <main class="bg-bg-section min-h-screen">
 
     <!-- ── STEP 1: Stay Configuration (Streamlined Refinement) ── -->
-    <section id="step-1" class="booking-step py-16 relative overflow-hidden">
+    <section id="step-1" class="booking-step py-10 sm:py-16 relative overflow-hidden">
       <!-- Background Visual Anchor (Cinematic/Subtle) -->
       <div class="absolute inset-0 -z-10 group/bg">
         <div class="absolute inset-0 bg-bg-page transition-colors duration-1000"></div>
@@ -323,18 +323,18 @@
 
       <div class="max-w-3xl mx-auto px-4">
         <div
-          class="bg-bg-panel rounded-[24px] shadow-lift p-8 md:p-12 border border-ink/5 dark:border-parchment/5 relative group/form">
+          class="bg-bg-panel rounded-[24px] shadow-lift p-6 sm:p-12 border border-ink/5 dark:border-parchment/5 relative group/form">
 
-          <div class="relative z-10 space-y-12">
+          <div class="relative z-10 space-y-10 sm:space-y-12">
             <div class="text-center space-y-3">
-              <h2 class="font-display text-3xl md:text-4xl font-bold text-text-headline tracking-tight leading-tight">
+              <h2 class="font-display text-2xl sm:text-4xl font-bold text-text-headline tracking-tight leading-tight">
                 Your Cotswold <i class="font-normal italic text-brass">Journey.</i></h2>
               <p class="text-[9px] uppercase tracking-[0.4em] font-bold text-text-muted opacity-80 italic">Curating your
                 escape</p>
             </div>
 
             <!-- Sleek Input Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
               <!-- Arrival Column -->
               <div class="space-y-3 relative group/field">
                 <label class="block text-[8px] uppercase font-bold text-brass tracking-[0.4em]">The
@@ -428,31 +428,31 @@
           </div>
         </div>
 
-        <div class="flex justify-center gap-10 mt-4 reveal-up">
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-10 mt-6 sm:mt-4 reveal-up">
           <div class="flex items-center gap-2.5 opacity-70">
-            <i data-lucide="lock" class="w-3.5 h-3.5"></i>
-            <span class="text-[8px] uppercase font-bold tracking-[0.3em]">Encrypted Registry</span>
+            <i data-lucide="lock" class="w-3.5 h-3.5 text-brass"></i>
+            <span class="text-[8px] uppercase font-bold tracking-[0.3em] text-text-headline">Encrypted Registry</span>
           </div>
           <div class="flex items-center gap-2.5 opacity-70">
-            <i data-lucide="credit-card" class="w-3.5 h-3.5"></i>
-            <span class="text-[8px] uppercase font-bold tracking-[0.3em]">No deposit required</span>
+            <i data-lucide="credit-card" class="w-3.5 h-3.5 text-brass"></i>
+            <span class="text-[8px] uppercase font-bold tracking-[0.3em] text-text-headline">No deposit required</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ── STEP 2: Room Selection (Elegant Gallery) ── -->
-    <section id="step-2" class="booking-step hidden opacity-0 transition-all duration-700 pt-16 pb-8">
+    <section id="step-2" class="booking-step hidden opacity-0 transition-all duration-700 py-10 sm:py-16">
       <div class="max-w-7xl mx-auto px-4">
         <div
-          class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 border-b border-ink/5 dark:border-parchment/5 pb-8">
+          class="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 mb-12 border-b border-ink/5 dark:border-parchment/5 pb-8">
           <div class="max-w-2xl">
             <button id="back-to-step1"
               class="flex items-center gap-2.5 text-[8px] font-bold text-brass hover:text-ink dark:hover:text-parchment transition-colors uppercase tracking-[0.4em] mb-4 group">
               <i data-lucide="arrow-left" class="w-3.5 h-3.5 group-hover:-translate-x-1.5 transition-transform"></i>
               Modify Search
             </button>
-            <h2 class="font-display text-3xl md:text-4xl font-bold text-text-headline leading-tight">Choose your <i
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-text-headline leading-tight italic">Choose your <i
                 class="font-normal italic text-brass">Sanctuary.</i></h2>
             <p id="step2-subtitle" class="text-text-muted text-sm italic mt-3 opacity-70"></p>
           </div>
@@ -465,7 +465,7 @@
           </div>
         </div>
 
-        <div id="room-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+        <div id="room-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
           <!-- Dynamically Populated via buildRoomCards() -->
         </div>
       </div>
@@ -486,20 +486,20 @@
 
         <!-- The Registry Card -->
         <div
-          class="bg-bg-panel rounded-[2.5rem] border border-ink/5 dark:border-parchment/10 p-8 md:p-12 space-y-10">
+          class="bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-ink/5 dark:border-parchment/10 p-6 sm:p-12 space-y-10">
 
           <!-- Minimal Stay Brief -->
           <div class="text-center space-y-3">
             <p class="text-[9px] uppercase font-bold text-brass tracking-[0.5em]">The Registry</p>
-            <h3 class="font-display text-2xl font-bold text-text-headline tracking-tight leading-tight">
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-text-headline tracking-tight leading-tight italic">
               Your stay in <i id="snapshot-room-name" class="font-normal italic text-brass"></i><br>
               <span id="snapshot-brief" class="text-sm font-sans font-medium tracking-tight"></span>
             </h3>
           </div>
 
           <!-- Focused Form -->
-          <form id="booking-form" class="space-y-8">
-            <div class="grid grid-cols-2 gap-x-8 gap-y-8">
+          <form id="booking-form" class="space-y-6 sm:space-y-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 sm:gap-y-8">
               <div class="relative group/field">
                 <label class="block text-[8px] uppercase font-bold text-brass mb-2 tracking-[0.4em]">First Name</label>
                 <input type="text" id="guest-first" required placeholder="Alexander"
@@ -552,22 +552,22 @@
     </section>
 
     <!-- ── STEP 4: Confirmation (Graceful Finish - Scaled) ── -->
-    <section id="step-confirm" class="booking-step hidden opacity-0 transition-all duration-1000 py-20">
-      <div class="max-w-2xl mx-auto px-4 text-center space-y-10">
+    <section id="step-confirm" class="booking-step hidden opacity-0 transition-all duration-1000 py-12 sm:py-20">
+      <div class="max-w-2xl mx-auto px-4 text-center space-y-8 sm:space-y-10">
         <div class="relative inline-block">
           <div
-            class="w-24 h-24 bg-brass/10 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-soft">
-            <i data-lucide="check" class="w-12 h-12 text-brass"></i>
+            class="w-20 h-20 sm:w-24 sm:h-24 bg-brass/10 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-soft">
+            <i data-lucide="check" class="w-10 h-10 sm:w-12 sm:h-12 text-brass"></i>
           </div>
           <!-- Decorative rings -->
           <div class="absolute inset-0 border border-brass/20 rounded-full animate-ping opacity-20"></div>
         </div>
 
         <div class="space-y-4">
-          <span class="text-brass uppercase tracking-[0.6em] text-[9px] font-bold block">Reservation Secured</span>
-          <h2 class="font-display text-3xl font-bold text-text-headline leading-tight">Welcome, <br><i id="confirm-name"
-              class="font-normal italic text-brass">Dear Guest.</i></h2>
-          <p class="text-text-muted text-base italic leading-relaxed max-w-lg mx-auto">
+          <span class="text-brass uppercase tracking-[0.6em] text-[8px] sm:text-[9px] font-bold block">Reservation Secured</span>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-text-headline leading-tight italic">Welcome, <br><i id="confirm-name"
+              class="font-normal italic text-brass text-3xl sm:text-4xl">Dear Guest.</i></h2>
+          <p class="text-text-muted text-sm sm:text-base italic leading-relaxed max-w-lg mx-auto">
             Your reservation for <strong id="confirm-room" class="text-text-headline not-italic"></strong> has been
             received by our stewards. A formal confirmation folio has been sent to your registry email.
           </p>
