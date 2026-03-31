@@ -73,6 +73,7 @@
   <link rel="stylesheet" href="assets/css/dark-mode.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
 </head>
 <body class="bg-bg-page text-text-body font-body transition-colors duration-300">
 
@@ -510,84 +511,79 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-coal text-white pt-24 pb-12 border-t border-white/5 reveal">
+  <footer class="bg-coal text-white pt-12 lg:pt-16 pb-12 border-t border-white/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
         
         <!-- Brand & Story -->
-        <div class="lg:col-span-4 space-y-8 text-center sm:text-left flex flex-col items-center sm:items-start">
-          <a href="index.html" class="flex items-center gap-0 group">
-            <img src="assets/images/logo.svg" alt="Hearthside Logo" class="w-12 h-12 transition-transform duration-500 group-hover:scale-110 opacity-90">
+        <div class="lg:col-span-4 space-y-8">
+          <a href="../index.html" class="flex items-center justify-start gap-0 group">
+            <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110 opacity-90">
             <span class="font-display text-3xl font-bold text-white tracking-tighter uppercase leading-none">Hearthside</span>
           </a>
           <p class="text-parchment/60 leading-relaxed text-base max-w-sm">
-            A collection of heritage bedrooms and boutique suites in the heart of the Gloucestershire countryside. Designed forThose who seek the luxury of the slow.
+            A collection of heritage bedrooms and boutique suites in the heart of the Cotswolds. Designed for those who seek the luxury of the slow.
           </p>
-          <div class="flex space-x-8">
-            <a href="#" class="text-parchment/40 hover:text-brass transition-all hover:-translate-y-1" aria-label="Instagram">
-              <i data-lucide="instagram" class="w-5 h-5"></i>
+          <div class="flex justify-start space-x-6">
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Instagram">
+              <iconify-icon icon="lucide:instagram" width="20" height="20"></iconify-icon>
             </a>
-            <a href="#" class="text-parchment/40 hover:text-brass transition-all hover:-translate-y-1" aria-label="Facebook">
-              <i data-lucide="facebook" class="w-5 h-5"></i>
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Facebook">
+              <iconify-icon icon="lucide:facebook" width="20" height="20"></iconify-icon>
             </a>
-            <a href="#" class="text-parchment/40 hover:text-brass transition-all hover:-translate-y-1" aria-label="Pinterest">
-              <i data-lucide="framer" class="w-5 h-5"></i>
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Twitter">
+              <iconify-icon icon="lucide:twitter" width="20" height="20"></iconify-icon>
             </a>
           </div>
         </div>
 
-        <!-- Discover Column -->
-        <div class="lg:col-span-2 space-y-8 text-center sm:text-left">
-          <h3 class="text-[10px] font-bold text-brass tracking-[0.4em] uppercase">The Story</h3>
-          <ul class="space-y-4 text-sm font-medium">
-            <li><a href="pages/rooms.html" class="text-parchment/60 hover:text-brass transition-colors inline-block hover:translate-x-1 transition-transform">Boutique Suites</a></li>
-            <li><a href="pages/experiences.html" class="text-parchment/60 hover:text-brass transition-colors inline-block hover:translate-x-1 transition-transform">The Experience</a></li>
-            <li><a href="pages/about.html" class="text-parchment/60 hover:text-brass transition-colors inline-block hover:translate-x-1 transition-transform">Heritage</a></li>
-            <li><a href="pages/about.html#faq" class="text-parchment/60 hover:text-brass transition-colors inline-block hover:translate-x-1 transition-transform">Help & FAQ</a></li>
-          </ul>
+        <!-- Navigation Grid -->
+        <div class="lg:col-span-4 grid grid-cols-2 gap-8">
+          <div class="space-y-6">
+            <h3 class="text-[10px] font-bold text-brass tracking-[0.4em] uppercase">Discover</h3>
+            <ul class="space-y-3 text-sm font-medium">
+              <li><a href="rooms.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Rooms</a></li>
+              <li><a href="experiences.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">The Experience</a></li>
+              <li><a href="about.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Our Story</a></li>
+              <li><a href="about.html#faq" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Help & FAQ</a></li>
+            </ul>
+          </div>
+          <div class="space-y-6">
+            <h3 class="text-[10px] font-bold text-brass tracking-[0.4em] uppercase">Local</h3>
+            <ul class="space-y-3 text-sm font-medium text-parchment/60">
+              <li class="leading-relaxed">Mill Lane, Thorntree,<br>Gloucestershire, UK</li>
+              <li>+44 (0) 1451 820 000</li>
+              <li><a href="contact.html" class="text-parchment/60 hover:text-brass transition-colors hover:translate-x-1 inline-block">Inquiries</a></li>
+            </ul>
+          </div>
         </div>
 
-        <!-- Local Context -->
-        <div class="lg:col-span-2 space-y-8 text-center sm:text-left">
-          <h3 class="text-[10px] font-bold text-brass tracking-[0.4em] uppercase">Local</h3>
-          <address class="space-y-4 text-sm font-medium text-parchment/60 not-italic">
-            <p class="leading-relaxed">Mill Lane, Thorntree,<br>Gloucestershire, UK</p>
-            <p>+44 (0) 1451 820 000</p>
-            <a href="pages/contact.html" class="text-brass hover:text-parchment transition-colors inline-block">Direct Inquiries</a>
-          </address>
-        </div>
-
-        <!-- Newsletter (Premium Card) -->
-        <div class="lg:col-span-4 mt-8 lg:mt-0">
-          <div class="p-10 border border-white/5 rounded-[2.5rem] bg-white/[0.02] backdrop-blur-sm text-center lg:text-left">
-            <h3 class="text-[10px] font-bold text-white tracking-[0.4em] uppercase opacity-70 mb-4 font-display">The Registry</h3>
-            <p class="text-parchment/50 text-xs mb-8 leading-relaxed italic">Join for seasonal recipes and exclusive registry-only rates from the sanctuary.</p>
-            <form class="space-y-6">
-              <input type="email" required placeholder="Enter your email" class="w-full bg-transparent border-b border-parchment/20 py-3 text-sm focus:border-brass outline-none text-white placeholder-parchment/30 transition-colors">
-              <button type="submit" class="w-full lg:w-auto text-brass text-[10px] font-bold uppercase tracking-widest hover:text-parchment transition-all flex items-center justify-center lg:justify-start group">
-                Join Collective <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-3 group-hover:translate-x-1 transition-transform"></i>
+        <!-- Newsletter -->
+        <div class="lg:col-span-4 space-y-6">
+          <div class="p-8 border border-white/5 rounded-[2rem] bg-white/[0.02] backdrop-blur-sm">
+            <h3 class="text-[10px] font-bold text-white tracking-[0.4em] uppercase opacity-50 mb-3 font-display">The Registry</h3>
+            <p class="text-gray-400 text-xs mb-6 leading-relaxed italic opacity-70">Join for seasonal recipes and exclusive registry-only rates.</p>
+            <form class="space-y-4">
+              <input type="email" required placeholder="Enter your email" class="w-full bg-transparent border-b border-parchment/10 py-2 text-sm focus:border-brass outline-none text-white placeholder-parchment/30 transition-colors">
+              <button type="submit" class="w-full text-left text-brass text-[10px] font-bold uppercase tracking-widest hover:text-parchment transition-colors flex items-center justify-start group">
+                Join <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-2 group-hover:translate-x-1 transition-transform"></i>
               </button>
             </form>
-           </div>
+          </div>
         </div>
       </div>
 
-      <!-- Bottom Bar -->
-      <div class="pt-10 border-t border-white/5 flex flex-col lg:flex-row justify-between items-center text-[9px] text-parchment/30 uppercase tracking-[0.3em] gap-8">
-        <p class="text-center lg:text-left">&copy; 2024 Hearthside Boutique Hotel. Crafted with silence.</p>
-        <div class="flex flex-wrap justify-center gap-10">
-          <a href="pages/about.html#values" class="hover:text-brass transition-colors">Sustainability</a>
-          <a href="pages/about.html#values" class="hover:text-brass transition-colors">Accessibility</a>
-          <a href="pages/about.html#faq" class="hover:text-brass transition-colors">Privacy</a>
+      <!-- Bottom -->
+      <div class="pt-8 border-t border-parchment/5 flex flex-col md:flex-row justify-between items-start md:items-center text-[10px] text-parchment/50 uppercase tracking-widest space-y-8 md:space-y-0">
+        <p>&copy; 2024 Hearthside Boutique Hotel. All Rights Reserved.</p>
+        <div class="flex flex-wrap justify-start gap-x-12 gap-y-4">
+          <a href="about.html#values" class="text-parchment/50 hover:text-brass transition-colors">Sustainability</a>
+          <a href="about.html#values" class="text-parchment/50 hover:text-brass transition-colors">Accessibility</a>
+          <a href="about.html#faq" class="text-parchment/50 hover:text-brass transition-colors">Privacy</a>
         </div>
       </div>
     </div>
   </footer>
-
-  <!-- Back to Top -->
-  <button data-back-to-top class="fixed bottom-8 right-8 z-40 bg-brass hover:bg-brass-light text-white p-4 rounded-full shadow-lift opacity-0 translate-y-4 transition-all duration-300 pointer-events-none hover:-translate-y-1" aria-label="Back to top">
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7 7 7M12 19V3"/></svg>
-  </button>
 
   <!-- Scripts -->
   <script src="assets/js/main.js"></script>
