@@ -35,17 +35,39 @@ const Navbar = {
           o = document.querySelector('[data-nav-overlay]');
     
     const toggle = (v) => {
+      // Toggle using a single class, let CSS [dir="rtl"] handle the direction
       m?.classList.toggle('translate-x-full', !v);
       o?.classList.toggle('opacity-0', !v);
       o?.classList.toggle('pointer-events-none', !v);
       document.body.style.overflow = v ? 'hidden' : '';
     };
-    [h, c, o].forEach(b => b?.addEventListener('click', () => toggle(b === h)));
+    h?.addEventListener('click', () => toggle(true));
+    c?.addEventListener('click', () => toggle(false));
+    o?.addEventListener('click', () => toggle(false));
+
+    // Mobile Accordion Logic
+    m?.querySelectorAll('[data-mobile-dropdown]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('[data-lucide="chevron-down"]');
+        const isOpen = !content.classList.contains('hidden');
+        
+        // Toggle
+        if (content.classList.contains('hidden')) {
+           content.classList.remove('hidden');
+           if (icon) icon.style.transform = 'rotate(180deg)';
+        } else {
+           content.classList.add('hidden');
+           if (icon) icon.style.transform = 'rotate(0deg)';
+        }
+      });
+    });
 
     // Scroll Transition for Transparent Navbar
     const brand = document.querySelector('[data-nav-brand]');
     const logo = document.querySelector('[data-nav-logo]');
-    const links = document.querySelectorAll('[data-nav-link]');
+    // FIX: Exclude mobile menu links from dynamic scroll styling
+    const links = document.querySelectorAll('[data-nav-link]:not([data-nav-mobile] *)');
     const btnSecondary = document.querySelector('[data-nav-btn="secondary"]');
     const btnPrimary = document.querySelector('[data-nav-btn="primary"]');
 
@@ -111,12 +133,12 @@ const Navbar = {
       d.onmouseleave = () => menu?.classList.add('hidden', 'opacity-0', 'invisible');
     });
 
-    // Robust Active Link Highlighting
+    // Robust Active Link Highlighting (Sync both desktop and mobile)
     const cur = decodeURIComponent(window.location.pathname);
     
     document.querySelectorAll('nav a, aside a, [data-dropdown] button').forEach(el => {
       // Skip branding/logo and Action Buttons (Book Now, etc.) from active highlighting
-      if (el.classList.contains('font-display') && (el.classList.contains('text-2xl') || el.classList.contains('text-3xl'))) return;
+      if (el.classList.contains('font-display')) return;
       if (el.hasAttribute('data-nav-btn')) return;
 
       const href = el.getAttribute('href');
@@ -124,18 +146,26 @@ const Navbar = {
       
       let active = false;
       if (href && href !== '#' && href !== 'javascript:void(0)') {
-        const linkPath = decodeURIComponent(new URL(el.href).pathname);
-        // Strict match for path
-        if (cur === linkPath) active = true;
+        try {
+          const linkPath = decodeURIComponent(new URL(el.href).pathname);
+          if (cur === linkPath) active = true;
+        } catch (e) {}
       } else if (text === 'home' && (cur.endsWith('index.html') || cur.endsWith('/'))) {
         active = true;
       }
 
       if (active) {
         el.classList.add('!text-accent', 'font-bold');
-        // Highlight parent dropdown if exists
-        const parent = el.closest('[data-dropdown]')?.querySelector('button');
-        if (parent) parent.classList.add('!text-accent', 'font-bold');
+        
+        // Highlight parent dropdown (Desktop)
+        const parentDropdown = el.closest('[data-dropdown]')?.querySelector('button');
+        if (parentDropdown) parentDropdown.classList.add('!text-accent', 'font-bold');
+
+        // Highlight parent accordion (Mobile)
+        const mobileParent = el.closest('.hidden')?.previousElementSibling;
+        if (mobileParent && mobileParent.hasAttribute('data-mobile-dropdown')) {
+          mobileParent.classList.add('!text-accent', 'font-bold');
+        }
       }
     });
   }

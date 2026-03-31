@@ -14,6 +14,19 @@
 [dir="rtl"] .lucide-chevron-right { transform: rotate(180deg); }
 [dir="rtl"] .lucide-arrow-right   { transform: rotate(180deg); }
 [dir="rtl"] .lucide-arrow-left    { transform: rotate(180deg); }
+
+/* Mobile Menu Overrides for RTL */
+[dir="rtl"] [data-nav-mobile] {
+  right: auto !important;
+  left: 0 !important;
+  border-left-width: 0 !important;
+  border-right-width: 1px !important;
+}
+[dir="rtl"] [data-nav-mobile].translate-x-full { 
+  --tw-translate-x: -100% !important; 
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
+}
+
 /* ── Animations (Direction-Aware) ─────────────────────────── */
 
 :root {
