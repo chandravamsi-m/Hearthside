@@ -72,6 +72,7 @@
   <link rel="stylesheet" href="../assets/css/dark-mode.css">
   <link rel="stylesheet" href="../assets/css/rtl.css">
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
 </head>
 <body class="bg-bg-page text-text-main font-body transition-colors duration-300">
 
@@ -111,13 +112,13 @@
               <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
             </button>
             <div data-dropdown-menu class="absolute top-full left-0 w-48 bg-bg-panel dark:bg-bg-panel rounded-xl shadow-lift border border-ink/8 dark:border-parchment/8 hidden py-2 opacity-0 invisible group-hover:block group-hover:opacity-100 group-hover:visible transition-all">
-              <a href="../dashboard/index.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Guest Portal</a>
-              <a href="../admin/index.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Admin Workspace</a>
+              <a href="user-dashboard.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Guest Portal</a>
+              <a href="admin-dashboard.html" class="block px-4 py-2.5 text-sm text-ink dark:text-parchment hover:text-brass hover:bg-stone/60 dark:hover:bg-coal/60 transition-colors">Admin Workspace</a>
             </div>
           </div>
         </div>
 
-        <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+        <div class="hidden lg:flex items-center gap-2 sm:gap-3 flex-shrink-0">
           <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-white hover:text-white transition-colors rounded-full" data-nav-link>
             <span class="text-[11px] font-bold tracking-widest leading-none" data-rtl-label>RTL</span>
             <i data-lucide="move-horizontal" class="w-4 h-4"></i>
@@ -134,39 +135,78 @@
         </button>
       </div>
     </div>
+  </nav>
 
-    <div data-nav-overlay class="fixed inset-0 bg-ink/60 lg:hidden opacity-0 pointer-events-none transition-opacity duration-300"></div>
-    <aside data-nav-mobile class="fixed top-0 inset-inline-end-0 w-80 h-full bg-parchment dark:bg-ash shadow-lift lg:hidden translate-x-full rtl:-translate-x-full transition-transform duration-300 z-[60]">
-      <div class="p-10 space-y-10 h-full overflow-y-auto">
-        <div class="flex justify-between items-center mb-8">
-          <div class="flex items-center gap-2">
-            <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-8 h-8">
-            <span class="font-display text-xl font-bold text-ink dark:text-parchment">Hearthside</span>
+  <!-- Simple Mobile Drawer -->
+  <div data-nav-overlay class="fixed inset-0 bg-ink/40 lg:hidden opacity-0 pointer-events-none transition-opacity duration-500 z-[55]"></div>
+  <aside data-nav-mobile class="fixed top-0 right-0 w-[80%] max-w-[400px] h-full bg-white dark:bg-coal lg:hidden translate-x-full transition-transform duration-500 ease-in-out z-[60] shadow-2xl border-l border-gray-100 dark:border-white/5">
+      <div class="flex flex-col h-full p-8">
+        <!-- Close & Brand -->
+        <div class="flex justify-between items-center mb-2">
+          <div class="flex items-center gap-0">
+            <img src="../assets/images/logo.svg" alt="Logo" class="w-8 h-8">
+            <span class="font-display text-xl font-bold text-ink dark:text-parchment tracking-tighter">Hearthside</span>
           </div>
-          <button data-nav-close class="p-2 text-ink/50 dark:text-parchment/50 hover:text-ink dark:hover:text-parchment transition-colors">
+          <button data-nav-close class="p-2 text-ink dark:text-parchment hover:text-brass transition-colors">
             <i data-lucide="x" class="w-6 h-6"></i>
           </button>
         </div>
-        <div class="flex flex-col space-y-6 font-display text-3xl text-ink dark:text-parchment">
-          <a href="../index.html" class="hover:text-brass transition-colors">Home</a>
-          <a href="about.html" class="hover:text-brass transition-colors">Story</a>
-          <a href="experiences.html" class="hover:text-brass transition-colors">Experiences</a>
-          <a href="rooms.html" class="hover:text-brass transition-colors">Rooms</a>
-          <button data-rtl-toggle class="text-left flex items-center justify-between group text-2xl">
-             <div class="flex items-center gap-4">
-                <i data-lucide="move-horizontal" class="w-8 h-8 opacity-40"></i>
-                <span>RTL Layout</span>
-             </div>
-             <span class="text-xs font-bold text-brass px-4 py-1 bg-brass/10 rounded-full" data-rtl-label>LTR</span>
-          </button>
-        </div>
-        <div class="space-y-4 mt-auto">
-          <a href="book.html" class="block border-2 border-brass/30 text-brass dark:text-parchment text-center py-4 rounded-full font-bold hover:bg-brass hover:text-white transition-all">Book Now</a>
-          <a href="../auth/login.html" class="block bg-brass hover:bg-brass-light text-white text-center py-4 rounded-full font-bold shadow-lift transition-all">Sign In</a>
+
+        <!-- Navigation Links (Structured Accordion) -->
+        <nav class="flex flex-col gap-2 mb-auto overflow-y-auto pr-2 custom-scrollbar">
+          <!-- Home Dropdown -->
+          <div class="flex flex-col gap-1">
+            <button data-mobile-dropdown class="flex items-center justify-between w-full py-1.5 text-sm font-bold uppercase tracking-[0.2em] text-ink dark:text-parchment hover:text-brass transition-all group">
+              Home <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+            </button>
+            <div class="hidden pl-4 flex flex-col gap-3 border-l border-gray-100 dark:border-white/5 py-1 animate-fade-in">
+              <a href="../index.html" class="text-[11px] font-bold uppercase tracking-widest text-gray-400 hover:text-brass transition-colors">Home-1</a>
+              <a href="home-2.html" class="text-[11px] font-bold uppercase tracking-widest text-gray-400 hover:text-brass transition-colors">Home-2</a>
+            </div>
+          </div>
+
+          <a href="about.html" class="py-1.5 text-sm font-bold uppercase tracking-[0.2em] text-ink dark:text-parchment hover:text-brass transition-colors">Story</a>
+          <a href="experiences.html" class="py-1.5 text-sm font-bold uppercase tracking-[0.2em] text-ink dark:text-parchment hover:text-brass transition-colors">Experiences</a>
+          <a href="rooms.html" class="py-1.5 text-sm font-bold uppercase tracking-[0.2em] text-ink dark:text-parchment hover:text-brass transition-colors">Rooms</a>
+          <a href="contact.html" class="py-1.5 text-sm font-bold uppercase tracking-[0.2em] text-ink dark:text-parchment hover:text-brass transition-colors">Contact</a>
+          
+          <!-- Dashboards Dropdown -->
+          <div class="flex flex-col gap-1">
+            <button data-mobile-dropdown class="flex items-center justify-between w-full py-1.5 text-sm font-bold uppercase tracking-[0.2em] text-ink dark:text-parchment hover:text-brass transition-all group">
+              Dashboard <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+            </button>
+            <div class="hidden pl-4 flex flex-col gap-3 border-l border-gray-100 dark:border-white/5 py-1 animate-fade-in">
+              <a href="user-dashboard.html" class="text-[11px] font-bold uppercase tracking-widest text-gray-400 hover:text-brass transition-colors">Guest Registry</a>
+              <a href="admin-dashboard.html" class="text-[11px] font-bold uppercase tracking-widest text-gray-400 hover:text-brass transition-colors">Admin Workspace</a>
+            </div>
+          </div>
+
+          <!-- Utilities Section -->
+          <div class="pt-4 mt-2 border-t border-gray-100 dark:border-white/5 space-y-4">
+            <div class="flex items-center justify-between group">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Layout Direction</span>
+              <button data-rtl-toggle class="flex items-center gap-2 px-3 py-1.5 bg-gray-50 dark:bg-white/5 rounded-lg border border-gray-100 dark:border-white/10 text-ink dark:text-parchment transition-all hover:bg-gray-100 dark:hover:bg-white/10">
+                <span class="text-[9px] font-bold" data-rtl-label>RTL</span>
+                <i data-lucide="move-horizontal" class="w-3.5 h-3.5 opacity-60"></i>
+              </button>
+            </div>
+            
+            <div class="flex items-center justify-between group">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Theme Mode</span>
+              <button data-dark-toggle class="flex items-center gap-2 px-3 py-1.5 bg-gray-50 dark:bg-white/5 rounded-lg border border-gray-100 dark:border-white/10 text-ink dark:text-parchment transition-all hover:bg-gray-100 dark:hover:bg-white/10">
+                <i data-lucide="moon" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Actions Row -->
+        <div class="pt-6 flex gap-3">
+          <a href="book.html" class="flex-1 flex justify-center items-center border border-ink/20 dark:border-white/20 text-ink dark:text-parchment py-3 rounded-full text-xs font-bold transition-all hover:bg-ink hover:text-white dark:hover:bg-parchment dark:hover:text-ink">Book Now</a>
+          <a href="../auth/login.html" class="flex-1 flex justify-center items-center bg-brass hover:bg-brass-light text-white py-3 rounded-full text-xs font-bold transition-all shadow-md">Sign In</a>
         </div>
       </div>
     </aside>
-  </nav>
 
   <main id="room-detail-container" class="bg-bg-page overflow-hidden">
     <!-- Skeleton/Loading State -->
@@ -304,28 +344,28 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-coal text-white pt-24 pb-12 border-t border-white/5">
+  <footer class="bg-coal text-white pt-12 lg:pt-16 pb-12 border-t border-white/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
         
         <!-- Brand & Story -->
-        <div class="lg:col-span-4 space-y-6">
-          <a href="../index.html" class="flex items-center gap-0 group">
+        <div class="lg:col-span-4 space-y-8">
+          <a href="../index.html" class="flex items-center justify-start gap-0 group">
             <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110 opacity-90">
             <span class="font-display text-3xl font-bold text-white tracking-tighter uppercase leading-none">Hearthside</span>
           </a>
           <p class="text-parchment/60 leading-relaxed text-base max-w-sm">
             A collection of heritage bedrooms and boutique suites in the heart of the Cotswolds. Designed for those who seek the luxury of the slow.
           </p>
-          <div class="flex space-x-6">
+          <div class="flex justify-start space-x-6">
             <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Instagram">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              <iconify-icon icon="lucide:instagram" width="20" height="20"></iconify-icon>
             </a>
             <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Facebook">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              <iconify-icon icon="lucify:facebook" width="20" height="20"></iconify-icon>
             </a>
-            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Pinterest">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pinterest"><path d="M8 22c.67-2.33 1.33-4.67 2-7-.67-1.33-1-2.67-1-4a7 7 0 0 1 14 0c0 3.86-3.14 7-7 7-.67 0-1.33-.17-2-.5.33 1.67.67 3.33 1 5"/><circle cx="12" cy="11" r="1.5"/></svg>
+            <a href="#" class="text-parchment/50 hover:text-brass transition-colors" aria-label="Twitter">
+              <iconify-icon icon="lucide:twitter" width="20" height="20"></iconify-icon>
             </a>
           </div>
         </div>
@@ -352,27 +392,27 @@
         </div>
 
         <!-- Newsletter -->
-        <div class="lg:col-span-4 space-y-4">
-          <div class="p-6 border border-white/5 rounded-2xl bg-white/[0.02] backdrop-blur-sm">
+        <div class="lg:col-span-4 space-y-6">
+          <div class="p-8 border border-white/5 rounded-[2rem] bg-white/[0.02] backdrop-blur-sm">
             <h3 class="text-[10px] font-bold text-white tracking-[0.4em] uppercase opacity-50 mb-3 font-display">The Registry</h3>
-            <p class="text-gray-400 text-xs mb-4 leading-relaxed italic opacity-70">Join for seasonal recipes and exclusive registry-only rates.</p>
-            <form class="space-y-3">
+            <p class="text-gray-400 text-xs mb-6 leading-relaxed italic opacity-70">Join for seasonal recipes and exclusive registry-only rates.</p>
+            <form class="space-y-4">
               <input type="email" required placeholder="Enter your email" class="w-full bg-transparent border-b border-parchment/10 py-2 text-sm focus:border-brass outline-none text-white placeholder-parchment/30 transition-colors">
-              <button type="submit" class="w-full text-left text-brass text-[10px] font-bold uppercase tracking-widest hover:text-parchment transition-colors flex items-center group">
+              <button type="submit" class="w-full text-left text-brass text-[10px] font-bold uppercase tracking-widest hover:text-parchment transition-colors flex items-center justify-start group">
                 Join <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-2 group-hover:translate-x-1 transition-transform"></i>
               </button>
             </form>
-           </div>
+          </div>
         </div>
       </div>
 
       <!-- Bottom -->
-      <div class="pt-8 border-t border-parchment/5 flex flex-col md:flex-row justify-between items-center text-[10px] text-parchment/50 uppercase tracking-widest space-y-6 md:space-y-0">
+      <div class="pt-8 border-t border-parchment/5 flex flex-col md:flex-row justify-between items-start md:items-center text-[10px] text-parchment/50 uppercase tracking-widest space-y-8 md:space-y-0">
         <p>&copy; 2024 Hearthside Boutique Hotel. All Rights Reserved.</p>
-        <div class="flex space-x-12">
-          <a href="about.html#values" class="hover:text-brass transition-colors">Sustainability</a>
-          <a href="about.html#values" class="hover:text-brass transition-colors">Accessibility</a>
-          <a href="about.html#faq" class="hover:text-brass transition-colors">Privacy</a>
+        <div class="flex flex-wrap justify-start gap-x-12 gap-y-4">
+          <a href="about.html#values" class="text-parchment/50 hover:text-brass transition-colors">Sustainability</a>
+          <a href="about.html#values" class="text-parchment/50 hover:text-brass transition-colors">Accessibility</a>
+          <a href="about.html#faq" class="text-parchment/50 hover:text-brass transition-colors">Privacy</a>
         </div>
       </div>
     </div>
