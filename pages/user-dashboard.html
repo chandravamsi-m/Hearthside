@@ -56,12 +56,18 @@
 
   <!-- Dashboard Sidebar Component (Minimal) -->
   <aside data-sidebar class="fixed inset-y-0 inset-inline-start-0 w-72 bg-ink text-white z-50 transition-transform duration-500 ease-in-out lg:shadow-none border-inline-end border-white/5 ltr:-translate-x-full rtl:translate-x-full lg:ltr:translate-x-0 lg:rtl:translate-x-0">
-      <div class="h-24 flex flex-col justify-center px-8 border-b border-white/5">
-          <a href="../index.html" class="flex items-center gap-0 group">
-              <img src="../assets/images/logo.svg" alt="Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110">
-              <span class="font-display text-2xl font-bold tracking-tighter text-white">Hearthside</span>
-          </a>
-          <span class="text-[8px] uppercase font-bold text-brass tracking-[0.4em] mt-1.5 ml-10 opacity-70">Guest Portal</span>
+      <div class="h-24 flex items-center justify-between px-8 border-b border-white/5">
+          <div class="flex flex-col justify-center">
+              <a href="../index.html" class="flex items-center gap-0 group">
+                  <img src="../assets/images/logo.svg" alt="Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110">
+                  <span class="font-display text-2xl font-bold tracking-tighter text-white">Hearthside</span>
+              </a>
+              <span class="text-[8px] uppercase font-bold text-brass tracking-[0.4em] mt-1.5 ml-10 opacity-70">Guest Portal</span>
+          </div>
+          <!-- Close Button (Mobile Only) -->
+          <button id="mobile-sidebar-close" class="lg:hidden p-2 text-white/40 hover:text-white transition-colors">
+              <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
       </div>
 
       <!-- Navigation (Minimal) -->
@@ -82,7 +88,24 @@
               <i data-lucide="user" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
               Settings
           </a>
-          <a href="../auth/login.html" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-red-300/60 hover:text-red-300 hover:bg-red-400/5 group">
+          <!-- Utilities Section (Mobile/Small Screens Only) -->
+          <div class="lg:hidden px-6 py-4 border-t border-white/5 space-y-4">
+              <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-white/40 uppercase tracking-widest">Layout Direction</span>
+                  <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-white/60 hover:text-brass transition-all rounded-full">
+                      <span class="text-[11px] font-bold tracking-widest leading-none uppercase" data-rtl-label>RTL</span>
+                      <i data-lucide="move-horizontal" class="w-4 h-4"></i>
+                  </button>
+              </div>
+              <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-white/40 uppercase tracking-widest">Theme Mode</span>
+                  <button data-dark-toggle class="p-2 text-white/60 hover:text-brass transition-all rounded-full">
+                      <i data-lucide="moon" class="w-5 h-5"></i>
+                  </button>
+              </div>
+          </div>
+
+          <a href="../auth/login.html" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-red-300/60 hover:text-red-300 hover:bg-red-400/5 group border-t border-white/5 md:border-t-0 mt-2">
               <i data-lucide="log-out" class="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity"></i>
               Sign Out
           </a>
@@ -96,21 +119,24 @@
   <main class="lg:ms-72 min-h-screen flex flex-col transition-all duration-300 dark:bg-ash">
     
     <!-- Dashboard Topbar Component (Refined) -->
-    <header data-topbar class="sticky top-0 h-24 bg-white/80 dark:bg-coal/80 backdrop-blur-xl z-40 border-b border-gray-100 dark:border-white/5 px-8 flex items-center justify-between transition-all duration-300">
-        <!-- Title & Breadcrumbs -->
-        <div class="reveal">
-            <h2 id="page-title" class="font-display text-2xl font-bold text-ink dark:text-parchment">Dashboard</h2>
+    <header data-topbar class="sticky top-0 h-20 sm:h-24 bg-white/80 dark:bg-coal/80 backdrop-blur-xl z-40 border-b border-gray-100 dark:border-white/5 px-4 sm:px-8 flex items-center justify-between transition-all duration-300">
+        <div class="flex items-center gap-4 reveal">
+            <!-- Mobile Menu Toggle (Aligned with Sidebar Entry) -->
+            <button id="mobile-sidebar-toggle" class="lg:hidden w-10 h-10 flex items-center justify-center text-ink dark:text-parchment hover:text-brass transition-all bg-gray-50 dark:bg-white/5 rounded-full">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+            <h2 id="page-title" class="font-display text-xl sm:text-2xl font-bold text-ink dark:text-parchment">Dashboard</h2>
         </div>
 
         <!-- Actions (Professionalized) -->
         <div class="flex items-center gap-6">
-            <!-- Theme & RTL Toggles (Matched with Navbar) -->
-            <div class="flex items-center gap-2">
-                <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-ink/60 dark:text-parchment/60 hover:text-brass transition-all rounded-full border border-gray-100 dark:border-white/5 bg-gray-50 dark:bg-white/5">
+            <!-- Theme & RTL Toggles (Desktop Only) -->
+            <div class="hidden lg:flex items-center gap-0">
+                <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-ink/60 dark:text-parchment/60 hover:text-brass transition-all rounded-full">
                     <span class="text-[11px] font-bold tracking-widest leading-none uppercase" data-rtl-label>RTL</span>
                     <i data-lucide="move-horizontal" class="w-4 h-4"></i>
                 </button>
-                <button data-dark-toggle class="p-2 text-ink/60 dark:text-parchment/60 hover:text-brass transition-all rounded-full bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5">
+                <button data-dark-toggle class="p-2 text-ink/60 dark:text-parchment/60 hover:text-brass transition-all rounded-full">
                     <i data-lucide="moon" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -125,47 +151,42 @@
                   <p class="text-[8px] font-bold text-brass uppercase tracking-widest leading-tight mt-0.5 opacity-60 font-body">Guest Collective</p>
                 </div>
             </button>
-
-            <!-- Mobile Menu Toggle -->
-            <button id="mobile-sidebar-toggle" class="lg:hidden w-10 h-10 flex items-center justify-center text-ink dark:text-parchment hover:text-brass transition-all bg-gray-50 dark:bg-white/5 rounded-full">
-                <i data-lucide="menu" class="w-5 h-5"></i>
-            </button>
         </div>
     </header>    <!-- Content Area (Dynamic) -->
-    <div class="p-8 flex-grow">
+    <div class="p-4 sm:p-8 flex-grow">
       <!-- Overview Section -->
       <div data-section="overview" class="reveal">
         <!-- Welcome Section (Editorial Greeting) -->
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 sm:gap-8 mb-10 sm:mb-12">
           <div class="reveal-stagger">
             <h2 class="text-[10px] uppercase font-bold tracking-[0.4em] text-brass mb-2">Your Sanctuary Path</h2>
-            <p class="font-display text-4xl font-bold text-ink dark:text-parchment italic">Welcome back, <i class="font-normal not-italic">Eleanor</i></p>
+            <p class="font-display text-3xl sm:text-4xl font-bold text-ink dark:text-parchment italic">Welcome back, <i class="font-normal not-italic">Eleanor</i></p>
           </div>
-          <div class="flex gap-4">
-            <button class="px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center gap-2 text-text-main dark:text-parchment">
-              <i data-lucide="download" class="w-4 h-4 text-brass"></i> ITINERARY
+          <div class="flex flex-row gap-3 sm:gap-4">
+            <button class="flex-1 sm:flex-none px-4 sm:px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[10px] sm:text-[11px] font-bold transition-all flex items-center justify-center gap-2 text-text-main dark:text-parchment">
+              <i data-lucide="download" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brass"></i><span class="whitespace-nowrap">ITINERARY</span>
             </button>
-            <button class="bg-brass hover:bg-brass-light text-white px-6 py-2.5 rounded-full text-[11px] font-bold transition-all shadow-md">Direct Book</button>
+            <button class="flex-1 sm:flex-none bg-brass hover:bg-brass-light text-white px-4 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-[11px] font-bold transition-all shadow-md whitespace-nowrap">Direct Book</button>
           </div>
         </div>
 
         <!-- Quick Metrics -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
-            <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-3">Loyalty Grade</h4>
-            <p class="text-xl font-bold text-text-headline dark:text-parchment italic">Steward Grade</p>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10 sm:mb-12">
+          <div class="p-4 sm:p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+            <h4 class="text-text-muted dark:text-gray-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest mb-2 sm:mb-3 whitespace-nowrap">Loyalty Grade</h4>
+            <p class="text-sm sm:text-xl font-bold text-text-headline dark:text-parchment italic">Steward Grade</p>
           </div>
-          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
-            <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-3">Stored Points</h4>
-            <p class="text-xl font-bold text-text-headline dark:text-parchment">2,450 <span class="text-[10px] opacity-40 uppercase ml-1">pts</span></p>
+          <div class="p-4 sm:p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+            <h4 class="text-text-muted dark:text-gray-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest mb-2 sm:mb-3 whitespace-nowrap">Stored Points</h4>
+            <p class="text-sm sm:text-xl font-bold text-text-headline dark:text-parchment">2,450 <span class="text-[8px] sm:text-[10px] opacity-40 uppercase ml-1">pts</span></p>
           </div>
-          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
-            <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-3">Total Retreats</h4>
-            <p class="text-xl font-bold text-text-headline dark:text-parchment">12</p>
+          <div class="p-4 sm:p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+            <h4 class="text-text-muted dark:text-gray-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest mb-2 sm:mb-3 whitespace-nowrap">Total Retreats</h4>
+            <p class="text-sm sm:text-xl font-bold text-text-headline dark:text-parchment">12</p>
           </div>
-          <div class="p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
-            <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-3">Next Check-In</h4>
-            <p class="text-xl font-bold text-text-headline dark:text-parchment">In 14 Days</p>
+          <div class="p-4 sm:p-6 bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm">
+            <h4 class="text-text-muted dark:text-gray-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest mb-2 sm:mb-3 whitespace-nowrap">Next Check-In</h4>
+            <p class="text-sm sm:text-xl font-bold text-text-headline dark:text-parchment">In 14 Days</p>
           </div>
         </div>
 
@@ -173,38 +194,38 @@
         <div class="grid grid-cols-1 xl:grid-cols-3 gap-8 mb-12">
           <!-- Next Stay Highlight -->
           <div class="xl:col-span-2 group">
-            <div class="relative h-full bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+            <div class="relative h-full bg-white dark:bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 dark:border-white/5 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
               <div class="grid grid-cols-1 md:grid-cols-2 h-full">
-                <div class="relative h-64 md:h-full overflow-hidden">
+                <div class="relative h-56 sm:h-64 md:h-full overflow-hidden">
                   <img src="../assets/images/rose_suite.png" alt="Rose Suite" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:hidden"></div>
                   <div class="absolute bottom-6 left-8 md:hidden">
-                    <span class="px-3 py-1 bg-brass text-white text-[10px] font-bold uppercase tracking-widest rounded-full">Confirmed</span>
+                    <span class="px-3 py-1 bg-brass text-white text-[10px] font-bold uppercase tracking-widest rounded-full shadow-lg">Confirmed</span>
                   </div>
                 </div>
-                <div class="p-10 flex flex-col justify-between">
+                <div class="p-6 sm:p-10 flex flex-col justify-between">
                   <div>
-                    <div class="hidden md:flex items-center justify-between mb-8">
-                      <span class="px-3 py-1 bg-brass/10 text-brass text-[10px] font-bold uppercase tracking-widest rounded-full">Upcoming Retreat</span>
-                      <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Ref: HSB-2024-0891</span>
+                    <div class="flex items-center justify-between mb-6 sm:mb-8">
+                      <span class="px-3 py-1 bg-brass/10 text-brass text-[9px] sm:text-[10px] font-bold uppercase tracking-widest rounded-full">Upcoming Retreat</span>
+                      <span class="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest hidden sm:inline">Ref: HSB-2024-0891</span>
                     </div>
-                    <h3 class="font-display text-4xl font-bold text-text-headline dark:text-parchment mb-4">The Rose Suite</h3>
-                    <p class="text-text-muted dark:text-gray-400 text-sm italic mb-8">14 Feb — 17 Feb, 2025 (3 Nights)</p>
-                    <div class="grid grid-cols-2 gap-6 pt-6 border-t border-gray-100 dark:border-white/5">
+                    <h3 class="font-display text-2xl sm:text-4xl font-bold text-text-headline dark:text-parchment mb-3 sm:mb-4">The Rose Suite</h3>
+                    <p class="text-text-muted dark:text-gray-400 text-sm italic mb-6 sm:mb-8">14 Feb — 17 Feb, 2025 (3 Nights)</p>
+                    <div class="grid grid-cols-2 gap-4 sm:gap-6 pt-6 border-t border-gray-100 dark:border-white/5">
                       <div>
-                        <h5 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Guests</h5>
-                        <p class="text-sm font-bold text-text-main dark:text-parchment">2 Adults</p>
+                        <h5 class="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Guests</h5>
+                        <p class="text-xs sm:text-sm font-bold text-text-main dark:text-parchment">2 Adults</p>
                       </div>
                       <div>
-                        <h5 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Inclusions</h5>
-                        <p class="text-sm font-bold text-text-main dark:text-parchment italic">Champagne, Breakfast</p>
+                        <h5 class="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Inclusions</h5>
+                        <p class="text-xs sm:text-sm font-bold text-text-main dark:text-parchment italic">Champagne, Breakfast</p>
                       </div>
                     </div>
                   </div>
-                  <div class="flex gap-4 mt-10">
-                    <button class="flex-grow bg-brass hover:bg-brass-light text-white px-6 py-4 rounded-full text-xs font-bold transition-all shadow-md">Manage Sanctuary Prep</button>
-                    <button class="w-14 h-14 flex items-center justify-center border border-ink/8 dark:border-white/5 rounded-full text-gray-400 hover:text-accent transition-all">
-                      <i data-lucide="map-pin" class="w-5 h-5"></i>
+                  <div class="flex gap-3 sm:gap-4 mt-8 sm:mt-10">
+                    <button class="flex-grow bg-brass hover:bg-brass-light text-white px-4 sm:px-6 py-3.5 sm:py-4 rounded-full text-[10px] sm:text-xs font-bold transition-all shadow-md">Manage Sanctuary Prep</button>
+                    <button class="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center border border-ink/8 dark:border-white/5 rounded-full text-gray-400 hover:text-accent transition-all flex-shrink-0">
+                      <i data-lucide="map-pin" class="w-4.5 h-4.5 sm:w-5 sm:h-5"></i>
                     </button>
                   </div>
                 </div>
@@ -213,22 +234,22 @@
           </div>
 
           <!-- Direct Concierge Sidecard -->
-          <div class="bg-bg-panel border border-ink/8 dark:border-white/5 p-10 rounded-[2.5rem] flex flex-col justify-between relative overflow-hidden group shadow-sm">
+          <div class="bg-bg-panel border border-ink/8 dark:border-white/5 p-6 sm:p-10 rounded-[2rem] sm:rounded-[2.5rem] flex flex-col justify-between relative overflow-hidden group shadow-sm min-h-[360px] sm:min-h-0">
             <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-brass/5 rounded-full blur-3xl group-hover:bg-brass/10 transition-all duration-700"></div>
             <div class="relative z-10">
-              <div class="flex items-center gap-4 mb-8">
-                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-brass p-0.5">
+              <div class="flex items-center gap-4 mb-6 sm:mb-8">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-brass p-0.5">
                   <img src="../assets/images/julian_concierge.png" alt="Julian" class="w-full h-full object-cover rounded-full">
                 </div>
                 <div>
-                  <h4 class="font-display text-xl font-bold text-text-headline dark:text-parchment">Julian V.</h4>
-                  <p class="text-[10px] font-bold text-brass uppercase tracking-widest">Head Concierge</p>
+                  <h4 class="font-display text-lg sm:text-xl font-bold text-text-headline dark:text-parchment">Julian V.</h4>
+                  <p class="text-[9px] sm:text-[10px] font-bold text-brass uppercase tracking-widest">Head Concierge</p>
                 </div>
               </div>
-              <h3 class="font-display text-3xl font-bold leading-tight mb-6 text-text-headline dark:text-parchment">Need a dinner <br><i class="font-normal italic text-brass">arrangement?</i></h3>
-              <p class="text-text-muted dark:text-gray-400 text-sm font-medium leading-relaxed mb-8">Julian is ready to handle your transport, dining, and local sanctuary needs for your next stay.</p>
+              <h3 class="font-display text-2xl sm:text-3xl font-bold leading-tight mb-4 sm:mb-6 text-text-headline dark:text-parchment">Need a dinner <br><i class="font-normal italic text-brass">arrangement?</i></h3>
+              <p class="text-text-muted dark:text-gray-400 text-sm font-medium leading-relaxed mb-6 sm:mb-8">Julian is ready to handle your transport, dining, and local sanctuary needs for your next stay.</p>
             </div>
-            <a href="#" class="relative z-10 bg-brass hover:bg-brass-light text-white w-full py-4 rounded-full flex items-center justify-center gap-3 text-xs font-bold transition-all shadow-md">
+            <a href="#" class="relative z-10 bg-brass hover:bg-brass-light text-white w-full py-3.5 sm:py-4 rounded-full flex items-center justify-center gap-3 text-[10px] sm:text-xs font-bold transition-all shadow-md">
               Open Private Chat
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
@@ -617,6 +638,8 @@
       const toggle = document.getElementById('mobile-sidebar-toggle');
       const overlay = document.getElementById('sidebar-overlay');
       
+      const closeBtn = document.getElementById('mobile-sidebar-close');
+      
       const setSidebar = (open) => {
         const isRTL = document.documentElement.dir === 'rtl';
         if (open) {
@@ -640,6 +663,7 @@
 
       toggle?.addEventListener('click', () => setSidebar(true));
       overlay?.addEventListener('click', () => setSidebar(false));
+      closeBtn?.addEventListener('click', () => setSidebar(false));
 
       // Section Switching Logic
       const navLinks = document.querySelectorAll('[data-nav-link]');

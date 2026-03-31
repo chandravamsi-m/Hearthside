@@ -57,12 +57,18 @@
   <!-- Admin Sidebar Component (Minimal) -->
   <aside data-sidebar class="fixed inset-y-0 inset-inline-start-0 w-72 bg-ink text-gray-300 z-50 transition-transform duration-500 ease-in-out lg:shadow-none border-inline-end border-white/5 ltr:-translate-x-full rtl:translate-x-full lg:ltr:translate-x-0 lg:rtl:translate-x-0">
       <!-- Brand Header -->
-      <div class="h-24 flex flex-col justify-center px-8 border-b border-white/5">
-          <a href="../index.html" class="flex items-center gap-0 group">
-              <img src="../assets/images/logo.svg" alt="Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110">
-              <span class="font-display text-2xl font-bold tracking-tighter text-white">Hearthside</span>
-          </a>
-          <span class="text-[8px] uppercase font-bold text-brass tracking-[0.4em] mt-1.5 ml-10 opacity-70">Admin Portal</span>
+      <div class="h-24 flex items-center justify-between px-8 border-b border-white/5">
+          <div class="flex flex-col justify-center">
+              <a href="../index.html" class="flex items-center gap-0 group">
+                  <img src="../assets/images/logo.svg" alt="Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110">
+                  <span class="font-display text-2xl font-bold tracking-tighter text-white">Hearthside</span>
+              </a>
+              <span class="text-[8px] uppercase font-bold text-brass tracking-[0.4em] mt-1.5 ml-10 opacity-70">Admin Portal</span>
+          </div>
+          <!-- Close Button (Mobile Only) -->
+          <button id="mobile-sidebar-close" class="lg:hidden p-2 text-white/40 hover:text-white transition-colors">
+              <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
       </div>
 
       <!-- Navigation (Minimal) -->
@@ -87,7 +93,24 @@
               <i data-lucide="settings" class="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"></i>
               Site Settings
           </a>
-          <a href="../auth/login.html" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-red-300/60 hover:text-red-300 hover:bg-red-400/5 group mt-auto">
+          <!-- Utilities Section (Mobile/Small Screens Only) -->
+          <div class="lg:hidden px-6 py-4 border-t border-white/5 space-y-4">
+              <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-white/40 uppercase tracking-widest">Layout Direction</span>
+                  <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-white/60 hover:text-brass transition-all rounded-full">
+                      <span class="text-[11px] font-bold tracking-widest leading-none uppercase" data-rtl-label>RTL</span>
+                      <i data-lucide="move-horizontal" class="w-4 h-4"></i>
+                  </button>
+              </div>
+              <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-white/40 uppercase tracking-widest">Theme Mode</span>
+                  <button data-dark-toggle class="p-2 text-white/60 hover:text-brass transition-all rounded-full">
+                      <i data-lucide="moon" class="w-5 h-5"></i>
+                  </button>
+              </div>
+          </div>
+
+          <a href="../auth/login.html" class="flex items-center gap-4 px-6 py-4 rounded-xl text-sm font-bold transition-all text-red-300/60 hover:text-red-300 hover:bg-red-400/5 group border-t border-white/5 md:border-t-0 mt-2">
               <i data-lucide="log-out" class="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity"></i>
               Sign Out
           </a>
@@ -101,21 +124,24 @@
   <main class="lg:ms-72 min-h-screen flex flex-col transition-all duration-300 dark:bg-ash">
     
     <!-- Admin Topbar (Refined) -->
-    <header data-topbar class="sticky top-0 h-24 bg-white/80 dark:bg-coal/80 backdrop-blur-xl z-40 border-b border-gray-100 dark:border-white/5 px-8 flex items-center justify-between transition-all duration-300">
-        <!-- Title & Breadcrumbs -->
-        <div class="reveal">
-            <h2 id="page-title" class="font-display text-2xl font-bold text-ink dark:text-parchment">Overview</h2>
+    <header data-topbar class="sticky top-0 h-20 sm:h-24 bg-white/80 dark:bg-coal/80 backdrop-blur-xl z-40 border-b border-gray-100 dark:border-white/5 px-4 sm:px-8 flex items-center justify-between transition-all duration-300">
+        <div class="flex items-center gap-4 reveal">
+            <!-- Mobile Menu Toggle (Aligned with Sidebar Entry) -->
+            <button id="mobile-sidebar-toggle" class="lg:hidden w-10 h-10 flex items-center justify-center text-ink dark:text-parchment hover:text-brass transition-all bg-gray-50 dark:bg-white/5 rounded-full">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+            <h2 id="page-title" class="font-display text-xl sm:text-2xl font-bold text-ink dark:text-parchment">Overview</h2>
         </div>
 
         <!-- Actions (Professionalized) -->
         <div class="flex items-center gap-6">
-            <!-- Theme & RTL Toggles (Matched with Navbar) -->
-            <div class="flex items-center gap-2">
-                <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-ink/60 dark:text-parchment/60 hover:text-brass transition-all rounded-full border border-gray-100 dark:border-white/5 bg-gray-50 dark:bg-white/5">
+            <!-- Theme & RTL Toggles (Desktop Only) -->
+            <div class="hidden lg:flex items-center gap-0">
+                <button data-rtl-toggle class="flex items-center gap-1.5 px-3 py-1.5 text-ink/60 dark:text-parchment/60 hover:text-brass transition-all rounded-full">
                     <span class="text-[11px] font-bold tracking-widest leading-none uppercase" data-rtl-label>RTL</span>
                     <i data-lucide="move-horizontal" class="w-4 h-4"></i>
                 </button>
-                <button data-dark-toggle class="p-2 text-ink/60 dark:text-parchment/60 hover:text-brass transition-all rounded-full bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5">
+                <button data-dark-toggle class="p-2 text-ink/60 dark:text-parchment/60 hover:text-brass transition-all rounded-full">
                     <i data-lucide="moon" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -129,65 +155,60 @@
                   <p class="text-[8px] font-bold text-forest-light uppercase tracking-widest leading-tight mt-0.5 opacity-60 font-body">Systems Active</p>
                 </div>
             </button>
-
-            <!-- Mobile Menu Toggle -->
-            <button id="mobile-sidebar-toggle" class="lg:hidden w-10 h-10 flex items-center justify-center text-ink dark:text-parchment hover:text-brass transition-all bg-gray-50 dark:bg-white/5 rounded-full">
-                <i data-lucide="menu" class="w-5 h-5"></i>
-            </button>
         </div>
     </header>
 
     <!-- Content Area (Dynamic) -->
-    <div class="p-8 flex-grow">
+    <div class="p-4 sm:p-8 flex-grow">
       <!-- Overview Section -->
       <div data-section="overview" class="reveal">
         <!-- Editorial Header (Pulse) -->
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 sm:gap-8 mb-10 sm:mb-12">
           <div class="reveal-stagger">
             <h2 class="text-[10px] uppercase font-bold tracking-[0.4em] text-brass mb-2">Steward Intelligence</h2>
-            <p class="font-display text-4xl font-bold text-ink dark:text-parchment italic">Managing the Sanctuary's <i class="font-normal not-italic text-brass">Rhythm</i></p>
+            <p class="font-display text-3xl sm:text-4xl font-bold text-ink dark:text-parchment italic">Managing the Sanctuary's <i class="font-normal not-italic text-brass">Rhythm</i></p>
           </div>
-          <div class="flex gap-4">
-            <button class="px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center gap-2 text-text-main dark:text-parchment">
-              <i data-lucide="download" class="w-4 h-4 text-brass"></i> Audit Log
+          <div class="flex flex-row gap-3 sm:gap-4">
+            <button class="flex-1 sm:flex-none px-4 sm:px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[10px] sm:text-[11px] font-bold transition-all flex items-center justify-center gap-2 text-text-main dark:text-parchment">
+              <i data-lucide="download" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brass"></i><span class="whitespace-nowrap">Audit Log</span>
             </button>
-            <button class="bg-brass hover:bg-brass-light text-white px-6 py-2.5 rounded-full text-[11px] font-bold transition-all shadow-md">Export Ledger</button>
+            <button class="flex-1 sm:flex-none bg-brass hover:bg-brass-light text-white px-4 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-[11px] font-bold transition-all shadow-md whitespace-nowrap">Export Ledger</button>
           </div>
         </div>
 
         <!-- Performance Ledger (High-Fidelity) -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-          <div class="p-8 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10 sm:mb-12">
+          <div class="p-5 sm:p-8 bg-white dark:bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
             <div class="flex items-center justify-between mb-4">
-              <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest">Daily Revenue</h4>
-              <i data-lucide="trending-up" class="w-4 h-4 text-forest"></i>
+              <h4 class="text-text-muted dark:text-gray-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">Daily Revenue</h4>
+              <i data-lucide="trending-up" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-forest"></i>
             </div>
-            <p class="text-4xl font-bold text-text-headline dark:text-parchment leading-none italic font-display">£4,250</p>
-            <p class="text-[9px] font-bold text-forest uppercase tracking-widest mt-2 ml-1">+12% vs yesterday</p>
+            <p class="text-2xl sm:text-4xl font-bold text-text-headline dark:text-parchment leading-none italic font-display">£4,250</p>
+            <p class="text-[8px] sm:text-[9px] font-bold text-forest uppercase tracking-widest mt-2 ml-0.5 sm:ml-1">+12% vs yesterday</p>
           </div>
-          <div class="p-8 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
+          <div class="p-5 sm:p-8 bg-white dark:bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
             <div class="flex items-center justify-between mb-4">
-              <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest">Occupancy</h4>
-              <i data-lucide="activity" class="w-4 h-4 text-brass opacity-50"></i>
+              <h4 class="text-text-muted dark:text-gray-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">Occupancy</h4>
+              <i data-lucide="activity" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brass opacity-50"></i>
             </div>
-            <p class="text-4xl font-bold text-text-headline dark:text-parchment leading-none italic font-display">92<span class="text-sm font-normal not-italic opacity-40 leading-none ml-1">%</span></p>
-            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-2 ml-1">11/12 units active</p>
+            <p class="text-2xl sm:text-4xl font-bold text-text-headline dark:text-parchment leading-none italic font-display">92<span class="text-xs sm:text-sm font-normal not-italic opacity-40 leading-none ml-1">%</span></p>
+            <p class="text-[8px] sm:text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-2 ml-0.5 sm:ml-1">11/12 active</p>
           </div>
-          <div class="p-8 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
+          <div class="p-5 sm:p-8 bg-white dark:bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
             <div class="flex items-center justify-between mb-4">
-              <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest">Queue Status</h4>
-              <span class="w-2 h-2 bg-accent rounded-full animate-pulse-soft"></span>
+              <h4 class="text-text-muted dark:text-gray-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">Queue Status</h4>
+              <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-accent rounded-full animate-pulse-soft"></span>
             </div>
-            <p class="text-4xl font-bold text-text-headline dark:text-parchment leading-none italic font-display">04</p>
-            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-2 ml-1">Requests pending</p>
+            <p class="text-2xl sm:text-4xl font-bold text-text-headline dark:text-parchment leading-none italic font-display">04</p>
+            <p class="text-[8px] sm:text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-2 ml-0.5 sm:ml-1">Requests pending</p>
           </div>
-          <div class="p-8 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
+          <div class="p-5 sm:p-8 bg-white dark:bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
             <div class="flex items-center justify-between mb-4">
-              <h4 class="text-text-muted dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest">Active Guests</h4>
-              <i data-lucide="users" class="w-4 h-4 text-forest opacity-50"></i>
+              <h4 class="text-text-muted dark:text-gray-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">Active Guests</h4>
+              <i data-lucide="users" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-forest opacity-50"></i>
             </div>
-            <p class="text-4xl font-bold text-text-headline dark:text-parchment leading-none italic font-display">18</p>
-            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-2 ml-1">Residents on property</p>
+            <p class="text-2xl sm:text-4xl font-bold text-text-headline dark:text-parchment leading-none italic font-display">18</p>
+            <p class="text-[8px] sm:text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-2 ml-0.5 sm:ml-1">Residents active</p>
           </div>
         </div>
 
@@ -195,10 +216,10 @@
         <section class="mb-12">
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <!-- Expanded Activity Feed -->
-            <div class="lg:col-span-2 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm p-10">
-              <div class="flex items-center justify-between mb-8">
-                <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Sanctuary Rhythm Log</h4>
-                <a href="#" class="text-[9px] font-bold text-brass uppercase tracking-widest border-b border-brass/30 hover:border-brass transition-all">View All Entries</a>
+            <div class="lg:col-span-2 bg-white dark:bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm p-6 sm:p-10">
+              <div class="flex items-center justify-between mb-6 sm:mb-8">
+                <h4 class="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest">Sanctuary Rhythm Log</h4>
+                <a href="#" class="text-[8px] sm:text-[9px] font-bold text-brass uppercase tracking-widest border-b border-brass/30 hover:border-brass transition-all whitespace-nowrap">View All Entries</a>
               </div>
               <div class="space-y-8">
                 <div class="flex gap-6 items-start p-4 bg-stone/5 dark:bg-ash/20 rounded-2xl border border-transparent hover:border-gray-100 dark:hover:border-white/5 transition-all group">
@@ -241,14 +262,14 @@
             </div>
 
             <!-- Enhanced Financial Snapshot -->
-            <div class="bg-bg-panel border border-ink/8 dark:border-white/5 p-10 rounded-[2.5rem] shadow-sm flex flex-col justify-between relative overflow-hidden group h-full">
+            <div class="bg-bg-panel border border-ink/8 dark:border-white/5 p-6 sm:p-10 rounded-[2rem] sm:rounded-[2.5rem] shadow-sm flex flex-col justify-between relative overflow-hidden group h-full">
               <div class="absolute -right-16 -top-16 w-48 h-48 bg-brass/5 rounded-full blur-3xl group-hover:bg-brass/10 transition-all duration-700"></div>
               <div class="relative z-10">
-                <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-10">Financial Momentum</h4>
-                <p class="text-5xl font-display font-bold text-text-headline dark:text-parchment italic">£12,450</p>
+                <h4 class="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-6 sm:mb-10">Financial Momentum</h4>
+                <p class="text-4xl sm:text-5xl font-display font-bold text-text-headline dark:text-parchment italic">£12,450</p>
                 <div class="flex items-center gap-2 mt-2">
-                  <i data-lucide="trending-up" class="w-4 h-4 text-forest"></i>
-                  <p class="text-[10px] font-bold text-brass uppercase tracking-widest">Week-to-date Revenue</p>
+                  <i data-lucide="trending-up" class="w-3.5 h-3.5 text-forest"></i>
+                  <p class="text-[9px] sm:text-[10px] font-bold text-brass uppercase tracking-widest">Week-to-date Revenue</p>
                 </div>
               </div>
               <div class="relative z-10 space-y-6">
@@ -266,17 +287,17 @@
       <!-- Bookings (Reservations) Section -->
       <div data-section="bookings" class="reveal hidden">
         <!-- Editorial Header (Ledger) -->
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 sm:gap-8 mb-10 sm:mb-12">
           <div class="reveal-stagger">
             <h2 class="text-[10px] uppercase font-bold tracking-[0.4em] text-brass mb-2">Reservation Intelligence</h2>
-            <p class="font-display text-4xl font-bold text-ink dark:text-parchment italic">Sanctuary Ledger: Overseeing <i class="font-normal not-italic text-brass">Guest Journeys</i></p>
+            <p class="font-display text-3xl sm:text-4xl font-bold text-ink dark:text-parchment italic">Sanctuary Ledger: Overseeing <i class="font-normal not-italic text-brass">Guest Journeys</i></p>
           </div>
-          <div class="flex gap-4">
-            <div class="relative group">
-              <input type="text" placeholder="Search references..." class="bg-bg-panel border border-ink/8 dark:border-white/5 rounded-full px-6 py-2.5 pl-12 text-[11px] font-bold text-text-main dark:text-parchment focus:ring-1 focus:ring-brass outline-none w-72 transition-all">
+          <div class="flex flex-col sm:flex-row gap-4">
+            <div class="relative group flex-grow sm:flex-grow-0">
+              <input type="text" placeholder="Search references..." class="w-full sm:w-72 bg-bg-panel border border-ink/8 dark:border-white/5 rounded-full px-6 py-2.5 pl-12 text-[11px] font-bold text-text-main dark:text-parchment focus:ring-1 focus:ring-brass outline-none transition-all">
               <i data-lucide="search" class="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-brass opacity-50 group-focus-within:opacity-100 transition-opacity"></i>
             </div>
-            <button class="px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center gap-2 text-text-main dark:text-parchment">
+            <button class="px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center justify-center gap-2 text-text-main dark:text-parchment">
               <i data-lucide="filter" class="w-4 h-4 text-brass"></i> Filter
             </button>
           </div>
@@ -298,8 +319,9 @@
           </button>
         </div>
 
-          <div class="bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden">
-            <table class="w-full text-left border-collapse">
+          <div class="bg-white dark:bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden">
+            <div class="overflow-x-auto scrollbar-thin scrollbar-thumb-brass/20">
+              <table class="w-full text-left border-collapse min-w-[900px]">
               <thead>
                 <tr class="bg-stone/10 dark:bg-ash/50 border-b border-gray-50 dark:border-white/5">
                   <th class="px-10 py-6 text-[10px] uppercase font-bold text-gray-400 tracking-widest whitespace-nowrap">Reference</th>
@@ -374,6 +396,7 @@
               </tbody>
             </table>
           </div>
+          </div>
       </div>
 
       <!-- Rooms Section -->
@@ -400,35 +423,35 @@
           </div>
         </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <!-- Unit Card 01: Rose Suite -->
-            <div class="bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 p-10 group shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
-              <div class="flex items-center justify-between mb-10">
-                <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-brass p-1 flex-shrink-0 bg-stone/5 dark:bg-ash/80 transition-all duration-700 group-hover:scale-105">
+            <div class="bg-white dark:bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 dark:border-white/5 p-6 sm:p-10 group shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+              <div class="flex items-center justify-between mb-6 sm:mb-10">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-brass p-1 flex-shrink-0 bg-stone/5 dark:bg-ash/80 transition-all duration-700 group-hover:scale-105">
                   <img src="../assets/images/rose_suite.png" class="w-full h-full object-cover rounded-full text-[0px] transition-all duration-700">
                 </div>
                 <div class="text-right">
-                  <h4 class="font-display text-xl font-bold text-text-headline dark:text-parchment italic">Rose Suite</h4>
-                  <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mt-1">Unit 04</p>
-                  <span class="inline-block mt-3 px-3 py-1 bg-forest/10 text-forest rounded-full text-[9px] font-bold uppercase tracking-widest">Steward Occupied</span>
+                  <h4 class="font-display text-lg sm:text-xl font-bold text-text-headline dark:text-parchment italic">Rose Suite</h4>
+                  <p class="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mt-1">Unit 04</p>
+                  <span class="inline-block mt-3 px-3 py-1 bg-forest/10 text-forest rounded-full text-[8px] sm:text-[9px] font-bold uppercase tracking-widest">Steward Occupied</span>
                 </div>
               </div>
               
-              <div class="space-y-6 pt-8 border-t border-gray-100 dark:border-white/5">
+              <div class="space-y-6 pt-6 sm:pt-8 border-t border-gray-100 dark:border-white/5">
                 <div class="flex items-center justify-between">
                   <div>
-                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Sanitized</p>
-                    <p class="text-xs font-bold text-text-main dark:text-parchment italic">10:15 AM today</p>
+                    <p class="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Sanitized</p>
+                    <p class="text-[11px] sm:text-xs font-bold text-text-main dark:text-parchment italic font-normal sm:font-bold">10:15 AM today</p>
                   </div>
-                  <span class="text-[10px] font-bold text-forest uppercase tracking-widest bg-forest/10 px-3 py-1 rounded-full border border-forest/20">Clean</span>
+                  <span class="text-[8px] sm:text-[10px] font-bold text-forest uppercase tracking-widest bg-forest/10 px-3 py-1 rounded-full border border-forest/20">Clean</span>
                 </div>
                 <div class="flex items-center justify-between">
                   <span class="text-xs font-bold text-text-main dark:text-parchment">Health Maintenance</span>
-                  <button class="w-11 h-6 bg-forest rounded-full relative transition-all duration-500 shadow-inner group/switch">
-                    <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-lg transition-transform duration-300"></span>
+                  <button class="w-10 h-5 sm:w-11 sm:h-6 bg-forest rounded-full relative transition-all duration-500 shadow-inner group/switch">
+                    <span class="absolute right-1 top-0.5 sm:top-1 w-4 h-4 bg-white rounded-full shadow-lg transition-transform duration-300"></span>
                   </button>
                 </div>
-                <button class="w-full mt-6 text-[9px] font-bold text-gray-400 uppercase tracking-widest hover:text-brass transition-all flex items-center justify-center gap-2 py-4 border-t border-gray-50 dark:border-white/5">
+                <button class="w-full mt-4 sm:mt-6 text-[8px] sm:text-[9px] font-bold text-gray-400 uppercase tracking-widest hover:text-brass transition-all flex items-center justify-center gap-2 py-4 border-t border-gray-50 dark:border-white/5">
                   <i data-lucide="history" class="w-3.5 h-3.5 mt-[-1px]"></i> View Unit History
                 </button>
               </div>
@@ -537,8 +560,9 @@
           </button>
         </div>
           
-          <div class="bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden">
-            <table class="w-full text-left border-collapse">
+          <div class="bg-white dark:bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden">
+            <div class="overflow-x-auto scrollbar-thin scrollbar-thumb-brass/20">
+              <table class="w-full text-left border-collapse min-w-[1000px]">
               <thead>
                 <tr class="bg-stone/10 dark:bg-ash/50 border-b border-gray-50 dark:border-white/5">
                   <th class="px-10 py-6 text-[10px] uppercase font-bold text-gray-400 tracking-widest">Resident Portfolio</th>
@@ -601,6 +625,7 @@
                 </tr>
               </tbody>
             </table>
+          </div>
           </div>
       </div>
 
@@ -701,6 +726,8 @@
       const toggle = document.getElementById('mobile-sidebar-toggle');
       const overlay = document.getElementById('sidebar-overlay');
       
+      const closeBtn = document.getElementById('mobile-sidebar-close');
+      
       const setSidebar = (open) => {
         const isRTL = document.documentElement.dir === 'rtl';
         if (open) {
@@ -724,6 +751,7 @@
 
       toggle?.addEventListener('click', () => setSidebar(true));
       overlay?.addEventListener('click', () => setSidebar(false));
+      closeBtn?.addEventListener('click', () => setSidebar(false));
 
       // Section Switching Logic
       const navLinks = document.querySelectorAll('[data-admin-nav]');
