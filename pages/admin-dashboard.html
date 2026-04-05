@@ -292,12 +292,12 @@
             <h2 class="text-[10px] uppercase font-bold tracking-[0.4em] text-brass mb-2">Reservation Intelligence</h2>
             <p class="font-display text-3xl sm:text-4xl font-bold text-ink dark:text-parchment italic">Sanctuary Ledger: Overseeing <i class="font-normal not-italic text-brass">Guest Journeys</i></p>
           </div>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <div class="relative group flex-grow sm:flex-grow-0">
-              <input type="text" placeholder="Search references..." class="w-full sm:w-72 bg-bg-panel border border-ink/8 dark:border-white/5 rounded-full px-6 py-2.5 pl-12 text-[11px] font-bold text-text-main dark:text-parchment focus:ring-1 focus:ring-brass outline-none transition-all">
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full md:w-auto">
+            <div class="relative group flex-grow">
+              <input type="text" placeholder="Search references..." class="w-full md:w-72 bg-bg-panel border border-ink/8 dark:border-white/5 rounded-full px-6 py-2.5 pl-12 text-[11px] font-bold text-text-main dark:text-parchment focus:ring-1 focus:ring-brass outline-none transition-all">
               <i data-lucide="search" class="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-brass opacity-50 group-focus-within:opacity-100 transition-opacity"></i>
             </div>
-            <button class="px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center justify-center gap-2 text-text-main dark:text-parchment">
+            <button class="w-full sm:w-auto px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center justify-center gap-2 text-text-main dark:text-parchment">
               <i data-lucide="filter" class="w-4 h-4 text-brass"></i> Filter
             </button>
           </div>
@@ -319,7 +319,7 @@
           </button>
         </div>
 
-          <div class="bg-white dark:bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden">
+          <div class="hidden md:block bg-white dark:bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden">
             <div class="overflow-x-auto scrollbar-thin scrollbar-thumb-brass/20">
               <table class="w-full text-left border-collapse min-w-[900px]">
               <thead>
@@ -396,6 +396,81 @@
               </tbody>
             </table>
           </div>
+          </div>
+
+          <!-- Mobile Card View (md:hidden) -->
+          <div class="md:hidden space-y-4">
+            <!-- Card 01 -->
+            <div class="bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 p-6 shadow-sm">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <p class="text-[10px] font-bold text-brass uppercase tracking-widest mb-1">HSB-24-0891</p>
+                  <span class="flex items-center gap-2 text-[11px] font-bold text-forest">
+                    <span class="w-1.5 h-1.5 bg-forest rounded-full"></span>
+                    Confirmed
+                  </span>
+                </div>
+                <div class="w-10 h-10 bg-forest/10 rounded-full flex items-center justify-center text-[10px] font-bold text-forest">ER</div>
+              </div>
+              
+              <div class="space-y-4 mb-6">
+                <div>
+                  <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Guest</p>
+                  <p class="text-sm font-bold text-text-main dark:text-parchment leading-tight">Eleanor Roberts</p>
+                  <p class="text-[9px] font-bold text-brass uppercase tracking-widest opacity-60 mt-0.5">Steward Member</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Unit</p>
+                    <p class="text-xs font-bold text-text-headline dark:text-parchment">The Rose Suite</p>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest italic opacity-60">Unit 04</p>
+                  </div>
+                  <div>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Stay</p>
+                    <p class="text-xs font-bold text-text-main dark:text-parchment">14 Feb — 17 Feb</p>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest italic opacity-60">3 Nights</p>
+                  </div>
+                </div>
+              </div>
+              
+              <button class="w-full bg-brass hover:bg-brass-light text-white py-3.5 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all shadow-md">View Journey</button>
+            </div>
+
+            <!-- Card 02 -->
+            <div class="bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 p-6 shadow-sm">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <p class="text-[10px] font-bold text-brass uppercase tracking-widest mb-1">HSB-24-0756</p>
+                  <span class="flex items-center gap-2 text-[11px] font-bold text-gray-400">
+                    <span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
+                    Completed
+                  </span>
+                </div>
+                <div class="w-10 h-10 bg-forest/10 rounded-full flex items-center justify-center text-[10px] font-bold text-forest">JD</div>
+              </div>
+              
+              <div class="space-y-4 mb-6">
+                <div>
+                  <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Guest</p>
+                  <p class="text-sm font-bold text-text-main dark:text-parchment">Jameson Dewhurst</p>
+                  <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest opacity-60 mt-0.5">Guest Collective</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Unit</p>
+                    <p class="text-xs font-bold text-text-headline dark:text-parchment">The Orchard Room</p>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest italic opacity-60">Unit 09</p>
+                  </div>
+                  <div>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Stay</p>
+                    <p class="text-xs font-bold text-text-main dark:text-parchment">20 Sep — 22 Sep</p>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest italic opacity-60">2 Nights</p>
+                  </div>
+                </div>
+              </div>
+              
+              <button class="w-full bg-gray-100 dark:bg-ash text-gray-400 hover:text-brass py-3.5 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all">Audit History</button>
+            </div>
           </div>
       </div>
 
@@ -533,12 +608,12 @@
             <h2 class="text-[10px] uppercase font-bold tracking-[0.4em] text-brass mb-2">Community Intelligence</h2>
             <p class="font-display text-4xl font-bold text-ink dark:text-parchment italic">Guest Collective: Cultivating <i class="font-normal not-italic text-brass">Relationships</i></p>
           </div>
-          <div class="flex gap-4">
-            <div class="relative group">
-              <input type="text" placeholder="Search collective..." class="bg-bg-panel border border-ink/8 dark:border-white/5 rounded-full px-6 py-2.5 pl-12 text-[11px] font-bold text-text-main dark:text-parchment focus:ring-1 focus:ring-brass outline-none w-72 transition-all">
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full md:w-auto">
+            <div class="relative group flex-grow">
+              <input type="text" placeholder="Search collective..." class="bg-bg-panel border border-ink/8 dark:border-white/5 rounded-full px-6 py-2.5 pl-12 text-[11px] font-bold text-text-main dark:text-parchment focus:ring-1 focus:ring-brass outline-none w-full md:w-72 transition-all">
               <i data-lucide="search" class="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-brass opacity-50 group-focus-within:opacity-100 transition-opacity"></i>
             </div>
-            <button class="px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center gap-2 text-text-main dark:text-parchment">
+            <button class="w-full sm:w-auto px-6 py-2.5 bg-bg-panel hover:bg-stone/60 dark:hover:bg-coal/60 border border-ink/8 dark:border-parchment/8 rounded-full text-[11px] font-bold transition-all flex items-center justify-center gap-2 text-text-main dark:text-parchment">
               <i data-lucide="download" class="w-4 h-4 text-brass"></i> Export Registry
             </button>
           </div>
@@ -560,7 +635,7 @@
           </button>
         </div>
           
-          <div class="bg-white dark:bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden">
+          <div class="hidden lg:block bg-white dark:bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden">
             <div class="overflow-x-auto scrollbar-thin scrollbar-thumb-brass/20">
               <table class="w-full text-left border-collapse min-w-[1000px]">
               <thead>
@@ -627,25 +702,93 @@
             </table>
           </div>
           </div>
+
+          <!-- Mobile Card View (lg:hidden) -->
+          <div class="lg:hidden space-y-4">
+            <!-- Guest Card 01 -->
+            <div class="bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 p-6 shadow-sm">
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 rounded-full overflow-hidden border border-brass p-0.5">
+                  <img src="../assets/images/eleanor_profile.png" class="w-full h-full object-cover rounded-full">
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-text-main dark:text-parchment leading-tight">Eleanor Roberts</p>
+                  <p class="text-[9px] font-bold text-brass uppercase tracking-widest opacity-60 mt-0.5">Steward Member</p>
+                </div>
+              </div>
+              
+              <div class="space-y-4 mb-6">
+                <div>
+                  <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Contact Identity</p>
+                  <p class="text-[11px] font-bold text-text-main dark:text-parchment italic opacity-80">eleanor.r@sanctuary.com</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Loyalty</p>
+                    <p class="text-xs font-bold text-text-headline dark:text-parchment">12 Stays</p>
+                    <p class="text-[8px] font-bold text-forest uppercase tracking-widest opacity-60">High Repeat</p>
+                  </div>
+                  <div>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Last Visit</p>
+                    <p class="text-xs font-bold text-text-main dark:text-parchment">14 Feb 2025</p>
+                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest italic opacity-60">HSB-24-0891</p>
+                  </div>
+                </div>
+              </div>
+              
+              <button class="w-full bg-brass hover:bg-brass-light text-white py-3.5 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all shadow-md">View Portfolio</button>
+            </div>
+
+            <!-- Guest Card 02 -->
+            <div class="bg-white dark:bg-bg-panel rounded-2xl border border-gray-100 dark:border-white/5 p-6 shadow-sm">
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 bg-forest/10 rounded-full flex items-center justify-center text-[11px] font-bold text-forest">JD</div>
+                <div>
+                  <p class="text-sm font-bold text-text-main dark:text-parchment leading-tight">Jameson Dewhurst</p>
+                  <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest opacity-60 mt-0.5">Guest Collective</p>
+                </div>
+              </div>
+              
+              <div class="space-y-4 mb-6">
+                <div>
+                  <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Contact Identity</p>
+                  <p class="text-[11px] font-bold text-text-main dark:text-parchment italic opacity-80">j.dewhurst@collective.io</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Loyalty</p>
+                    <p class="text-xs font-bold text-text-headline dark:text-parchment">04 Stays</p>
+                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest opacity-60">Standard</p>
+                  </div>
+                  <div>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Last Visit</p>
+                    <p class="text-xs font-bold text-text-main dark:text-parchment">20 Sep 2024</p>
+                    <p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest italic opacity-60">HSB-24-0756</p>
+                  </div>
+                </div>
+              </div>
+              
+              <button class="w-full bg-gray-100 dark:bg-ash text-gray-400 hover:text-brass py-3.5 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all">Contact Resident</button>
+            </div>
+          </div>
       </div>
 
 
 
       <!-- Settings Section -->
       <div data-section="settings" class="reveal hidden">
-        <!-- Editorial Header (Configuration) -->
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 sm:gap-8 mb-10 sm:mb-12">
           <div class="reveal-stagger">
             <h2 class="text-[10px] uppercase font-bold tracking-[0.4em] text-brass mb-2">Global Logistics</h2>
-            <p class="font-display text-4xl font-bold text-ink dark:text-parchment italic">Sanctuary Configuration: Defining the <i class="font-normal not-italic text-brass">Pulse</i></p>
+            <p class="font-display text-3xl sm:text-4xl font-bold text-ink dark:text-parchment italic">Sanctuary Configuration: Defining the <i class="font-normal not-italic text-brass">Pulse</i></p>
           </div>
-          <button class="bg-brass hover:bg-brass-light text-white px-8 py-3 rounded-full text-[11px] font-bold transition-all shadow-md shadow-brass/10">Synchronize Sanctuary Pulse</button>
+          <button class="w-full md:w-auto bg-brass hover:bg-brass-light text-white px-8 py-3.5 rounded-full text-[11px] font-bold transition-all shadow-md shadow-brass/10">Synchronize Sanctuary Pulse</button>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <!-- Operational Health -->
-          <div class="p-10 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
-            <h3 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-10 italic">Operational <i class="font-normal not-italic text-brass">Health</i></h3>
+          <div class="p-6 sm:p-10 bg-white dark:bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
+            <h3 class="font-display text-lg sm:text-xl font-bold text-text-headline dark:text-parchment mb-8 sm:mb-10 italic">Operational <i class="font-normal not-italic text-brass">Health</i></h3>
             <div class="space-y-8">
               <div class="flex items-center justify-between">
                 <div>
@@ -678,10 +821,10 @@
           </div>
 
           <!-- Experience Mapping -->
-          <div class="p-10 bg-white dark:bg-bg-panel rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
-            <h3 class="font-display text-xl font-bold text-text-headline dark:text-parchment mb-10 italic">Experience <i class="font-normal not-italic text-brass">Mapping</i></h3>
+          <div class="p-6 sm:p-10 bg-white dark:bg-bg-panel rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-sm">
+            <h3 class="font-display text-lg sm:text-xl font-bold text-text-headline dark:text-parchment mb-8 sm:mb-10 italic">Experience <i class="font-normal not-italic text-brass">Mapping</i></h3>
             <div class="space-y-8">
-              <div class="grid grid-cols-2 gap-6">
+              <div class="grid grid-cols-1 gap-6">
                 <div class="space-y-2">
                   <label class="text-[9px] font-bold text-gray-400 uppercase tracking-widest ml-1">Scent Mapping</label>
                   <select class="w-full bg-stone/5 dark:bg-ash/30 border border-gray-100 dark:border-white/5 rounded-xl px-4 py-3 text-xs font-bold text-text-main dark:text-parchment outline-none focus:ring-1 focus:ring-brass transition-all appearance-none cursor-pointer">

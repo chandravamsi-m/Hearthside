@@ -51,15 +51,15 @@
   
   <!-- ── Global Auth Header ── -->
   <header class="h-20 flex items-center bg-transparent relative z-50">
-    <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+    <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center gap-4">
       <div class="flex-shrink-0">
-        <a href="../index.html" class="flex items-center gap-0 group">
-          <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110">
-          <span class="font-display text-2xl font-bold text-text-headline tracking-tighter uppercase leading-none">Hearthside</span>
+        <a href="../index.html" class="flex items-center gap-1 sm:gap-2 group">
+          <img src="../assets/images/logo.svg" alt="Hearthside Logo" class="w-7 h-7 sm:w-10 sm:h-10 transition-transform duration-500 group-hover:scale-110">
+          <span class="font-display text-base sm:text-2xl font-bold text-text-headline tracking-tighter uppercase leading-none">Hearthside</span>
         </a>
       </div>
 
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2">
         <button data-rtl-toggle class="flex items-center gap-2 px-3 py-1.5 text-text-headline hover:text-brass transition-colors rounded-full font-bold">
           <span class="text-[11px] font-bold tracking-widest leading-none" data-rtl-label>RTL</span>
           <i data-lucide="move-horizontal" class="w-4 h-4"></i>
@@ -71,54 +71,50 @@
     </div>
   </header>
 
-  <main class="flex-grow flex items-center justify-center p-6 -mt-20">
+  <main class="flex-grow flex items-center justify-center p-6">
     <div class="max-w-md w-full">
-      <div class="text-center mb-8">
-        <h1 class="font-display text-3xl font-bold text-text-headline tracking-tight">Create account</h1>
-      </div>
-
       <!-- Auth Card -->
-      <div class="bg-bg-panel rounded-[2rem] shadow-lift p-10 border border-ink/5 dark:border-parchment/10">
-        <div class="space-y-8">
+      <div class="bg-bg-panel rounded-[2rem] shadow-lift p-6 sm:p-8 border border-ink/5 dark:border-parchment/10">
+        <div class="space-y-6">
           <!-- Main Form -->
-          <form class="space-y-6" onsubmit="event.preventDefault(); window.location.href='../pages/user-dashboard.html'">
-            <div class="grid grid-cols-2 gap-6">
-              <div class="space-y-2 relative group/field">
+          <form class="space-y-5" onsubmit="event.preventDefault(); window.location.href='../pages/user-dashboard.html'">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div class="space-y-1 relative group/field">
                 <label class="block text-[10px] uppercase font-bold text-brass tracking-widest mb-1">First Name</label>
                 <input type="text" required placeholder="Alexander" 
-                  class="w-full bg-transparent border-b border-ink/20 dark:border-parchment/20 px-0 py-3 focus:border-brass outline-none text-base text-text-headline transition-all placeholder-ink/20">
+                  class="w-full bg-transparent border-b border-ink/20 dark:border-parchment/20 px-0 py-2.5 focus:border-brass outline-none text-base text-text-headline transition-all placeholder-ink/20 font-medium">
               </div>
-              <div class="space-y-2 relative group/field">
+              <div class="space-y-1 relative group/field">
                 <label class="block text-[10px] uppercase font-bold text-brass tracking-widest mb-1">Last Name</label>
                 <input type="text" required placeholder="Heaton" 
-                  class="w-full bg-transparent border-b border-ink/20 dark:border-parchment/20 px-0 py-3 focus:border-brass outline-none text-base text-text-headline transition-all placeholder-ink/20">
+                  class="w-full bg-transparent border-b border-ink/20 dark:border-parchment/20 px-0 py-2.5 focus:border-brass outline-none text-base text-text-headline transition-all placeholder-ink/20 font-medium">
               </div>
             </div>
 
-            <div class="space-y-2 relative group/field">
+            <div class="space-y-1 relative group/field">
               <label class="block text-[10px] uppercase font-bold text-brass tracking-widest mb-1">Email Address</label>
               <input type="email" required placeholder="name@domain.com" 
-                class="w-full bg-transparent border-b border-ink/20 dark:border-parchment/20 px-0 py-3 focus:border-brass outline-none text-base text-text-headline transition-all placeholder-ink/20">
+                class="w-full bg-transparent border-b border-ink/20 dark:border-parchment/20 px-0 py-2.5 focus:border-brass outline-none text-base text-text-headline transition-all placeholder-ink/20 font-medium">
             </div>
 
-            <div class="space-y-2 relative group/field">
+            <div class="space-y-1 relative group/field">
               <label class="block text-[10px] uppercase font-bold text-brass tracking-widest mb-1">Password</label>
               <div class="relative">
                 <input type="password" id="password" required placeholder="••••••••" 
-                  class="w-full bg-transparent border-b border-ink/20 dark:border-parchment/20 px-0 py-3 pr-10 focus:border-brass outline-none text-base text-text-headline transition-all placeholder-ink/20">
-                <button type="button" data-password-toggle aria-controls="password" class="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-text-muted hover:text-brass transition-colors outline-none">
+                  class="w-full bg-transparent border-b border-ink/20 dark:border-parchment/20 px-0 py-2.5 pe-20 focus:border-brass outline-none text-base text-text-headline transition-all placeholder-ink/20 font-medium">
+                <button type="button" data-password-toggle aria-controls="password" class="absolute inset-inline-end-6 top-1/2 -translate-y-1/2 p-2 text-text-muted hover:text-brass transition-colors outline-none">
                   <i data-lucide="eye" class="w-4 h-4"></i>
                 </button>
               </div>
             </div>
 
-            <button type="submit" class="w-full bg-brass hover:bg-brass-light text-white py-4 rounded-full font-bold text-xs uppercase tracking-[0.3em] shadow-md transition-all active:scale-[0.98]">
+            <button type="submit" class="w-full bg-brass hover:bg-brass-light text-white py-3.5 rounded-full font-bold text-xs uppercase tracking-[0.3em] shadow-md transition-all active:scale-[0.98] mt-2">
               Sign Up
             </button>
           </form>
 
           <!-- Social Auth (Bottom Position) -->
-          <div class="space-y-6 pt-2">
+          <div class="space-y-5 pt-1">
             <div class="flex items-center gap-4">
               <div class="h-[1px] flex-grow bg-ink/5 dark:bg-parchment/10"></div>
               <span class="text-[9px] uppercase font-bold text-text-muted tracking-widest whitespace-nowrap">Or register via</span>
@@ -126,18 +122,18 @@
             </div>
 
             <div class="grid grid-cols-2 gap-4">
-              <button class="flex items-center justify-center gap-3 bg-stone/10 dark:bg-coal/20 py-3.5 rounded-full border border-ink/5 dark:border-parchment/5 hover:bg-stone/20 dark:hover:bg-coal/40 transition-all group text-[10px] font-bold uppercase tracking-widest text-text-headline">
+              <button class="flex items-center justify-center gap-3 bg-stone/10 dark:bg-coal/20 py-3 rounded-full border border-ink/5 dark:border-parchment/5 hover:bg-stone/20 dark:hover:bg-coal/40 transition-all group text-[10px] font-bold uppercase tracking-widest text-text-headline">
                 <span class="iconify w-5 h-5 text-[#4285F4]" data-icon="logos:google-icon"></span>
                 Google
               </button>
-              <button class="flex items-center justify-center gap-3 bg-stone/10 dark:bg-coal/20 py-3.5 rounded-full border border-ink/5 dark:border-parchment/5 hover:bg-stone/20 dark:hover:bg-coal/40 transition-all group text-[10px] font-bold uppercase tracking-widest text-text-headline">
+              <button class="flex items-center justify-center gap-3 bg-stone/10 dark:bg-coal/20 py-3 rounded-full border border-ink/5 dark:border-parchment/5 hover:bg-stone/20 dark:hover:bg-coal/40 transition-all group text-[10px] font-bold uppercase tracking-widest text-text-headline">
                 <span class="iconify w-5 h-5 text-[#1877F2]" data-icon="logos:facebook"></span>
                 Facebook
               </button>
             </div>
           </div>
 
-          <div class="text-center pt-2">
+          <div class="text-center pt-1">
             <p class="text-[10px] font-bold text-text-muted uppercase tracking-widest">
               Already have an account? <a href="login.html" class="text-brass hover:underline underline-offset-4 decoration-2">Sign in here</a>
             </p>
@@ -147,7 +143,7 @@
     </div>
   </main>
 
-  <footer class="py-10 text-center opacity-30 italic">
+  <footer class="py-4 text-center opacity-30 italic">
     <p class="text-[9px] uppercase font-bold tracking-widest leading-none">&copy; 2024 Hearthside</p>
   </footer>
 

@@ -61,36 +61,34 @@
   
   <!-- ── Global Header (Sync with Auth Pages) ── -->
   <header class="h-20 flex items-center bg-transparent relative z-50">
-    <div class="max-w-7xl mx-auto px-8 w-full flex justify-between items-center">
+    <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center gap-4">
       <div class="flex-shrink-0">
-        <a href="../index.html" class="flex items-center gap-0 group">
+        <a href="../index.html" class="flex items-center gap-1 sm:gap-2 group">
           <img src="../assets/images/logo.svg" alt="Hearthside Logo" 
-               class="w-9 h-9 transition-transform duration-500 group-hover:scale-110">
-          <span class="font-display text-xl font-bold text-text-headline tracking-tighter uppercase leading-none">Hearthside</span>
+          <span class="font-display text-base sm:text-2xl font-bold text-text-headline tracking-tighter uppercase leading-none">Hearthside</span>
         </a>
       </div>
 
-      <div class="flex items-center gap-6">
+      <div class="flex items-center gap-2">
         <button data-rtl-toggle class="flex items-center gap-2 px-3 py-1.5 text-text-headline hover:text-brass transition-colors rounded-full font-bold">
-          <span class="text-[9px] tracking-widest leading-none" data-rtl-label>RTL</span>
-          <i data-lucide="move-horizontal" class="w-3.5 h-3.5"></i>
+          <span class="text-[11px] font-bold tracking-widest leading-none" data-rtl-label>RTL</span>
+          <i data-lucide="move-horizontal" class="w-4 h-4"></i>
         </button>
         <button data-dark-toggle class="p-2 text-text-headline hover:text-brass transition-colors rounded-full">
-          <i data-lucide="moon" class="w-4 h-4"></i>
+          <i data-lucide="moon" class="w-5 h-5"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <main class="flex-1 flex items-center justify-center p-6 relative">
+  <main class="flex-1 flex items-center justify-center p-6 relative overflow-hidden">
     <!-- Decorative Elements -->
-    <aside data-nav-mobile class="fixed top-0 right-0 w-[80%] max-w-[400px] h-full bg-white dark:bg-coal lg:hidden translate-x-full transition-transform duration-500 ease-in-out z-[60] border-l border-gray-100 dark:border-white/5"></aside>
-    <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-forest/5 dark:bg-forest/15 rounded-full blur-[90px] -mr-32 -mt-32 pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-[240px] h-[240px] bg-brass/5 dark:bg-brass/10 rounded-full blur-[70px] -ml-20 -mb-20 pointer-events-none"></div>
+    <div class="absolute top-0 right-0 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] bg-forest/5 dark:bg-forest/15 rounded-full blur-[60px] sm:blur-[90px] -mr-16 sm:-mr-32 -mt-16 sm:-mt-32 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] bg-brass/5 dark:bg-brass/10 rounded-full blur-[50px] sm:blur-[70px] -ml-10 sm:-ml-20 -mb-10 sm:-mb-20 pointer-events-none"></div>
 
-    <div class="max-w-lg text-center z-10 reveal-up">
+    <div class="max-w-lg text-center z-10 reveal-up px-4 sm:px-0">
         <span class="text-brass uppercase tracking-[0.6em] text-[9px] font-bold mb-6 block">Sanctuary Unfolding</span>
-        <h1 class="font-display text-4xl md:text-6xl font-bold text-text-headline mb-6 leading-tight tracking-tight">
+        <h1 class="font-display text-3xl sm:text-4xl md:text-6xl font-bold text-text-headline mb-4 sm:mb-6 leading-tight tracking-tight">
           A New Path <br><i class="font-normal italic">Is Emerging.</i>
         </h1>
         <p class="text-text-muted mb-8 max-w-sm mx-auto italic font-medium leading-relaxed font-display text-lg">
