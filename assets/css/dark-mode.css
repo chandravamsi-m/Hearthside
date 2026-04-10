@@ -8,8 +8,8 @@
   --bg-deep:        var(--color-coal);
 
   --text-headline:  var(--color-parchment);
-  --text-body:      #B8C2BE;
-  --text-muted:     #6B7A74;
+  --text-body:      #DDE5E2;
+  --text-muted:     #C5D1CD;
   --text-inverse:   var(--color-ink);
 
   --border-subtle:  rgba(250, 248, 244, 0.08);
